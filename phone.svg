@@ -241,7 +241,7 @@
       return fetch(BASE + '/v', {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ key: secret, val: val })
+        body: JSON.stringify({ key: secret, op: 'merge', val: val })
       });
     }
 
@@ -399,10 +399,9 @@
     }
 
     function castVote(val) {
-      var tensionKey = TENSIONS[currentTension].id;
+      var voteKey = TENSIONS[currentTension].id + ':' + myId;
       var voteData = {};
-      voteData[tensionKey] = {};
-      voteData[tensionKey][myId] = val;
+      voteData[voteKey] = val;
       patchMerge(VOTES_SECRET, voteData).then(function() {
         connDot.setAttribute('fill', '#22c55e');
       }).catch(function() {
@@ -471,7 +470,7 @@
       var keys = Object.keys(data);
       for (var i = 0; i < keys.length; i++) {
         var q = data[keys[i]];
-        if (q && q.text) {
+        if (q && q.text && q.tension === currentTension) {
           q._id = keys[i];
           // Count upvotes from voters object
           var upvotes = 0;
@@ -572,7 +571,7 @@
       var keys = Object.keys(data);
       for (var i = 0; i < keys.length; i++) {
         var c = data[keys[i]];
-        if (c && c.text) {
+        if (c && c.text && c.tension === currentTension) {
           comments.push(c);
         }
       }

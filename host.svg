@@ -603,18 +603,21 @@
     }
 
     /* -- Render vote distribution -- */
-    /* FIX #1 and #2: Use 'tension' + currentTension key, iterate user IDs, count into 5 buckets */
+    /* Flat keys: 'tension0:userId' = voteValue at top level */
     function renderVotes() {
-      var tensionKey = 'tension' + currentTension;
-      var tensionVotes = (votes && votes[tensionKey]) ? votes[tensionKey] : {};
-      var userIds = Object.keys(tensionVotes);
+      var prefix = 'tension' + currentTension + ':';
       var total = 0;
       var counts = [0, 0, 0, 0, 0];
-      for (var i = 0; i < userIds.length; i++) {
-        var voteVal = tensionVotes[userIds[i]];
-        if (typeof voteVal === 'number' && voteVal >= 1 && voteVal <= 5) {
-          counts[voteVal - 1]++;
-          total++;
+      if (votes) {
+        var allKeys = Object.keys(votes);
+        for (var i = 0; i < allKeys.length; i++) {
+          if (allKeys[i].indexOf(prefix) === 0) {
+            var voteVal = votes[allKeys[i]];
+            if (typeof voteVal === 'number' && voteVal >= 1 && voteVal <= 5) {
+              counts[voteVal - 1]++;
+              total++;
+            }
+          }
         }
       }
       voteTotal.textContent = total + ' votes';

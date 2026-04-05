@@ -317,26 +317,22 @@
     updateClock();
 
     /* ── Extract vote list for a tension index ── */
-    /* Votes structure from phone: { tension0: { userId: voteVal, ... }, tension1: {...} } */
+    /* Flat keys: 'tension0:userId' = voteValue at top level */
     function getVotesForTension(tIdx) {
-      var tKey = 'tension' + tIdx;
+      var prefix = 'tension' + tIdx + ':';
       var voteList = [];
       var val = votes.val || votes;
       if (!val || typeof val !== 'object') return voteList;
 
-      /* Primary: votes stored as tension0: { userId: number, ... } */
-      if (val[tKey] && typeof val[tKey] === 'object' && !Array.isArray(val[tKey])) {
-        var userIds = Object.keys(val[tKey]);
-        for (var i = 0; i < userIds.length; i++) {
-          var v = val[tKey][userIds[i]];
+      var allKeys = Object.keys(val);
+      for (var i = 0; i < allKeys.length; i++) {
+        if (allKeys[i].indexOf(prefix) === 0) {
+          var v = val[allKeys[i]];
           if (typeof v === 'number') {
             voteList.push(v);
           }
         }
-      } else if (val[tKey] && Array.isArray(val[tKey])) {
-        voteList = val[tKey];
       }
-
       return voteList;
     }
 
