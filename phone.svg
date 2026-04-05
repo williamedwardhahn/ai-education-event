@@ -1,209 +1,209 @@
 <svg viewBox="0 0 360 640" xmlns="http://www.w3.org/2000/svg">
   <!-- Background -->
-  <rect width="360" height="640" fill="#0a0e1a"/>
+  <rect width="360" height="640" fill="#003366"/>
 
   <!-- ==================== MODE 1: CHECK-IN ==================== -->
   <g id="checkinMode">
     <!-- Header band -->
-    <rect x="0" y="0" width="360" height="80" fill="#111827" stroke="#1e293b" stroke-width="1"/>
-    <text x="180" y="30" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold">MPCR LABS</text>
-    <text x="180" y="50" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">AI in Education: Central Tensions</text>
-    <text x="180" y="66" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">FAU Round Table &#x2022; April 7 2026</text>
+    <rect x="0" y="0" width="360" height="80" fill="#002244" stroke="#004488" stroke-width="1"/>
+    <text x="180" y="30" font-family="monospace" font-size="14" fill="#CC0000" text-anchor="middle" font-weight="bold">MPCR LABS</text>
+    <text x="180" y="50" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle">AI in Education: Central Tensions</text>
+    <text x="180" y="66" font-family="monospace" font-size="9" fill="#126BD9" text-anchor="middle">FAU Round Table &#x2022; April 7 2026</text>
 
     <!-- Welcome -->
-    <text x="180" y="104" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle" font-weight="bold">Welcome</text>
-    <text x="180" y="120" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">Enter your details to join the session</text>
+    <text x="180" y="104" font-family="monospace" font-size="16" fill="#D9ECFF" text-anchor="middle" font-weight="bold">Welcome</text>
+    <text x="180" y="120" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle">Enter your details to join the session</text>
 
     <!-- Name input -->
-    <text x="20" y="148" font-family="monospace" font-size="10" fill="#94a3b8">YOUR NAME</text>
+    <text x="20" y="148" font-family="monospace" font-size="10" fill="#7A97AB">YOUR NAME</text>
     <foreignObject x="16" y="152" width="328" height="44">
       <input xmlns="http://www.w3.org/1999/xhtml" id="nameInput" type="text" placeholder="Enter your name"
-        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+        style="background:#002244; color:#D9ECFF; border:1px solid #004488; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
     </foreignObject>
 
     <!-- Role selector -->
-    <text x="20" y="218" font-family="monospace" font-size="10" fill="#94a3b8">YOUR ROLE</text>
-    <rect id="roleEducator" x="16" y="224" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-    <text x="96" y="247" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleEducatorTxt">Educator</text>
+    <text x="20" y="218" font-family="monospace" font-size="10" fill="#7A97AB">YOUR ROLE</text>
+    <rect id="roleEducator" x="16" y="224" width="160" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+    <text x="96" y="247" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="roleEducatorTxt">Educator</text>
 
-    <rect id="roleResearcher" x="184" y="224" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-    <text x="264" y="247" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleResearcherTxt">Researcher</text>
+    <rect id="roleResearcher" x="184" y="224" width="160" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+    <text x="264" y="247" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="roleResearcherTxt">Researcher</text>
 
-    <rect id="rolePolicymaker" x="16" y="268" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-    <text x="96" y="291" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="rolePolicymakerTxt">Policymaker</text>
+    <rect id="rolePolicymaker" x="16" y="268" width="160" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+    <text x="96" y="291" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="rolePolicymakerTxt">Policymaker</text>
 
-    <rect id="roleStudent" x="184" y="268" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-    <text x="264" y="291" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleStudentTxt">Student</text>
+    <rect id="roleStudent" x="184" y="268" width="160" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+    <text x="264" y="291" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="roleStudentTxt">Student</text>
 
-    <rect id="roleOther" x="100" y="312" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-    <text x="180" y="335" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleOtherTxt">Other</text>
+    <rect id="roleOther" x="100" y="312" width="160" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+    <text x="180" y="335" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="roleOtherTxt">Other</text>
 
     <!-- Table number -->
-    <text x="20" y="368" font-family="monospace" font-size="10" fill="#94a3b8">TABLE NUMBER</text>
+    <text x="20" y="368" font-family="monospace" font-size="10" fill="#7A97AB">TABLE NUMBER</text>
     <g id="tableButtons">
-      <rect class="tblBtn" data-table="1" x="16"  y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="34"  y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">1</text>
+      <rect class="tblBtn" data-table="1" x="16"  y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="34"  y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">1</text>
 
-      <rect class="tblBtn" data-table="2" x="58"  y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="76"  y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">2</text>
+      <rect class="tblBtn" data-table="2" x="58"  y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="76"  y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">2</text>
 
-      <rect class="tblBtn" data-table="3" x="100" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="118" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">3</text>
+      <rect class="tblBtn" data-table="3" x="100" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="118" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">3</text>
 
-      <rect class="tblBtn" data-table="4" x="142" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="160" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">4</text>
+      <rect class="tblBtn" data-table="4" x="142" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="160" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">4</text>
 
-      <rect class="tblBtn" data-table="5" x="184" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="202" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">5</text>
+      <rect class="tblBtn" data-table="5" x="184" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="202" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">5</text>
 
-      <rect class="tblBtn" data-table="6" x="226" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="244" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">6</text>
+      <rect class="tblBtn" data-table="6" x="226" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="244" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">6</text>
 
-      <rect class="tblBtn" data-table="7" x="268" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="286" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">7</text>
+      <rect class="tblBtn" data-table="7" x="268" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="286" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">7</text>
 
-      <rect class="tblBtn" data-table="8" x="310" y="374" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
-      <text x="328" y="397" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">8</text>
+      <rect class="tblBtn" data-table="8" x="310" y="374" width="36" height="36" rx="6" fill="#002244" stroke="#004488" style="cursor:pointer"/>
+      <text x="328" y="397" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" class="tblTxt">8</text>
     </g>
 
     <!-- JOIN button -->
-    <rect id="joinBtn" x="16" y="430" width="328" height="50" rx="8" fill="#c9a227" style="cursor:pointer"/>
-    <text x="180" y="461" font-family="monospace" font-size="18" fill="#0a0e1a" text-anchor="middle" font-weight="bold" style="pointer-events:none">JOIN SESSION</text>
+    <rect id="joinBtn" x="16" y="430" width="328" height="50" rx="8" fill="#CC0000" style="cursor:pointer"/>
+    <text x="180" y="461" font-family="monospace" font-size="18" fill="#ffffff" text-anchor="middle" font-weight="bold" style="pointer-events:none">JOIN SESSION</text>
 
     <!-- Validation message -->
-    <text id="joinMsg" x="180" y="500" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle"></text>
+    <text id="joinMsg" x="180" y="500" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle"></text>
 
     <!-- Tensions preview -->
-    <rect x="16" y="518" width="328" height="112" rx="8" fill="#111827" stroke="#1e293b"/>
-    <text x="180" y="536" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="middle" font-weight="bold">TODAY'S TENSIONS</text>
-    <text x="28" y="554" font-family="monospace" font-size="9" fill="#94a3b8">T1</text>
-    <text x="48" y="554" font-family="monospace" font-size="9" fill="#f1f5f9">Cognitive offloading vs. deep learning</text>
-    <text x="28" y="570" font-family="monospace" font-size="9" fill="#94a3b8">T2</text>
-    <text x="48" y="570" font-family="monospace" font-size="9" fill="#f1f5f9">Personalization vs. belonging</text>
-    <text x="28" y="586" font-family="monospace" font-size="9" fill="#94a3b8">T3</text>
-    <text x="48" y="586" font-family="monospace" font-size="9" fill="#f1f5f9">Assistance vs. authorship</text>
-    <text x="28" y="602" font-family="monospace" font-size="9" fill="#94a3b8">T4</text>
-    <text x="48" y="602" font-family="monospace" font-size="9" fill="#f1f5f9">Innovation vs. governance</text>
+    <rect x="16" y="518" width="328" height="112" rx="8" fill="#002244" stroke="#004488"/>
+    <text x="180" y="536" font-family="monospace" font-size="10" fill="#CC0000" text-anchor="middle" font-weight="bold">TODAY'S TENSIONS</text>
+    <text x="28" y="554" font-family="monospace" font-size="9" fill="#7A97AB">T1</text>
+    <text x="48" y="554" font-family="monospace" font-size="9" fill="#D9ECFF">Cognitive offloading vs. deep learning</text>
+    <text x="28" y="570" font-family="monospace" font-size="9" fill="#7A97AB">T2</text>
+    <text x="48" y="570" font-family="monospace" font-size="9" fill="#D9ECFF">Personalization vs. belonging</text>
+    <text x="28" y="586" font-family="monospace" font-size="9" fill="#7A97AB">T3</text>
+    <text x="48" y="586" font-family="monospace" font-size="9" fill="#D9ECFF">Assistance vs. authorship</text>
+    <text x="28" y="602" font-family="monospace" font-size="9" fill="#7A97AB">T4</text>
+    <text x="48" y="602" font-family="monospace" font-size="9" fill="#D9ECFF">Innovation vs. governance</text>
   </g>
 
   <!-- ==================== MODE 2: PARTICIPATE ==================== -->
   <g id="participateMode" display="none">
     <!-- Header -->
-    <rect x="0" y="0" width="360" height="56" fill="#111827" stroke="#1e293b" stroke-width="1"/>
-    <text x="16" y="22" font-family="monospace" font-size="12" fill="#c9a227" font-weight="bold">MPCR LABS</text>
-    <circle id="connDot" cx="340" cy="16" r="4" fill="#94a3b8"/>
-    <text id="tensionTitle" x="16" y="42" font-family="monospace" font-size="10" fill="#f1f5f9" font-weight="bold">Loading...</text>
-    <text id="phaseLabel" x="344" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end"></text>
+    <rect x="0" y="0" width="360" height="56" fill="#002244" stroke="#004488" stroke-width="1"/>
+    <text x="16" y="22" font-family="monospace" font-size="12" fill="#CC0000" font-weight="bold">MPCR LABS</text>
+    <circle id="connDot" cx="340" cy="16" r="4" fill="#7A97AB"/>
+    <text id="tensionTitle" x="16" y="42" font-family="monospace" font-size="10" fill="#D9ECFF" font-weight="bold">Loading...</text>
+    <text id="phaseLabel" x="344" y="42" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="end"></text>
 
     <!-- Tension poles display -->
-    <rect x="0" y="56" width="360" height="32" fill="#0a0e1a"/>
-    <text id="tensionPoles" x="180" y="77" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle">&#x25C4;&#x2500;&#x2500;&#x25BA;</text>
+    <rect x="0" y="56" width="360" height="32" fill="#003366"/>
+    <text id="tensionPoles" x="180" y="77" font-family="monospace" font-size="10" fill="#126BD9" text-anchor="middle">&#x25C4;&#x2500;&#x2500;&#x25BA;</text>
 
     <!-- VOTE SECTION -->
-    <rect x="8" y="94" width="344" height="100" rx="8" fill="#111827" stroke="#1e293b"/>
-    <text x="20" y="114" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">YOUR POSITION</text>
-    <text id="voteClosedLabel" x="340" y="114" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" display="none">VOTING CLOSED</text>
+    <rect x="8" y="94" width="344" height="100" rx="8" fill="#002244" stroke="#004488"/>
+    <text x="20" y="114" font-family="monospace" font-size="10" fill="#CC0000" font-weight="bold">YOUR POSITION</text>
+    <text id="voteClosedLabel" x="340" y="114" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="end" display="none">VOTING CLOSED</text>
 
     <!-- Revote label (shown during revote phase) -->
-    <text id="revoteLabel" x="180" y="114" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle" display="none">REVOTE &#x2014; has your position changed?</text>
+    <text id="revoteLabel" x="180" y="114" font-family="monospace" font-size="9" fill="#126BD9" text-anchor="middle" display="none">REVOTE &#x2014; has your position changed?</text>
 
     <!-- Compact position display (shown when voting closed, no revote) -->
-    <text id="compactVoteLabel" x="180" y="140" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" display="none">Your position: -</text>
+    <text id="compactVoteLabel" x="180" y="140" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" display="none">Your position: -</text>
 
     <!-- Initial vote indicator (shown during revote) -->
-    <text id="initialVoteLabel" x="180" y="192" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" display="none">Your initial position: -</text>
+    <text id="initialVoteLabel" x="180" y="192" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle" display="none">Your initial position: -</text>
 
     <!-- Revote confirm -->
-    <text id="revoteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#22c55e" text-anchor="middle" display="none">Revote recorded &#x2713;</text>
+    <text id="revoteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#126BD9" text-anchor="middle" display="none">Revote recorded &#x2713;</text>
 
     <!-- 5 vote circles -->
     <g id="voteButtonsGroup">
-      <text id="poleLeftLabel" x="50" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Cognitive</text>
-      <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">offloading</text>
-      <rect id="vote1" x="20" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-      <text x="50" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
+      <text id="poleLeftLabel" x="50" y="138" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle">Cognitive</text>
+      <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle">offloading</text>
+      <rect id="vote1" x="20" y="153" width="60" height="32" rx="6" fill="#004488" stroke="#7A97AB" style="cursor:pointer"/>
+      <text x="50" y="174" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
 
-      <rect id="vote2" x="85" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-      <text x="115" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote2Txt">2</text>
+      <rect id="vote2" x="85" y="153" width="60" height="32" rx="6" fill="#004488" stroke="#7A97AB" style="cursor:pointer"/>
+      <text x="115" y="174" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="vote2Txt">2</text>
 
-      <rect id="vote3" x="150" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-      <text x="180" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote3Txt">3</text>
+      <rect id="vote3" x="150" y="153" width="60" height="32" rx="6" fill="#004488" stroke="#7A97AB" style="cursor:pointer"/>
+      <text x="180" y="174" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="vote3Txt">3</text>
 
-      <rect id="vote4" x="215" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-      <text x="245" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
+      <rect id="vote4" x="215" y="153" width="60" height="32" rx="6" fill="#004488" stroke="#7A97AB" style="cursor:pointer"/>
+      <text x="245" y="174" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
 
-      <text id="poleRightLabel" x="310" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Deep</text>
-      <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">learning</text>
-      <rect id="vote5" x="280" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-      <text x="310" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
+      <text id="poleRightLabel" x="310" y="138" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle">Deep</text>
+      <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle">learning</text>
+      <rect id="vote5" x="280" y="153" width="60" height="32" rx="6" fill="#004488" stroke="#7A97AB" style="cursor:pointer"/>
+      <text x="310" y="174" font-family="monospace" font-size="12" fill="#7A97AB" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
     </g>
 
-    <text id="voteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="middle" display="none">Voted &#x2713;</text>
-    <text id="discussPrompt" x="180" y="192" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle" display="none">Discuss: What is the strongest argument for each side?</text>
+    <text id="voteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#CC0000" text-anchor="middle" display="none">Voted &#x2713;</text>
+    <text id="discussPrompt" x="180" y="192" font-family="monospace" font-size="9" fill="#126BD9" text-anchor="middle" display="none">Discuss: What is the strongest argument for each side?</text>
 
     <!-- Waiting message -->
-    <text id="waitingMsg" x="180" y="192" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" display="none">Next topic starting soon...</text>
+    <text id="waitingMsg" x="180" y="192" font-family="monospace" font-size="10" fill="#126BD9" text-anchor="middle" display="none">Next topic starting soon...</text>
 
     <!-- Results message -->
-    <text id="resultsMsg" x="180" y="160" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold" display="none">Session Complete</text>
-    <text id="resultsMsg2" x="180" y="180" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" display="none">Thank you for participating!</text>
+    <text id="resultsMsg" x="180" y="160" font-family="monospace" font-size="14" fill="#CC0000" text-anchor="middle" font-weight="bold" display="none">Session Complete</text>
+    <text id="resultsMsg2" x="180" y="180" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle" display="none">Thank you for participating!</text>
 
     <!-- TABLE NOTEPAD SECTION (shown during discussion when voting closed) -->
     <g id="tableNotepadGroup" display="none">
-      <text x="20" y="140" font-family="monospace" font-size="9" fill="#3b82f6" font-weight="bold">TABLE NOTES &#x2014; shared with your table</text>
+      <text x="20" y="140" font-family="monospace" font-size="9" fill="#126BD9" font-weight="bold">TABLE NOTES &#x2014; shared with your table</text>
       <foreignObject x="16" y="144" width="272" height="46">
         <textarea xmlns="http://www.w3.org/1999/xhtml" id="tableNotepad" placeholder="Jot down key discussion points..."
-          style="background:#0a0e1a; color:#f1f5f9; border:1px solid #1e293b; padding:6px; font-family:monospace; font-size:11px; border-radius:4px; width:100%; height:100%; box-sizing:border-box; resize:none;"></textarea>
+          style="background:#003366; color:#D9ECFF; border:1px solid #004488; padding:6px; font-family:monospace; font-size:11px; border-radius:4px; width:100%; height:100%; box-sizing:border-box; resize:none;"></textarea>
       </foreignObject>
-      <rect id="saveNotesBtn" x="296" y="144" width="48" height="46" rx="6" fill="#3b82f6" style="cursor:pointer"/>
-      <text x="320" y="172" font-family="monospace" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Save</text>
-      <text id="notesSaveConfirm" x="320" y="192" font-family="monospace" font-size="8" fill="#22c55e" text-anchor="middle" display="none">Saved</text>
+      <rect id="saveNotesBtn" x="296" y="144" width="48" height="46" rx="6" fill="#126BD9" style="cursor:pointer"/>
+      <text x="320" y="172" font-family="monospace" font-size="11" fill="#D9ECFF" text-anchor="middle" font-weight="bold" style="pointer-events:none">Save</text>
+      <text id="notesSaveConfirm" x="320" y="192" font-family="monospace" font-size="8" fill="#126BD9" text-anchor="middle" display="none">Saved</text>
     </g>
 
     <!-- QUESTION SECTION -->
-    <rect x="8" y="200" width="344" height="184" rx="8" fill="#111827" stroke="#1e293b"/>
-    <text x="20" y="220" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">QUESTIONS</text>
+    <rect x="8" y="200" width="344" height="184" rx="8" fill="#002244" stroke="#004488"/>
+    <text x="20" y="220" font-family="monospace" font-size="10" fill="#CC0000" font-weight="bold">QUESTIONS</text>
     <foreignObject x="16" y="226" width="264" height="36">
       <input xmlns="http://www.w3.org/1999/xhtml" id="questionInput" type="text" placeholder="Ask a question..."
-        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+        style="background:#002244; color:#D9ECFF; border:1px solid #004488; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
     </foreignObject>
-    <rect id="askBtn" x="288" y="226" width="56" height="36" rx="6" fill="#3b82f6" style="cursor:pointer"/>
-    <text x="316" y="249" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Ask</text>
+    <rect id="askBtn" x="288" y="226" width="56" height="36" rx="6" fill="#126BD9" style="cursor:pointer"/>
+    <text x="316" y="249" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" font-weight="bold" style="pointer-events:none">Ask</text>
 
     <!-- Question list (rendered by script) -->
     <g id="questionList"></g>
 
     <!-- COMMENT SECTION -->
-    <rect x="8" y="390" width="344" height="134" rx="8" fill="#111827" stroke="#1e293b"/>
-    <text x="20" y="410" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">COMMENTS</text>
+    <rect x="8" y="390" width="344" height="134" rx="8" fill="#002244" stroke="#004488"/>
+    <text x="20" y="410" font-family="monospace" font-size="10" fill="#CC0000" font-weight="bold">COMMENTS</text>
 
     <!-- Anonymous toggle -->
-    <rect id="anonToggle" x="270" y="398" width="74" height="18" rx="4" fill="#1e293b" stroke="#c9a227" style="cursor:pointer"/>
-    <text id="anonLabel" x="307" y="411" font-family="monospace" font-size="8" fill="#c9a227" text-anchor="middle" style="pointer-events:none">Anonymous</text>
+    <rect id="anonToggle" x="270" y="398" width="74" height="18" rx="4" fill="#004488" stroke="#CC0000" style="cursor:pointer"/>
+    <text id="anonLabel" x="307" y="411" font-family="monospace" font-size="8" fill="#CC0000" text-anchor="middle" style="pointer-events:none">Anonymous</text>
 
     <foreignObject x="16" y="418" width="264" height="36">
       <input xmlns="http://www.w3.org/1999/xhtml" id="commentInput" type="text" placeholder="Add a comment..."
-        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+        style="background:#002244; color:#D9ECFF; border:1px solid #004488; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
     </foreignObject>
-    <rect id="postBtn" x="288" y="418" width="56" height="36" rx="6" fill="#3b82f6" style="cursor:pointer"/>
-    <text x="316" y="441" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Post</text>
+    <rect id="postBtn" x="288" y="418" width="56" height="36" rx="6" fill="#126BD9" style="cursor:pointer"/>
+    <text x="316" y="441" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" font-weight="bold" style="pointer-events:none">Post</text>
 
     <!-- Comment list (rendered by script) -->
     <g id="commentList"></g>
 
     <!-- Footer -->
-    <rect x="0" y="612" width="360" height="28" fill="#111827" stroke="#1e293b" stroke-width="1"/>
-    <text id="footerParticipants" x="120" y="630" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">0 participants</text>
-    <rect id="shareBtn" x="260" y="615" width="80" height="22" rx="4" fill="#1e293b" stroke="#c9a227" style="cursor:pointer"/>
-    <text x="300" y="630" font-family="monospace" font-size="9" fill="#c9a227" text-anchor="middle" style="pointer-events:none">Share</text>
+    <rect x="0" y="612" width="360" height="28" fill="#002244" stroke="#004488" stroke-width="1"/>
+    <text id="footerParticipants" x="120" y="630" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle">0 participants</text>
+    <rect id="shareBtn" x="260" y="615" width="80" height="22" rx="4" fill="#004488" stroke="#CC0000" style="cursor:pointer"/>
+    <text x="300" y="630" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="middle" style="pointer-events:none">Share</text>
 
     <!-- QR overlay (hidden by default) -->
     <g id="qrOverlay" display="none">
-      <rect x="0" y="0" width="360" height="640" fill="#0a0e1a" opacity="0.95"/>
-      <text x="180" y="80" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold">SHARE THIS SESSION</text>
-      <text x="180" y="100" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">Scan to join</text>
+      <rect x="0" y="0" width="360" height="640" fill="#003366" opacity="0.95"/>
+      <text x="180" y="80" font-family="monospace" font-size="14" fill="#CC0000" text-anchor="middle" font-weight="bold">SHARE THIS SESSION</text>
+      <text x="180" y="100" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle">Scan to join</text>
       <rect x="80" y="120" width="200" height="200" rx="10" fill="#ffffff"/>
-      <g transform="translate(86,126) scale(3.84)" fill="#0a0e1a" id="qrPhoneGroup">
+      <g transform="translate(86,126) scale(3.84)" fill="#003366" id="qrPhoneGroup">
       <rect x="2" y="2" width="7" height="1"/>
       <rect x="10" y="2" width="2" height="1"/>
       <rect x="13" y="2" width="1" height="1"/>
@@ -729,8 +729,8 @@
       <rect x="38" y="46" width="5" height="1"/>
       <rect x="45" y="46" width="1" height="1"/>
       </g>
-      <rect id="closeQrBtn" x="80" y="350" width="200" height="44" rx="8" fill="#1e293b" stroke="#c9a227" style="cursor:pointer"/>
-      <text x="180" y="377" font-family="monospace" font-size="13" fill="#c9a227" text-anchor="middle" style="pointer-events:none">Close</text>
+      <rect id="closeQrBtn" x="80" y="350" width="200" height="44" rx="8" fill="#004488" stroke="#CC0000" style="cursor:pointer"/>
+      <text x="180" y="377" font-family="monospace" font-size="13" fill="#CC0000" text-anchor="middle" style="pointer-events:none">Close</text>
     </g>
   </g>
 
@@ -846,13 +846,13 @@
           var b = document.getElementById('role' + r);
           var t = document.getElementById('role' + r + 'Txt');
           if (r === role) {
-            b.setAttribute('fill', '#c9a227');
-            b.setAttribute('stroke', '#c9a227');
-            t.setAttribute('fill', '#0a0e1a');
+            b.setAttribute('fill', '#CC0000');
+            b.setAttribute('stroke', '#CC0000');
+            t.setAttribute('fill', '#ffffff');
           } else {
-            b.setAttribute('fill', '#111827');
-            b.setAttribute('stroke', '#1e293b');
-            t.setAttribute('fill', '#94a3b8');
+            b.setAttribute('fill', '#002244');
+            b.setAttribute('stroke', '#004488');
+            t.setAttribute('fill', '#7A97AB');
           }
         });
       });
@@ -867,13 +867,13 @@
           selectedTable = idx + 1;
           for (var j = 0; j < tblBtns.length; j++) {
             if (j === idx) {
-              tblBtns[j].setAttribute('fill', '#c9a227');
-              tblBtns[j].setAttribute('stroke', '#c9a227');
-              tblTxts[j].setAttribute('fill', '#0a0e1a');
+              tblBtns[j].setAttribute('fill', '#CC0000');
+              tblBtns[j].setAttribute('stroke', '#CC0000');
+              tblTxts[j].setAttribute('fill', '#ffffff');
             } else {
-              tblBtns[j].setAttribute('fill', '#111827');
-              tblBtns[j].setAttribute('stroke', '#1e293b');
-              tblTxts[j].setAttribute('fill', '#94a3b8');
+              tblBtns[j].setAttribute('fill', '#002244');
+              tblBtns[j].setAttribute('stroke', '#004488');
+              tblTxts[j].setAttribute('fill', '#7A97AB');
             }
           }
         });
@@ -1006,13 +1006,13 @@
         var c = document.getElementById('vote' + v);
         var t = document.getElementById('vote' + v + 'Txt');
         if (v === activeVote) {
-          c.setAttribute('fill', isRevoting ? '#22c55e' : '#c9a227');
-          c.setAttribute('stroke', isRevoting ? '#22c55e' : '#c9a227');
-          t.setAttribute('fill', '#0a0e1a');
+          c.setAttribute('fill', isRevoting ? '#126BD9' : '#CC0000');
+          c.setAttribute('stroke', isRevoting ? '#126BD9' : '#CC0000');
+          t.setAttribute('fill', '#ffffff');
         } else {
-          c.setAttribute('fill', showButtons ? '#1e293b' : '#0a0e1a');
-          c.setAttribute('stroke', showButtons ? '#94a3b8' : '#1e293b');
-          t.setAttribute('fill', showButtons ? '#94a3b8' : '#1e293b');
+          c.setAttribute('fill', showButtons ? '#004488' : '#003366');
+          c.setAttribute('stroke', showButtons ? '#7A97AB' : '#004488');
+          t.setAttribute('fill', showButtons ? '#7A97AB' : '#004488');
         }
       }
 
@@ -1041,9 +1041,9 @@
       var voteData = {};
       voteData[voteKey] = val;
       patchMerge(VOTES_SECRET, voteData).then(function() {
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
     }
 
@@ -1052,9 +1052,9 @@
       var revoteData = {};
       revoteData[revoteKey] = val;
       patchMerge(VOTES_SECRET, revoteData).then(function() {
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
     }
 
@@ -1066,18 +1066,18 @@
       var noteData = {};
       noteData[noteKey] = text;
       notesSaving = true;
-      saveNotesBtn.setAttribute('fill', '#1e293b');
+      saveNotesBtn.setAttribute('fill', '#004488');
       patchMerge(TABLES_SECRET, noteData).then(function() {
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
         notesSaveConfirm.setAttribute('display', 'inline');
         setTimeout(function() {
           notesSaveConfirm.setAttribute('display', 'none');
         }, 2000);
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       }).finally(function() {
         notesSaving = false;
-        saveNotesBtn.setAttribute('fill', '#3b82f6');
+        saveNotesBtn.setAttribute('fill', '#126BD9');
       });
     });
 
@@ -1094,14 +1094,14 @@
       var qData = {};
       qData[qId] = { text: text, author: myName, table: myTable, tension: currentTension, votes: 0, voters: {}, t: Date.now() };
       questionThrottled = true;
-      askBtn.setAttribute('fill', '#1e293b');
+      askBtn.setAttribute('fill', '#004488');
       patchMerge(Q_SECRET, qData).then(function() {
         questionInput.value = '';
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
-      setTimeout(function() { questionThrottled = false; askBtn.setAttribute('fill', '#3b82f6'); }, 3000);
+      setTimeout(function() { questionThrottled = false; askBtn.setAttribute('fill', '#126BD9'); }, 3000);
     });
 
     // Post comment
@@ -1113,16 +1113,16 @@
       var authorName = isAnonymous ? 'Anonymous' : myName;
       cData[cId] = { text: text, author: authorName, table: myTable, tension: currentTension, t: Date.now() };
       commentThrottled = true;
-      postBtn.setAttribute('fill', '#1e293b');
+      postBtn.setAttribute('fill', '#004488');
       patchMerge(C_SECRET, cData).then(function() {
         commentInput.value = '';
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
       setTimeout(function() {
         commentThrottled = false;
-        postBtn.setAttribute('fill', '#3b82f6');
+        postBtn.setAttribute('fill', '#126BD9');
       }, 5000);
     });
 
@@ -1130,13 +1130,13 @@
     anonToggle.addEventListener('click', function() {
       isAnonymous = !isAnonymous;
       if (isAnonymous) {
-        anonToggle.setAttribute('stroke', '#c9a227');
+        anonToggle.setAttribute('stroke', '#CC0000');
         anonLabel.textContent = 'Anonymous';
-        anonLabel.setAttribute('fill', '#c9a227');
+        anonLabel.setAttribute('fill', '#CC0000');
       } else {
-        anonToggle.setAttribute('stroke', '#3b82f6');
+        anonToggle.setAttribute('stroke', '#126BD9');
         anonLabel.textContent = myName;
-        anonLabel.setAttribute('fill', '#3b82f6');
+        anonLabel.setAttribute('fill', '#126BD9');
       }
     });
 
@@ -1192,7 +1192,7 @@
         upBtn.setAttribute('width', '32');
         upBtn.setAttribute('height', '28');
         upBtn.setAttribute('rx', '4');
-        upBtn.setAttribute('fill', q2._myUpvoted ? '#c9a227' : '#1e293b');
+        upBtn.setAttribute('fill', q2._myUpvoted ? '#CC0000' : '#004488');
         upBtn.setAttribute('style', 'cursor:pointer');
         upBtn.setAttribute('data-qid', q2._id);
         upBtn.addEventListener('click', function() {
@@ -1205,7 +1205,7 @@
         upCount.setAttribute('y', yy + 12);
         upCount.setAttribute('font-family', 'monospace');
         upCount.setAttribute('font-size', '9');
-        upCount.setAttribute('fill', q2._myUpvoted ? '#0a0e1a' : '#f1f5f9');
+        upCount.setAttribute('fill', q2._myUpvoted ? '#ffffff' : '#D9ECFF');
         upCount.setAttribute('text-anchor', 'middle');
         upCount.setAttribute('style', 'pointer-events:none');
         upCount.textContent = '\u25B2';
@@ -1216,7 +1216,7 @@
         upNum.setAttribute('y', yy + 24);
         upNum.setAttribute('font-family', 'monospace');
         upNum.setAttribute('font-size', '9');
-        upNum.setAttribute('fill', q2._myUpvoted ? '#0a0e1a' : '#94a3b8');
+        upNum.setAttribute('fill', q2._myUpvoted ? '#ffffff' : '#7A97AB');
         upNum.setAttribute('text-anchor', 'middle');
         upNum.setAttribute('style', 'pointer-events:none');
         upNum.textContent = String(q2._upvotes);
@@ -1228,7 +1228,7 @@
         qText.setAttribute('y', yy + 13);
         qText.setAttribute('font-family', 'monospace');
         qText.setAttribute('font-size', '10');
-        qText.setAttribute('fill', '#f1f5f9');
+        qText.setAttribute('fill', '#D9ECFF');
         var truncated = q2.text.length > 32 ? q2.text.substring(0, 32) + '...' : q2.text;
         qText.textContent = truncated;
         questionList.appendChild(qText);
@@ -1239,7 +1239,7 @@
         qAuthor.setAttribute('y', yy + 26);
         qAuthor.setAttribute('font-family', 'monospace');
         qAuthor.setAttribute('font-size', '8');
-        qAuthor.setAttribute('fill', '#94a3b8');
+        qAuthor.setAttribute('fill', '#7A97AB');
         qAuthor.textContent = q2.author + ' \u2022 T' + q2.table;
         questionList.appendChild(qAuthor);
       }
@@ -1251,9 +1251,9 @@
       var patch = {};
       patch[upvoteKey] = true;
       patchMerge(Q_SECRET, patch).then(function() {
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
     }
 
@@ -1282,7 +1282,7 @@
         cAuthor.setAttribute('y', yy + 12);
         cAuthor.setAttribute('font-family', 'monospace');
         cAuthor.setAttribute('font-size', '9');
-        cAuthor.setAttribute('fill', '#c9a227');
+        cAuthor.setAttribute('fill', '#CC0000');
         cAuthor.textContent = cm.author;
         commentList.appendChild(cAuthor);
 
@@ -1291,7 +1291,7 @@
         cText.setAttribute('y', yy + 26);
         cText.setAttribute('font-family', 'monospace');
         cText.setAttribute('font-size', '9');
-        cText.setAttribute('fill', '#f1f5f9');
+        cText.setAttribute('fill', '#D9ECFF');
         var truncated2 = cm.text.length > 40 ? cm.text.substring(0, 40) + '...' : cm.text;
         cText.textContent = truncated2;
         commentList.appendChild(cText);
@@ -1391,9 +1391,9 @@
           updateTensionDisplay();
           updateVoteDisplay();
         }
-        connDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#126BD9');
       }).catch(function() {
-        connDot.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#CC0000');
       });
 
       // Poll questions
