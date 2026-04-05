@@ -38,7 +38,7 @@
   <circle cx="1240" cy="33" r="5" style="fill: var(--blue)" id="connDot"/>
 
   <!-- ==================== PHASE: CHECKIN ==================== -->
-  <g id="phaseCheckin" visibility="hidden">
+  <g id="phaseCheckin" display="none">
     <text x="640" y="120" font-family="monospace" font-size="48" style="fill: var(--text)" text-anchor="middle" font-weight="bold" filter="url(#glow)">Welcome</text>
     <text x="640" y="160" font-family="monospace" font-size="16" style="fill: var(--text-muted)" text-anchor="middle">Scan to join the session</text>
     <!-- QR code (white bg, centered) -->
@@ -575,7 +575,7 @@
   </g>
 
   <!-- ==================== PHASE: TENSION ==================== -->
-  <g id="phaseTension" visibility="hidden">
+  <g id="phaseTension" display="none">
     <!-- Left column: The Tension (60% = ~740px, from x=24 to x=764) -->
     <g id="tensionLeft" transform="translate(24, 80)">
       <!-- Tension title -->
@@ -669,7 +669,7 @@
   </g>
 
   <!-- ==================== PHASE: RESULTS ==================== -->
-  <g id="phaseResults" visibility="hidden">
+  <g id="phaseResults" display="none">
     <text x="640" y="90" font-family="monospace" font-size="36" style="fill: var(--red)" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
 
     <!-- Narrative insights — large focus area -->
@@ -1143,9 +1143,9 @@
 
     /* ── Phase switching ── */
     function showPhase(phase) {
-      phaseCheckin.setAttribute('visibility', phase === 'checkin' ? 'visible' : 'hidden');
-      phaseTension.setAttribute('visibility', phase === 'tension' ? 'visible' : 'hidden');
-      phaseResults.setAttribute('visibility', phase === 'results' ? 'visible' : 'hidden');
+      phaseCheckin.setAttribute('display', phase === 'checkin' ? 'inline' : 'none');
+      phaseTension.setAttribute('display', phase === 'tension' ? 'inline' : 'none');
+      phaseResults.setAttribute('display', phase === 'results' ? 'inline' : 'none');
       currentPhase = phase;
       phaseLabel.textContent = phase ? phase.toUpperCase() : '--';
       if (phase !== 'tension') {
@@ -1784,6 +1784,7 @@
         statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
 
         if (stateData && stateData.val) state = stateData.val;
+        console.log('POLL: stateData=', stateData, 'state=', state, 'phase=', state ? state.phase : 'none');
         if (checkinsData && checkinsData.val) checkins = { val: checkinsData.val };
         else if (checkinsData) checkins = checkinsData;
         if (votesData && votesData.val) votes = { val: votesData.val };
