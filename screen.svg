@@ -48,6 +48,9 @@
       <text x="0" y="68" font-family="monospace" font-size="36" fill="#f1f5f9" font-weight="bold" id="countdownTimer" visibility="hidden">0:45</text>
       <text x="120" y="68" font-family="monospace" font-size="14" fill="#94a3b8" id="countdownLabel" visibility="hidden">voting open</text>
 
+      <!-- INITIAL votes label (shown when revote data exists) -->
+      <text x="0" y="78" font-family="monospace" font-size="10" fill="#3b82f6" font-weight="bold" id="initialVotesLabel" visibility="hidden">INITIAL</text>
+
       <!-- Spectrum bar background -->
       <rect x="0" y="80" width="720" height="36" rx="18" fill="#1e293b" id="spectrumBg"/>
       <!-- Spectrum bar gradient fill -->
@@ -60,20 +63,35 @@
       <polygon points="360,122 354,134 366,134" fill="#c9a227" id="meanIndicator"/>
       <text x="360" y="150" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" id="meanLabel">mean</text>
 
-      <!-- Pole labels (dynamic) -->
+      <!-- Revote section (shown when revote data exists) -->
+      <text x="0" y="160" font-family="monospace" font-size="10" fill="#eab308" font-weight="bold" id="revoteLabel" visibility="hidden">AFTER DISCUSSION</text>
+      <rect x="0" y="162" width="720" height="36" rx="18" fill="#1e293b" id="revoteSpectrumBg" visibility="hidden"/>
+      <rect x="0" y="162" width="720" height="36" rx="18" fill="url(#spectrumGrad)" opacity="0.35" id="revoteSpectrumGrad" visibility="hidden"/>
+      <g id="revoteDots" transform="translate(0, 180)"></g>
+      <polygon points="360,204 354,216 366,216" fill="#eab308" id="revoteMeanIndicator" visibility="hidden"/>
+      <text x="360" y="232" font-family="monospace" font-size="11" fill="#eab308" text-anchor="middle" id="revoteMeanLabel" visibility="hidden">mean</text>
+
+      <!-- Shift arrow and text -->
+      <g id="shiftArrowGroup" visibility="hidden">
+        <line x1="360" y1="136" x2="360" y2="200" stroke="#c9a227" stroke-width="2" stroke-dasharray="4,3" id="shiftArrowLine"/>
+        <polygon points="360,200 355,192 365,192" fill="#c9a227" id="shiftArrowHead"/>
+        <text x="360" y="248" font-family="monospace" font-size="13" fill="#c9a227" text-anchor="middle" font-weight="bold" id="shiftText">Shift: 0.0 → 0.0</text>
+      </g>
+
+      <!-- Pole labels (dynamic) — position adjusts based on revote visibility -->
       <text x="0" y="170" font-family="monospace" font-size="13" fill="#3b82f6" font-weight="bold" id="poleLeft">Pole A</text>
-      <text x="360" y="170" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle">&#x25C4;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x25BA;</text>
+      <text x="360" y="170" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" id="poleMiddle">&#x25C4;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x25BA;</text>
       <text x="720" y="170" font-family="monospace" font-size="13" fill="#ef4444" text-anchor="end" font-weight="bold" id="poleRight">Pole B</text>
 
       <!-- Vote summary -->
       <text x="0" y="200" font-family="monospace" font-size="14" fill="#94a3b8" id="voteSummary">0 votes</text>
 
       <!-- Tension description panels -->
-      <rect x="0" y="220" width="345" height="80" rx="8" fill="#111827" stroke="#3b82f6" stroke-width="1" opacity="0.6"/>
+      <rect x="0" y="220" width="345" height="80" rx="8" fill="#111827" stroke="#3b82f6" stroke-width="1" opacity="0.6" id="tensionPoleABox"/>
       <text x="172" y="248" font-family="monospace" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="bold" id="tensionPoleALabel">Pole A</text>
       <text x="172" y="270" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="tensionPoleADesc"></text>
 
-      <rect x="375" y="220" width="345" height="80" rx="8" fill="#111827" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+      <rect x="375" y="220" width="345" height="80" rx="8" fill="#111827" stroke="#ef4444" stroke-width="1" opacity="0.6" id="tensionPoleBBox"/>
       <text x="547" y="248" font-family="monospace" font-size="13" fill="#ef4444" text-anchor="middle" font-weight="bold" id="tensionPoleBLabel">Pole B</text>
       <text x="547" y="270" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="tensionPoleBDesc"></text>
 
@@ -86,7 +104,7 @@
       </g>
     </g>
 
-    <!-- Right column: Questions and Comments (40% = ~480px, from x=784 to x=1256) -->
+    <!-- Right column: Questions, Table Notes, and Comments (40% = ~480px, from x=784 to x=1256) -->
     <g id="tensionRight" transform="translate(784, 80)">
       <!-- TOP QUESTIONS header -->
       <rect x="0" y="0" width="472" height="32" rx="6" fill="#111827" stroke="#1e293b"/>
@@ -96,9 +114,16 @@
       <!-- Questions container -->
       <g id="questionsList" transform="translate(0, 40)"></g>
 
+      <!-- TABLE NOTES section (shown during discussion when voting closed) -->
+      <g id="tableNotesSection" visibility="hidden">
+        <rect x="0" y="260" width="472" height="32" rx="6" fill="#111827" stroke="#eab308" stroke-width="1" id="tableNotesHeader"/>
+        <text x="16" y="282" font-family="monospace" font-size="14" fill="#eab308" font-weight="bold" id="tableNotesTitle">TABLE NOTES</text>
+        <g id="tableNotesList" transform="translate(0, 300)"></g>
+      </g>
+
       <!-- RECENT COMMENTS header -->
-      <rect x="0" y="320" width="472" height="32" rx="6" fill="#111827" stroke="#1e293b"/>
-      <text x="16" y="342" font-family="monospace" font-size="14" fill="#c9a227" font-weight="bold">RECENT COMMENTS</text>
+      <rect x="0" y="320" width="472" height="32" rx="6" fill="#111827" stroke="#1e293b" id="commentsHeader"/>
+      <text x="16" y="342" font-family="monospace" font-size="14" fill="#c9a227" font-weight="bold" id="commentsHeaderText">RECENT COMMENTS</text>
       <text x="456" y="342" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="end" id="commentCount">0</text>
 
       <!-- Comments container -->
@@ -108,99 +133,129 @@
 
   <!-- ==================== PHASE: RESULTS ==================== -->
   <g id="phaseResults" visibility="hidden">
-    <text x="640" y="100" font-family="monospace" font-size="36" fill="#c9a227" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
+    <text x="640" y="90" font-family="monospace" font-size="36" fill="#c9a227" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
+
+    <!-- Narrative insights — large focus area -->
+    <g transform="translate(40, 110)">
+      <!-- Most Divided -->
+      <rect x="0" y="0" width="585" height="64" rx="8" fill="#111827" stroke="#ef4444" stroke-width="1"/>
+      <text x="16" y="22" font-family="monospace" font-size="11" fill="#ef4444" font-weight="bold">MOST DIVIDED</text>
+      <text x="16" y="48" font-family="monospace" font-size="16" fill="#f1f5f9" id="resultMostDivided">The room was most divided on: --</text>
+
+      <!-- Strongest Consensus -->
+      <rect x="600" y="0" width="600" height="64" rx="8" fill="#111827" stroke="#22c55e" stroke-width="1"/>
+      <text x="616" y="22" font-family="monospace" font-size="11" fill="#22c55e" font-weight="bold">STRONGEST CONSENSUS</text>
+      <text x="616" y="48" font-family="monospace" font-size="16" fill="#f1f5f9" id="resultStrongestConsensus">The room agreed most on: --</text>
+
+      <!-- Biggest Shift -->
+      <rect x="0" y="74" width="585" height="64" rx="8" fill="#111827" stroke="#eab308" stroke-width="1"/>
+      <text x="16" y="96" font-family="monospace" font-size="11" fill="#eab308" font-weight="bold">BIGGEST SHIFT</text>
+      <text x="16" y="122" font-family="monospace" font-size="16" fill="#f1f5f9" id="resultBiggestShift">No revote data yet</text>
+
+      <!-- Question of the Night -->
+      <rect x="600" y="74" width="600" height="64" rx="8" fill="#111827" stroke="#c9a227" stroke-width="1"/>
+      <text x="616" y="96" font-family="monospace" font-size="11" fill="#c9a227" font-weight="bold">QUESTION OF THE NIGHT</text>
+      <text x="616" y="122" font-family="monospace" font-size="16" fill="#f1f5f9" id="resultTopQuestion">--</text>
+    </g>
 
     <!-- 4 mini spectrum charts side by side -->
-    <g id="resultsCharts" transform="translate(40, 120)">
+    <g id="resultsCharts" transform="translate(40, 270)">
       <!-- T0 -->
       <g transform="translate(0, 0)">
-        <rect x="0" y="0" width="280" height="180" rx="8" fill="#111827" stroke="#1e293b"/>
-        <text x="140" y="24" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle0">T0</text>
-        <text x="140" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub0"></text>
-        <rect x="20" y="54" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
-        <g id="resultDots0" transform="translate(20, 66)"></g>
-        <text x="20" y="94" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel0"></text>
-        <text x="260" y="94" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel0"></text>
-        <text x="140" y="118" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes0">0 votes</text>
-        <text x="140" y="138" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean0">mean: --</text>
-        <text x="140" y="158" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev0">std dev: --</text>
-        <polygon points="140,160 134,170 146,170" fill="#c9a227" id="resultMeanArrow0"/>
-        <rect x="20" y="168" width="240" height="4" rx="2" fill="#1e293b"/>
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle0">T0</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub0"></text>
+        <!-- Initial (blue) label -->
+        <text x="20" y="52" font-family="monospace" font-size="8" fill="#3b82f6" id="resultInitLabel0">INITIAL</text>
+        <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots0" transform="translate(20, 64)"></g>
+        <!-- Revote (gold) label and bar -->
+        <text x="20" y="90" font-family="monospace" font-size="8" fill="#eab308" id="resultRevoteLabel0" visibility="hidden">AFTER DISCUSSION</text>
+        <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg0" visibility="hidden"/>
+        <g id="resultRevoteDots0" transform="translate(20, 102)"></g>
+        <!-- Shift arrow for mini chart -->
+        <g id="resultShiftArrow0" visibility="hidden">
+          <line x1="140" y1="78" x2="140" y2="92" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine0"/>
+          <polygon points="140,92 137,86 143,86" fill="#c9a227" id="resultShiftHead0"/>
+        </g>
+        <text x="20" y="130" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel0"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel0"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes0">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean0">mean: --</text>
+        <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev0">std dev: --</text>
+        <text x="140" y="196" font-family="monospace" font-size="9" fill="#eab308" text-anchor="middle" id="resultShiftText0"></text>
       </g>
       <!-- T1 -->
       <g transform="translate(300, 0)">
-        <rect x="0" y="0" width="280" height="180" rx="8" fill="#111827" stroke="#1e293b"/>
-        <text x="140" y="24" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle1">T1</text>
-        <text x="140" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub1"></text>
-        <rect x="20" y="54" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
-        <g id="resultDots1" transform="translate(20, 66)"></g>
-        <text x="20" y="94" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel1"></text>
-        <text x="260" y="94" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel1"></text>
-        <text x="140" y="118" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes1">0 votes</text>
-        <text x="140" y="138" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean1">mean: --</text>
-        <text x="140" y="158" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev1">std dev: --</text>
-        <polygon points="140,160 134,170 146,170" fill="#c9a227" id="resultMeanArrow1"/>
-        <rect x="20" y="168" width="240" height="4" rx="2" fill="#1e293b"/>
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle1">T1</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub1"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" fill="#3b82f6" id="resultInitLabel1">INITIAL</text>
+        <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots1" transform="translate(20, 64)"></g>
+        <text x="20" y="90" font-family="monospace" font-size="8" fill="#eab308" id="resultRevoteLabel1" visibility="hidden">AFTER DISCUSSION</text>
+        <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg1" visibility="hidden"/>
+        <g id="resultRevoteDots1" transform="translate(20, 102)"></g>
+        <g id="resultShiftArrow1" visibility="hidden">
+          <line x1="140" y1="78" x2="140" y2="92" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine1"/>
+          <polygon points="140,92 137,86 143,86" fill="#c9a227" id="resultShiftHead1"/>
+        </g>
+        <text x="20" y="130" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel1"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel1"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes1">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean1">mean: --</text>
+        <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev1">std dev: --</text>
+        <text x="140" y="196" font-family="monospace" font-size="9" fill="#eab308" text-anchor="middle" id="resultShiftText1"></text>
       </g>
       <!-- T2 -->
       <g transform="translate(600, 0)">
-        <rect x="0" y="0" width="280" height="180" rx="8" fill="#111827" stroke="#1e293b"/>
-        <text x="140" y="24" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle2">T2</text>
-        <text x="140" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub2"></text>
-        <rect x="20" y="54" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
-        <g id="resultDots2" transform="translate(20, 66)"></g>
-        <text x="20" y="94" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel2"></text>
-        <text x="260" y="94" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel2"></text>
-        <text x="140" y="118" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes2">0 votes</text>
-        <text x="140" y="138" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean2">mean: --</text>
-        <text x="140" y="158" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev2">std dev: --</text>
-        <polygon points="140,160 134,170 146,170" fill="#c9a227" id="resultMeanArrow2"/>
-        <rect x="20" y="168" width="240" height="4" rx="2" fill="#1e293b"/>
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle2">T2</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub2"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" fill="#3b82f6" id="resultInitLabel2">INITIAL</text>
+        <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots2" transform="translate(20, 64)"></g>
+        <text x="20" y="90" font-family="monospace" font-size="8" fill="#eab308" id="resultRevoteLabel2" visibility="hidden">AFTER DISCUSSION</text>
+        <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg2" visibility="hidden"/>
+        <g id="resultRevoteDots2" transform="translate(20, 102)"></g>
+        <g id="resultShiftArrow2" visibility="hidden">
+          <line x1="140" y1="78" x2="140" y2="92" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine2"/>
+          <polygon points="140,92 137,86 143,86" fill="#c9a227" id="resultShiftHead2"/>
+        </g>
+        <text x="20" y="130" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel2"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel2"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes2">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean2">mean: --</text>
+        <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev2">std dev: --</text>
+        <text x="140" y="196" font-family="monospace" font-size="9" fill="#eab308" text-anchor="middle" id="resultShiftText2"></text>
       </g>
       <!-- T3 -->
       <g transform="translate(900, 0)">
-        <rect x="0" y="0" width="280" height="180" rx="8" fill="#111827" stroke="#1e293b"/>
-        <text x="140" y="24" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle3">T3</text>
-        <text x="140" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub3"></text>
-        <rect x="20" y="54" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
-        <g id="resultDots3" transform="translate(20, 66)"></g>
-        <text x="20" y="94" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel3"></text>
-        <text x="260" y="94" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel3"></text>
-        <text x="140" y="118" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes3">0 votes</text>
-        <text x="140" y="138" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean3">mean: --</text>
-        <text x="140" y="158" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev3">std dev: --</text>
-        <polygon points="140,160 134,170 146,170" fill="#c9a227" id="resultMeanArrow3"/>
-        <rect x="20" y="168" width="240" height="4" rx="2" fill="#1e293b"/>
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle3">T3</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub3"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" fill="#3b82f6" id="resultInitLabel3">INITIAL</text>
+        <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots3" transform="translate(20, 64)"></g>
+        <text x="20" y="90" font-family="monospace" font-size="8" fill="#eab308" id="resultRevoteLabel3" visibility="hidden">AFTER DISCUSSION</text>
+        <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg3" visibility="hidden"/>
+        <g id="resultRevoteDots3" transform="translate(20, 102)"></g>
+        <g id="resultShiftArrow3" visibility="hidden">
+          <line x1="140" y1="78" x2="140" y2="92" stroke="#c9a227" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine3"/>
+          <polygon points="140,92 137,86 143,86" fill="#c9a227" id="resultShiftHead3"/>
+        </g>
+        <text x="20" y="130" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel3"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel3"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes3">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean3">mean: --</text>
+        <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev3">std dev: --</text>
+        <text x="140" y="196" font-family="monospace" font-size="9" fill="#eab308" text-anchor="middle" id="resultShiftText3"></text>
       </g>
     </g>
 
-    <!-- Narrative stats -->
-    <g transform="translate(40, 320)">
-      <rect x="0" y="0" width="580" height="120" rx="8" fill="#111827" stroke="#1e293b"/>
-      <text x="20" y="28" font-family="monospace" font-size="13" fill="#c9a227" font-weight="bold">INSIGHTS</text>
-      <text x="20" y="52" font-family="monospace" font-size="12" fill="#ef4444" id="resultMostContested">Most contested: --</text>
-      <text x="20" y="72" font-family="monospace" font-size="12" fill="#22c55e" id="resultStrongestConsensus">Strongest consensus: --</text>
-      <text x="20" y="100" font-family="monospace" font-size="11" fill="#94a3b8" id="resultNarrativeTotals">0 participants / 0 questions / 0 comments</text>
-    </g>
-
-    <!-- Top questions per tension -->
-    <g transform="translate(640, 320)">
-      <rect x="0" y="0" width="600" height="120" rx="8" fill="#111827" stroke="#1e293b"/>
-      <text x="20" y="28" font-family="monospace" font-size="13" fill="#c9a227" font-weight="bold">TOP QUESTIONS</text>
-      <text x="20" y="50" font-family="monospace" font-size="11" fill="#94a3b8" id="resultTopQ0"></text>
-      <text x="20" y="68" font-family="monospace" font-size="11" fill="#94a3b8" id="resultTopQ1"></text>
-      <text x="20" y="86" font-family="monospace" font-size="11" fill="#94a3b8" id="resultTopQ2"></text>
-      <text x="20" y="104" font-family="monospace" font-size="11" fill="#94a3b8" id="resultTopQ3"></text>
-    </g>
-
-    <!-- Summary stats bar -->
-    <rect x="240" y="460" width="800" height="70" rx="12" fill="#111827" stroke="#1e293b"/>
-    <text x="400" y="496" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalParticipants">0</text>
-    <text x="640" y="496" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalQuestions">0</text>
-    <text x="880" y="496" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalComments">0</text>
-    <text x="400" y="518" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">PARTICIPANTS</text>
-    <text x="640" y="518" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">QUESTIONS</text>
-    <text x="880" y="518" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">COMMENTS</text>
+    <!-- Stats line -->
+    <rect x="240" y="490" width="800" height="50" rx="12" fill="#111827" stroke="#1e293b"/>
+    <text x="640" y="522" font-family="monospace" font-size="20" fill="#f1f5f9" text-anchor="middle" id="resultStatsLine">0 participants / 0 questions / 0 comments</text>
 
     <!-- Thank you -->
     <text x="640" y="580" font-family="monospace" font-size="28" fill="#c9a227" text-anchor="middle" font-weight="bold">Thank you!</text>
@@ -223,7 +278,8 @@
       checkins: 'a0c0e74f772b453b6e0352781490c9ac4dfdc781af90b4b3f24b667557c1d4e1',
       votes:    '802e1abbe632e0612827bb2a79e8bc892a90e1b6188550cc587d0e3139763a10',
       questions:'02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc',
-      comments: 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6'
+      comments: 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6',
+      tables:   '4a5392639292738bfc5c0b250f822de569a507d9dcdcfb6cbd97f50ad471160c'
     };
 
     /* ── Tension definitions ── */
@@ -252,6 +308,7 @@
     var votes = {};
     var questions = {};
     var comments = {};
+    var tables = {};
     var currentPhase = '';
     var currentTensionIdx = -1;
 
@@ -281,6 +338,7 @@
     var meanLabel = document.getElementById('meanLabel');
     var poleLeft = document.getElementById('poleLeft');
     var poleRight = document.getElementById('poleRight');
+    var poleMiddle = document.getElementById('poleMiddle');
     var voteSummary = document.getElementById('voteSummary');
     var tensionPoleALabel = document.getElementById('tensionPoleALabel');
     var tensionPoleBLabel = document.getElementById('tensionPoleBLabel');
@@ -292,6 +350,27 @@
     var commentsList = document.getElementById('commentsList');
     var countdownTimer = document.getElementById('countdownTimer');
     var countdownLabel = document.getElementById('countdownLabel');
+
+    /* Revote DOM refs */
+    var initialVotesLabel = document.getElementById('initialVotesLabel');
+    var revoteLabel = document.getElementById('revoteLabel');
+    var revoteSpectrumBg = document.getElementById('revoteSpectrumBg');
+    var revoteSpectrumGrad = document.getElementById('revoteSpectrumGrad');
+    var revoteDots = document.getElementById('revoteDots');
+    var revoteMeanIndicator = document.getElementById('revoteMeanIndicator');
+    var revoteMeanLabel = document.getElementById('revoteMeanLabel');
+    var shiftArrowGroup = document.getElementById('shiftArrowGroup');
+    var shiftArrowLine = document.getElementById('shiftArrowLine');
+    var shiftArrowHead = document.getElementById('shiftArrowHead');
+    var shiftText = document.getElementById('shiftText');
+
+    /* Table notes DOM refs */
+    var tableNotesSection = document.getElementById('tableNotesSection');
+    var tableNotesList = document.getElementById('tableNotesList');
+
+    /* Description box refs for repositioning */
+    var tensionPoleABox = document.getElementById('tensionPoleABox');
+    var tensionPoleBBox = document.getElementById('tensionPoleBBox');
 
     /* ── Helpers ── */
     function clearChildren(el) {
@@ -336,15 +415,66 @@
       return voteList;
     }
 
+    /* ── Extract revote list for a tension index ── */
+    /* Flat keys: 'revote0:userId' = voteValue at top level */
+    function getRevotesForTension(tIdx) {
+      var prefix = 'revote' + tIdx + ':';
+      var voteList = [];
+      var val = votes.val || votes;
+      if (!val || typeof val !== 'object') return voteList;
+
+      var allKeys = Object.keys(val);
+      for (var i = 0; i < allKeys.length; i++) {
+        if (allKeys[i].indexOf(prefix) === 0) {
+          var v = val[allKeys[i]];
+          if (typeof v === 'number') {
+            voteList.push(v);
+          }
+        }
+      }
+      return voteList;
+    }
+
+    /* ── Get table notes for a tension index ── */
+    function getTableNotes(tIdx) {
+      var noteList = [];
+      var val = tables.val || tables;
+      if (!val || typeof val !== 'object') return noteList;
+
+      var allKeys = Object.keys(val);
+      for (var i = 0; i < allKeys.length; i++) {
+        var key = allKeys[i];
+        /* Match keys like 'table1:tension0', 'table2:tension0', etc. */
+        var suffix = ':tension' + tIdx;
+        if (key.indexOf(suffix) === key.length - suffix.length && key.indexOf('table') === 0) {
+          /* Extract table number from key */
+          var tableNum = key.substring(5, key.indexOf(':'));
+          var noteText = val[key];
+          if (typeof noteText === 'string' && noteText.length > 0) {
+            noteList.push({ table: tableNum, text: noteText });
+          }
+        }
+      }
+      /* Sort by table number */
+      noteList.sort(function(a, b) { return parseInt(a.table) - parseInt(b.table); });
+      return noteList;
+    }
+
+    /* ── Compute mean for a vote list ── */
+    function meanOf(arr) {
+      if (arr.length === 0) return 0;
+      var sum = 0;
+      for (var i = 0; i < arr.length; i++) sum += arr[i];
+      return sum / arr.length;
+    }
+
     /* ── Compute std deviation for a vote list ── */
     function stdDev(arr) {
       if (arr.length < 2) return 0;
-      var sum = 0;
-      for (var i = 0; i < arr.length; i++) sum += arr[i];
-      var mean = sum / arr.length;
+      var m = meanOf(arr);
       var sqDiffSum = 0;
       for (var j = 0; j < arr.length; j++) {
-        var d = arr[j] - mean;
+        var d = arr[j] - m;
         sqDiffSum += d * d;
       }
       return Math.sqrt(sqDiffSum / arr.length);
@@ -401,6 +531,62 @@
         clearInterval(votingCountdownInterval);
         votingCountdownInterval = null;
       }
+    }
+
+    /* ── Draw dots on a spectrum (shared helper) ── */
+    function drawSpectrumDots(container, voteList, spectrumWidth, color, dotRadius) {
+      var posCount = {};
+      for (var vi = 0; vi < voteList.length; vi++) {
+        var v = Math.max(1, Math.min(5, voteList[vi]));
+        var posKey = Math.round(v * 10);
+        if (!posCount[posKey]) posCount[posKey] = 0;
+        posCount[posKey]++;
+      }
+
+      var posDrawn = {};
+      for (var vi2 = 0; vi2 < voteList.length; vi2++) {
+        var vv = Math.max(1, Math.min(5, voteList[vi2]));
+        var posKey2 = Math.round(vv * 10);
+        if (!posDrawn[posKey2]) posDrawn[posKey2] = 0;
+        var stackIdx = posDrawn[posKey2];
+        posDrawn[posKey2]++;
+
+        var cx = ((vv - 1) / 4) * spectrumWidth;
+        var cy = -8 - (stackIdx * (dotRadius * 2 + 2));
+
+        var circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', dotRadius);
+        circle.setAttribute('fill', color);
+        circle.setAttribute('opacity', '0.8');
+        circle.setAttribute('stroke', '#0a0e1a');
+        circle.setAttribute('stroke-width', '1');
+        container.appendChild(circle);
+      }
+    }
+
+    /* ── Hide revote elements ── */
+    function hideRevoteElements() {
+      initialVotesLabel.setAttribute('visibility', 'hidden');
+      revoteLabel.setAttribute('visibility', 'hidden');
+      revoteSpectrumBg.setAttribute('visibility', 'hidden');
+      revoteSpectrumGrad.setAttribute('visibility', 'hidden');
+      revoteMeanIndicator.setAttribute('visibility', 'hidden');
+      revoteMeanLabel.setAttribute('visibility', 'hidden');
+      shiftArrowGroup.setAttribute('visibility', 'hidden');
+      clearChildren(revoteDots);
+    }
+
+    /* ── Show revote elements ── */
+    function showRevoteElements() {
+      initialVotesLabel.setAttribute('visibility', 'visible');
+      revoteLabel.setAttribute('visibility', 'visible');
+      revoteSpectrumBg.setAttribute('visibility', 'visible');
+      revoteSpectrumGrad.setAttribute('visibility', 'visible');
+      revoteMeanIndicator.setAttribute('visibility', 'visible');
+      revoteMeanLabel.setAttribute('visibility', 'visible');
+      shiftArrowGroup.setAttribute('visibility', 'visible');
     }
 
     /* ── Phase switching ── */
@@ -460,13 +646,12 @@
     }
 
     /* ── Render: Tension phase ── */
-    function renderTension(tIdx) {
+    function renderTension(tIdx, isVotingOpen) {
       var t = TENSIONS[tIdx];
       if (!t) return;
       currentTensionIdx = tIdx;
 
       tensionTitle.textContent = t.title;
-      /* Dynamic pole names on spectrum (requirement 7) */
       poleLeft.textContent = t.left;
       poleRight.textContent = t.right;
       tensionPoleALabel.textContent = t.left;
@@ -482,61 +667,133 @@
         }
       }
 
-      /* Votes for this tension (requirement 1,3: use tension0..3 keys, parse {userId:val}) */
+      /* Initial votes */
       var voteList = getVotesForTension(tIdx);
+      var revoteList = getRevotesForTension(tIdx);
+      var hasRevotes = revoteList.length > 0;
 
-      /* Draw vote dots on spectrum (1=far left, 5=far right over 720px) */
-      clearChildren(voteDots);
       var SPECTRUM_W = 720;
       var total = voteList.length;
       var sum = 0;
-
-      /* Count votes at each position for stacking */
-      var posCount = {};
-      for (var vi = 0; vi < voteList.length; vi++) {
-        var v = Math.max(1, Math.min(5, voteList[vi]));
-        sum += v;
-        var posKey = Math.round(v * 10);
-        if (!posCount[posKey]) posCount[posKey] = 0;
-        posCount[posKey]++;
+      for (var si = 0; si < voteList.length; si++) {
+        sum += Math.max(1, Math.min(5, voteList[si]));
       }
 
-      /* Draw dots */
-      var posDrawn = {};
-      for (var vi2 = 0; vi2 < voteList.length; vi2++) {
-        var vv = Math.max(1, Math.min(5, voteList[vi2]));
-        var posKey2 = Math.round(vv * 10);
-        if (!posDrawn[posKey2]) posDrawn[posKey2] = 0;
-        var stackIdx = posDrawn[posKey2];
-        posDrawn[posKey2]++;
+      /* Draw initial vote dots */
+      clearChildren(voteDots);
+      drawSpectrumDots(voteDots, voteList, SPECTRUM_W, hasRevotes ? '#3b82f6' : '#f1f5f9', 6);
 
-        var cx = ((vv - 1) / 4) * SPECTRUM_W;
-        /* Stack vertically: offset by -14 per stacked dot */
-        var cy = -8 - (stackIdx * 14);
-
-        var circle = document.createElementNS(ns, 'circle');
-        circle.setAttribute('cx', cx);
-        circle.setAttribute('cy', cy);
-        circle.setAttribute('r', 6);
-        circle.setAttribute('fill', '#f1f5f9');
-        circle.setAttribute('opacity', '0.7');
-        circle.setAttribute('stroke', '#0a0e1a');
-        circle.setAttribute('stroke-width', '1');
-        voteDots.appendChild(circle);
-      }
-
-      /* Mean */
-      var mean = total > 0 ? sum / total : 3;
-      var meanX = ((mean - 1) / 4) * SPECTRUM_W;
+      /* Initial mean */
+      var initialMean = total > 0 ? sum / total : 3;
+      var meanX = ((initialMean - 1) / 4) * SPECTRUM_W;
       meanIndicator.setAttribute('points',
         meanX + ',122 ' + (meanX - 6) + ',134 ' + (meanX + 6) + ',134');
       meanLabel.setAttribute('x', meanX);
-      meanLabel.textContent = total > 0 ? 'mean: ' + mean.toFixed(1) : 'mean';
+      meanLabel.textContent = total > 0 ? 'mean: ' + initialMean.toFixed(1) : 'mean';
 
-      voteSummary.textContent = total + ' vote' + (total !== 1 ? 's' : '');
+      /* Handle revote display */
+      if (hasRevotes) {
+        showRevoteElements();
+
+        /* Draw revote dots */
+        clearChildren(revoteDots);
+        drawSpectrumDots(revoteDots, revoteList, SPECTRUM_W, '#eab308', 6);
+
+        /* Revote mean */
+        var revoteMean = meanOf(revoteList);
+        var revoteMeanX = ((revoteMean - 1) / 4) * SPECTRUM_W;
+        revoteMeanIndicator.setAttribute('points',
+          revoteMeanX + ',204 ' + (revoteMeanX - 6) + ',216 ' + (revoteMeanX + 6) + ',216');
+        revoteMeanLabel.setAttribute('x', revoteMeanX);
+        revoteMeanLabel.textContent = 'mean: ' + revoteMean.toFixed(1);
+
+        /* Shift arrow from initial mean to revote mean */
+        shiftArrowLine.setAttribute('x1', meanX);
+        shiftArrowLine.setAttribute('x2', revoteMeanX);
+        shiftArrowHead.setAttribute('points',
+          revoteMeanX + ',200 ' + (revoteMeanX - 5) + ',192 ' + (revoteMeanX + 5) + ',192');
+        shiftText.textContent = 'Shift: ' + initialMean.toFixed(1) + ' \u2192 ' + revoteMean.toFixed(1);
+
+        /* Reposition pole labels and descriptions below revote section */
+        poleLeft.setAttribute('y', '260');
+        poleMiddle.setAttribute('y', '260');
+        poleRight.setAttribute('y', '260');
+        voteSummary.setAttribute('y', '286');
+        tensionPoleABox.setAttribute('y', '300');
+        tensionPoleALabel.setAttribute('y', '328');
+        tensionPoleADesc.setAttribute('y', '350');
+        tensionPoleBBox.setAttribute('y', '300');
+        tensionPoleBLabel.setAttribute('y', '328');
+        tensionPoleBDesc.setAttribute('y', '350');
+      } else {
+        hideRevoteElements();
+
+        /* Restore original positions */
+        poleLeft.setAttribute('y', '170');
+        poleMiddle.setAttribute('y', '170');
+        poleRight.setAttribute('y', '170');
+        voteSummary.setAttribute('y', '200');
+        tensionPoleABox.setAttribute('y', '220');
+        tensionPoleALabel.setAttribute('y', '248');
+        tensionPoleADesc.setAttribute('y', '270');
+        tensionPoleBBox.setAttribute('y', '220');
+        tensionPoleBLabel.setAttribute('y', '248');
+        tensionPoleBDesc.setAttribute('y', '270');
+      }
+
+      voteSummary.textContent = total + ' vote' + (total !== 1 ? 's' : '') +
+        (hasRevotes ? ' / ' + revoteList.length + ' revote' + (revoteList.length !== 1 ? 's' : '') : '');
     }
 
-    /* ── Render: Questions (requirement 4: filter by tension === currentTension as number) ── */
+    /* ── Render: Table Notes (shown when voting is closed) ── */
+    function renderTableNotes(tIdx, isVotingOpen) {
+      clearChildren(tableNotesList);
+
+      /* Only show during discussion (voting closed) */
+      if (isVotingOpen) {
+        tableNotesSection.setAttribute('visibility', 'hidden');
+        return;
+      }
+
+      var noteList = getTableNotes(tIdx);
+      if (noteList.length === 0) {
+        tableNotesSection.setAttribute('visibility', 'hidden');
+        return;
+      }
+
+      tableNotesSection.setAttribute('visibility', 'visible');
+
+      for (var ni = 0; ni < noteList.length && ni < 6; ni++) {
+        var note = noteList[ni];
+        var y = ni * 22;
+
+        var nt = document.createElementNS(ns, 'text');
+        nt.setAttribute('x', 16);
+        nt.setAttribute('y', y + 14);
+        nt.setAttribute('font-family', 'monospace');
+        nt.setAttribute('font-size', '14');
+        nt.setAttribute('fill', '#f1f5f9');
+        nt.textContent = 'Table ' + note.table + ': ' + truncate(note.text, 40);
+        tableNotesList.appendChild(nt);
+      }
+
+      /* Adjust comments section position when table notes are visible */
+      var commentsY = 300 + (noteList.length * 22) + 20;
+      document.getElementById('commentsHeader').setAttribute('y', commentsY);
+      document.getElementById('commentsHeaderText').setAttribute('y', commentsY + 22);
+      commentCount.setAttribute('y', commentsY + 22);
+      commentsList.setAttribute('transform', 'translate(0, ' + (commentsY + 40) + ')');
+    }
+
+    /* ── Reset comments position when table notes hidden ── */
+    function resetCommentsPosition() {
+      document.getElementById('commentsHeader').setAttribute('y', '320');
+      document.getElementById('commentsHeaderText').setAttribute('y', '342');
+      commentCount.setAttribute('y', '342');
+      commentsList.setAttribute('transform', 'translate(0, 360)');
+    }
+
+    /* ── Render: Questions ── */
     function renderQuestions(tIdx) {
       clearChildren(questionsList);
       var val = questions.val || questions;
@@ -547,9 +804,7 @@
         for (var i = 0; i < keys.length; i++) {
           var q = val[keys[i]];
           if (q && typeof q === 'object') {
-            /* Phone writes tension as a number: question.tension === currentTension */
             if (typeof q.tension === 'number' && q.tension === tIdx) {
-              /* Count upvotes from flat 'upvote:qId:*' keys */
               var upvotes = 0;
               var upPrefix = 'upvote:' + keys[i] + ':';
               for (var ui = 0; ui < keys.length; ui++) {
@@ -566,7 +821,6 @@
         }
       }
 
-      /* Sort by upvotes descending */
       qList.sort(function(a, b) { return b.upvotes - a.upvotes; });
       var top5 = qList.slice(0, 5);
 
@@ -574,58 +828,53 @@
 
       for (var qi = 0; qi < top5.length; qi++) {
         var q2 = top5[qi];
-        var y = qi * 56;
+        var y = qi * 44;
 
-        /* Background */
         var bg = document.createElementNS(ns, 'rect');
         bg.setAttribute('x', 0);
         bg.setAttribute('y', y);
         bg.setAttribute('width', 472);
-        bg.setAttribute('height', 50);
+        bg.setAttribute('height', 40);
         bg.setAttribute('rx', 6);
         bg.setAttribute('fill', '#111827');
         bg.setAttribute('stroke', q2.highlighted ? '#c9a227' : '#1e293b');
         bg.setAttribute('stroke-width', q2.highlighted ? '2' : '1');
         questionsList.appendChild(bg);
 
-        /* Star if highlighted */
         if (q2.highlighted) {
           var star = document.createElementNS(ns, 'text');
           star.setAttribute('x', 12);
-          star.setAttribute('y', y + 24);
+          star.setAttribute('y', y + 22);
           star.setAttribute('font-family', 'monospace');
-          star.setAttribute('font-size', '16');
+          star.setAttribute('font-size', '14');
           star.setAttribute('fill', '#c9a227');
           star.textContent = '\u2605';
           questionsList.appendChild(star);
         }
 
-        /* Question text (requirement 9: font-size 16 for readability) */
         var qt = document.createElementNS(ns, 'text');
         qt.setAttribute('x', q2.highlighted ? 34 : 12);
-        qt.setAttribute('y', y + 22);
+        qt.setAttribute('y', y + 18);
         qt.setAttribute('font-family', 'monospace');
-        qt.setAttribute('font-size', '16');
+        qt.setAttribute('font-size', '14');
         qt.setAttribute('fill', '#f1f5f9');
         qt.textContent = truncate(q2.text, 42);
         questionsList.appendChild(qt);
 
-        /* Author */
         var qa = document.createElementNS(ns, 'text');
         qa.setAttribute('x', q2.highlighted ? 34 : 12);
-        qa.setAttribute('y', y + 40);
+        qa.setAttribute('y', y + 34);
         qa.setAttribute('font-family', 'monospace');
-        qa.setAttribute('font-size', '11');
+        qa.setAttribute('font-size', '10');
         qa.setAttribute('fill', '#94a3b8');
         qa.textContent = q2.name;
         questionsList.appendChild(qa);
 
-        /* Upvote count */
         var uv = document.createElementNS(ns, 'text');
         uv.setAttribute('x', 456);
-        uv.setAttribute('y', y + 24);
+        uv.setAttribute('y', y + 22);
         uv.setAttribute('font-family', 'monospace');
-        uv.setAttribute('font-size', '14');
+        uv.setAttribute('font-size', '13');
         uv.setAttribute('fill', '#3b82f6');
         uv.setAttribute('text-anchor', 'end');
         uv.textContent = '\u25B2 ' + q2.upvotes;
@@ -633,7 +882,7 @@
       }
     }
 
-    /* ── Render: Comments (requirement 5: filter by tension === currentTension as number) ── */
+    /* ── Render: Comments ── */
     function renderComments(tIdx) {
       clearChildren(commentsList);
       var val = comments.val || comments;
@@ -644,7 +893,6 @@
         for (var i = 0; i < keys.length; i++) {
           var c = val[keys[i]];
           if (c && typeof c === 'object') {
-            /* Phone writes tension as a number: comment.tension === currentTension */
             if (typeof c.tension === 'number' && c.tension === tIdx) {
               cList.push({
                 text: c.text || c.msg || c.comment || '',
@@ -656,7 +904,6 @@
         }
       }
 
-      /* Sort by timestamp descending, take last 4 */
       cList.sort(function(a, b) { return b.ts - a.ts; });
       var last4 = cList.slice(0, 4);
 
@@ -676,7 +923,6 @@
         bg.setAttribute('stroke', '#1e293b');
         commentsList.appendChild(bg);
 
-        /* Comment author (requirement 9: larger text) */
         var cn = document.createElementNS(ns, 'text');
         cn.setAttribute('x', 12);
         cn.setAttribute('y', y + 20);
@@ -686,7 +932,6 @@
         cn.textContent = c2.name;
         commentsList.appendChild(cn);
 
-        /* Comment text (requirement 9: font-size 14 for readability) */
         var ct = document.createElementNS(ns, 'text');
         ct.setAttribute('x', 12);
         ct.setAttribute('y', y + 40);
@@ -698,7 +943,7 @@
       }
     }
 
-    /* ── Render: Results phase (requirement 8: narrative stats) ── */
+    /* ── Render: Results phase (richer narrative synthesis) ── */
     function renderResults() {
       var totalQ = 0;
       var totalC = 0;
@@ -711,26 +956,52 @@
       }
       topParticipants.textContent = totalP + ' participants';
 
-      /* Count questions */
+      /* Count questions and find top question across all tensions */
       var qVal = questions.val || questions;
+      var bestQuestionText = '';
+      var bestQuestionUpvotes = -1;
+
       if (qVal && typeof qVal === 'object') {
-        totalQ = Object.keys(qVal).length;
+        var qKeys = Object.keys(qVal);
+        for (var qi3 = 0; qi3 < qKeys.length; qi3++) {
+          var qq3 = qVal[qKeys[qi3]];
+          if (qq3 && typeof qq3 === 'object' && qq3.text) {
+            totalQ++;
+            /* Count upvotes */
+            var ups3 = 0;
+            var upPfx3 = 'upvote:' + qKeys[qi3] + ':';
+            for (var upk3 = 0; upk3 < qKeys.length; upk3++) {
+              if (qKeys[upk3].indexOf(upPfx3) === 0 && qVal[qKeys[upk3]]) ups3++;
+            }
+            if (ups3 > bestQuestionUpvotes) {
+              bestQuestionUpvotes = ups3;
+              bestQuestionText = qq3.text;
+            }
+          }
+        }
       }
 
       /* Count comments */
       var cmVal = comments.val || comments;
       if (cmVal && typeof cmVal === 'object') {
-        totalC = Object.keys(cmVal).length;
+        var cmKeys = Object.keys(cmVal);
+        for (var ci2 = 0; ci2 < cmKeys.length; ci2++) {
+          var cm = cmVal[cmKeys[ci2]];
+          if (cm && typeof cm === 'object' && cm.text) totalC++;
+        }
       }
 
-      document.getElementById('resultTotalParticipants').textContent = totalP;
-      document.getElementById('resultTotalQuestions').textContent = totalQ;
-      document.getElementById('resultTotalComments').textContent = totalC;
+      /* Stats line */
+      document.getElementById('resultStatsLine').textContent =
+        totalP + ' participants \u2022 ' + totalQ + ' questions \u2022 ' + totalC + ' comments';
 
-      /* Collect std devs for narrative */
+      /* Collect stats for all tensions */
       var allStdDevs = [];
       var allMeans = [];
+      var allRevoteMeans = [];
       var allVoteCounts = [];
+      var allRevoteCounts = [];
+      var allShifts = [];
 
       /* Mini spectrum for each tension */
       for (var ti = 0; ti < 4; ti++) {
@@ -740,21 +1011,24 @@
         document.getElementById('resultLeftLabel' + ti).textContent = tDef.left;
         document.getElementById('resultRightLabel' + ti).textContent = tDef.right;
 
-        /* Use same vote extraction as tension phase (requirement 1) */
         var vList = getVotesForTension(ti);
+        var rList = getRevotesForTension(ti);
 
-        document.getElementById('resultVotes' + ti).textContent = vList.length + ' votes';
+        document.getElementById('resultVotes' + ti).textContent = vList.length + ' votes' +
+          (rList.length > 0 ? ' / ' + rList.length + ' revotes' : '');
         allVoteCounts.push(vList.length);
+        allRevoteCounts.push(rList.length);
 
+        /* Draw initial dots (blue) */
         var dotsG = document.getElementById('resultDots' + ti);
         clearChildren(dotsG);
 
         var miniW = 240;
-        var sum = 0;
         var posCount = {};
+        var vSum = 0;
         for (var k = 0; k < vList.length; k++) {
           var vv = Math.max(1, Math.min(5, vList[k]));
-          sum += vv;
+          vSum += vv;
           var pk = Math.round(vv * 10);
           if (!posCount[pk]) posCount[pk] = 0;
           posCount[pk]++;
@@ -765,97 +1039,152 @@
           var vv2 = Math.max(1, Math.min(5, vList[k2]));
           var pk2 = Math.round(vv2 * 10);
           if (!posDrawn[pk2]) posDrawn[pk2] = 0;
-          var si = posDrawn[pk2];
+          var si2 = posDrawn[pk2];
           posDrawn[pk2]++;
 
           var cx = ((vv2 - 1) / 4) * miniW;
-          var cy = -4 - (si * 10);
+          var cy = -4 - (si2 * 8);
 
           var circle = document.createElementNS(ns, 'circle');
           circle.setAttribute('cx', cx);
           circle.setAttribute('cy', cy);
-          circle.setAttribute('r', 4);
-          circle.setAttribute('fill', '#f1f5f9');
-          circle.setAttribute('opacity', '0.7');
+          circle.setAttribute('r', 3);
+          circle.setAttribute('fill', rList.length > 0 ? '#3b82f6' : '#f1f5f9');
+          circle.setAttribute('opacity', '0.8');
           circle.setAttribute('stroke', '#0a0e1a');
           circle.setAttribute('stroke-width', '1');
           dotsG.appendChild(circle);
         }
 
-        var mean = vList.length > 0 ? sum / vList.length : 3;
+        var iMean = vList.length > 0 ? vSum / vList.length : 3;
         var sd = stdDev(vList);
-        allMeans.push(mean);
+        allMeans.push(iMean);
         allStdDevs.push(sd);
 
-        var meanX = 20 + ((mean - 1) / 4) * miniW;
-        document.getElementById('resultMean' + ti).textContent = vList.length > 0 ? 'mean: ' + mean.toFixed(1) : 'mean: --';
+        document.getElementById('resultMean' + ti).textContent = vList.length > 0 ? 'mean: ' + iMean.toFixed(1) : 'mean: --';
         document.getElementById('resultStdDev' + ti).textContent = vList.length > 0 ? 'std dev: ' + sd.toFixed(2) : 'std dev: --';
-        var arrow = document.getElementById('resultMeanArrow' + ti);
-        arrow.setAttribute('points',
-          meanX + ',160 ' + (meanX - 4) + ',170 ' + (meanX + 4) + ',170');
+
+        /* Draw revote dots (gold) if revote data exists */
+        var revoteDotsG = document.getElementById('resultRevoteDots' + ti);
+        clearChildren(revoteDotsG);
+
+        if (rList.length > 0) {
+          /* Show revote elements */
+          document.getElementById('resultRevoteLabel' + ti).setAttribute('visibility', 'visible');
+          document.getElementById('resultRevoteBg' + ti).setAttribute('visibility', 'visible');
+
+          var rPosCount = {};
+          var rSum = 0;
+          for (var rk = 0; rk < rList.length; rk++) {
+            var rv = Math.max(1, Math.min(5, rList[rk]));
+            rSum += rv;
+            var rpk = Math.round(rv * 10);
+            if (!rPosCount[rpk]) rPosCount[rpk] = 0;
+            rPosCount[rpk]++;
+          }
+
+          var rPosDrawn = {};
+          for (var rk2 = 0; rk2 < rList.length; rk2++) {
+            var rv2 = Math.max(1, Math.min(5, rList[rk2]));
+            var rpk2 = Math.round(rv2 * 10);
+            if (!rPosDrawn[rpk2]) rPosDrawn[rpk2] = 0;
+            var rsi = rPosDrawn[rpk2];
+            rPosDrawn[rpk2]++;
+
+            var rcx = ((rv2 - 1) / 4) * miniW;
+            var rcy = -4 - (rsi * 8);
+
+            var rCircle = document.createElementNS(ns, 'circle');
+            rCircle.setAttribute('cx', rcx);
+            rCircle.setAttribute('cy', rcy);
+            rCircle.setAttribute('r', 3);
+            rCircle.setAttribute('fill', '#eab308');
+            rCircle.setAttribute('opacity', '0.8');
+            rCircle.setAttribute('stroke', '#0a0e1a');
+            rCircle.setAttribute('stroke-width', '1');
+            revoteDotsG.appendChild(rCircle);
+          }
+
+          var rMean = rSum / rList.length;
+          allRevoteMeans.push(rMean);
+
+          /* Shift arrow for mini chart */
+          var shiftArrowG = document.getElementById('resultShiftArrow' + ti);
+          var iMeanX = 20 + ((iMean - 1) / 4) * miniW;
+          var rMeanX = 20 + ((rMean - 1) / 4) * miniW;
+          shiftArrowG.setAttribute('visibility', 'visible');
+          document.getElementById('resultShiftLine' + ti).setAttribute('x1', iMeanX);
+          document.getElementById('resultShiftLine' + ti).setAttribute('x2', rMeanX);
+          document.getElementById('resultShiftHead' + ti).setAttribute('points',
+            rMeanX + ',92 ' + (rMeanX - 3) + ',86 ' + (rMeanX + 3) + ',86');
+
+          var shiftDist = Math.abs(rMean - iMean);
+          allShifts.push({ idx: ti, shift: shiftDist, from: iMean, to: rMean });
+          document.getElementById('resultShiftText' + ti).textContent =
+            iMean.toFixed(1) + ' \u2192 ' + rMean.toFixed(1);
+        } else {
+          document.getElementById('resultRevoteLabel' + ti).setAttribute('visibility', 'hidden');
+          document.getElementById('resultRevoteBg' + ti).setAttribute('visibility', 'hidden');
+          document.getElementById('resultShiftArrow' + ti).setAttribute('visibility', 'hidden');
+          document.getElementById('resultShiftText' + ti).textContent = '';
+          allRevoteMeans.push(null);
+        }
       }
 
-      /* Narrative stats (requirement 8) */
-      var mostContestedIdx = 0;
-      var strongestConsensusIdx = 0;
+      /* ── Narrative stats ── */
+      /* 1. Most Divided */
+      var mostDividedIdx = 0;
       var maxSD = -1;
-      var minSD = 999;
       var anyVotes = false;
-
-      for (var si2 = 0; si2 < 4; si2++) {
-        if (allVoteCounts[si2] > 0) {
+      for (var sd1 = 0; sd1 < 4; sd1++) {
+        if (allVoteCounts[sd1] > 0) {
           anyVotes = true;
-          if (allStdDevs[si2] > maxSD) {
-            maxSD = allStdDevs[si2];
-            mostContestedIdx = si2;
+          if (allStdDevs[sd1] > maxSD) {
+            maxSD = allStdDevs[sd1];
+            mostDividedIdx = sd1;
           }
-          if (allStdDevs[si2] < minSD) {
-            minSD = allStdDevs[si2];
-            strongestConsensusIdx = si2;
+        }
+      }
+
+      /* 2. Strongest Consensus */
+      var strongestIdx = 0;
+      var minSD = 999;
+      for (var sd2 = 0; sd2 < 4; sd2++) {
+        if (allVoteCounts[sd2] > 0) {
+          if (allStdDevs[sd2] < minSD) {
+            minSD = allStdDevs[sd2];
+            strongestIdx = sd2;
           }
         }
       }
 
       if (anyVotes) {
-        document.getElementById('resultMostContested').textContent =
-          'Most contested: ' + TENSIONS[mostContestedIdx].title + ' (SD ' + maxSD.toFixed(2) + ')';
+        document.getElementById('resultMostDivided').textContent =
+          'The room was most divided on: ' + TENSIONS[mostDividedIdx].title + ' (spread: ' + maxSD.toFixed(1) + ')';
         document.getElementById('resultStrongestConsensus').textContent =
-          'Strongest consensus: ' + TENSIONS[strongestConsensusIdx].title + ' (SD ' + minSD.toFixed(2) + ')';
+          'The room agreed most on: ' + TENSIONS[strongestIdx].title + ' (spread: ' + minSD.toFixed(1) + ')';
       } else {
-        document.getElementById('resultMostContested').textContent = 'Most contested: no votes yet';
-        document.getElementById('resultStrongestConsensus').textContent = 'Strongest consensus: no votes yet';
+        document.getElementById('resultMostDivided').textContent = 'The room was most divided on: no votes yet';
+        document.getElementById('resultStrongestConsensus').textContent = 'The room agreed most on: no votes yet';
       }
 
-      document.getElementById('resultNarrativeTotals').textContent =
-        totalP + ' participants / ' + totalQ + ' questions / ' + totalC + ' comments';
+      /* 3. Biggest Shift */
+      if (allShifts.length > 0) {
+        allShifts.sort(function(a, b) { return b.shift - a.shift; });
+        var biggest = allShifts[0];
+        document.getElementById('resultBiggestShift').textContent =
+          'Minds changed most on: ' + TENSIONS[biggest.idx].title +
+          ' (' + biggest.from.toFixed(1) + ' \u2192 ' + biggest.to.toFixed(1) + ')';
+      } else {
+        document.getElementById('resultBiggestShift').textContent = 'No revote data yet';
+      }
 
-      /* Top question per tension (requirement 8) */
-      for (var tq = 0; tq < 4; tq++) {
-        var topQEl = document.getElementById('resultTopQ' + tq);
-        var topQText = 'T' + (tq + 1) + ': --';
-        if (qVal && typeof qVal === 'object') {
-          var qKeys = Object.keys(qVal);
-          var bestQ = null;
-          var bestUp = -1;
-          for (var qi2 = 0; qi2 < qKeys.length; qi2++) {
-            var qq = qVal[qKeys[qi2]];
-            if (qq && typeof qq === 'object' && typeof qq.tension === 'number' && qq.tension === tq) {
-              var ups = 0;
-              var upPfx = 'upvote:' + qKeys[qi2] + ':';
-              for (var upk = 0; upk < qKeys.length; upk++) {
-                if (qKeys[upk].indexOf(upPfx) === 0 && qVal[qKeys[upk]]) ups++;
-              }
-              if (ups > bestUp) {
-                bestUp = ups;
-                bestQ = qq.text || '';
-              }
-            }
-          }
-          if (bestQ) {
-            topQText = 'T' + (tq + 1) + ': "' + truncate(bestQ, 55) + '" (' + bestUp + ' upvotes)';
-          }
-        }
-        topQEl.textContent = topQText;
+      /* 4. Question of the Night */
+      if (bestQuestionText) {
+        document.getElementById('resultTopQuestion').textContent =
+          '"' + truncate(bestQuestionText, 50) + '" (' + bestQuestionUpvotes + ' upvotes)';
+      } else {
+        document.getElementById('resultTopQuestion').textContent = 'No questions submitted';
       }
     }
 
@@ -874,7 +1203,8 @@
         fetchHash(HASHES.checkins),
         fetchHash(HASHES.votes),
         fetchHash(HASHES.questions),
-        fetchHash(HASHES.comments)
+        fetchHash(HASHES.comments),
+        fetchHash(HASHES.tables)
       ];
 
       Promise.all(fetches).then(function(results) {
@@ -883,6 +1213,7 @@
         var votesData = results[2];
         var questionsData = results[3];
         var commentsData = results[4];
+        var tablesData = results[5];
 
         connDot.setAttribute('fill', '#22c55e');
         statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
@@ -896,6 +1227,8 @@
         else if (questionsData) questions = questionsData;
         if (commentsData && commentsData.val) comments = { val: commentsData.val };
         else if (commentsData) comments = commentsData;
+        if (tablesData && tablesData.val) tables = { val: tablesData.val };
+        else if (tablesData) tables = tablesData;
 
         /* Determine phase */
         var phase = 'checkin';
@@ -903,22 +1236,19 @@
           phase = state.phase;
         }
 
-        /* Determine tension index (requirement 2: read state.currentTension) */
+        /* Determine tension index */
         var tIdx = 0;
         if (state && typeof state.currentTension === 'number') {
           tIdx = state.currentTension;
         }
 
-        /* Handle voting countdown (requirement 6) */
+        /* Handle voting countdown */
         var isVotingOpen = !!(state && state.votingOpen);
         if (isVotingOpen && !lastVotingOpen) {
-          /* Voting just opened -- start countdown */
           startVotingCountdown();
         } else if (!isVotingOpen && lastVotingOpen) {
-          /* Voting just closed */
           stopVotingCountdown();
         } else if (!isVotingOpen && !lastVotingOpen && phase === 'tension') {
-          /* Voting not open, no countdown needed but keep closed msg briefly */
           if (!votingOpenedAtLocal) {
             hideCountdown();
           }
@@ -939,8 +1269,14 @@
         if (phase === 'checkin') {
           renderCheckin();
         } else if (phase === 'tension') {
-          renderTension(tIdx);
+          renderTension(tIdx, isVotingOpen);
           renderQuestions(tIdx);
+          renderTableNotes(tIdx, isVotingOpen);
+          if (!isVotingOpen && getTableNotes(tIdx).length > 0) {
+            /* Comments position was adjusted by renderTableNotes */
+          } else {
+            resetCommentsPosition();
+          }
           renderComments(tIdx);
         } else if (phase === 'results') {
           renderResults();

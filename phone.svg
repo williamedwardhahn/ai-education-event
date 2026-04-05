@@ -104,25 +104,39 @@
     <text x="20" y="114" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">YOUR POSITION</text>
     <text id="voteClosedLabel" x="340" y="114" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" display="none">VOTING CLOSED</text>
 
+    <!-- Revote label (shown during revote phase) -->
+    <text id="revoteLabel" x="180" y="114" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle" display="none">REVOTE &#x2014; has your position changed?</text>
+
+    <!-- Compact position display (shown when voting closed, no revote) -->
+    <text id="compactVoteLabel" x="180" y="140" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" display="none">Your position: -</text>
+
+    <!-- Initial vote indicator (shown during revote) -->
+    <text id="initialVoteLabel" x="180" y="192" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" display="none">Your initial position: -</text>
+
+    <!-- Revote confirm -->
+    <text id="revoteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#22c55e" text-anchor="middle" display="none">Revote recorded &#x2713;</text>
+
     <!-- 5 vote circles -->
-    <text id="poleLeftLabel" x="50" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Cognitive</text>
-    <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">offloading</text>
-    <rect id="vote1" x="20" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-    <text x="50" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
+    <g id="voteButtonsGroup">
+      <text id="poleLeftLabel" x="50" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Cognitive</text>
+      <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">offloading</text>
+      <rect id="vote1" x="20" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+      <text x="50" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
 
-    <rect id="vote2" x="85" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-    <text x="115" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote2Txt">2</text>
+      <rect id="vote2" x="85" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+      <text x="115" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote2Txt">2</text>
 
-    <rect id="vote3" x="150" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-    <text x="180" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote3Txt">3</text>
+      <rect id="vote3" x="150" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+      <text x="180" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote3Txt">3</text>
 
-    <rect id="vote4" x="215" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-    <text x="245" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
+      <rect id="vote4" x="215" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+      <text x="245" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
 
-    <text id="poleRightLabel" x="310" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Deep</text>
-    <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">learning</text>
-    <rect id="vote5" x="280" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
-    <text x="310" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
+      <text id="poleRightLabel" x="310" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Deep</text>
+      <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">learning</text>
+      <rect id="vote5" x="280" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+      <text x="310" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
+    </g>
 
     <text id="voteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="middle" display="none">Voted &#x2713;</text>
     <text id="discussPrompt" x="180" y="192" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle" display="none">Discuss: What is the strongest argument for each side?</text>
@@ -133,6 +147,18 @@
     <!-- Results message -->
     <text id="resultsMsg" x="180" y="160" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold" display="none">Session Complete</text>
     <text id="resultsMsg2" x="180" y="180" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" display="none">Thank you for participating!</text>
+
+    <!-- TABLE NOTEPAD SECTION (shown during discussion when voting closed) -->
+    <g id="tableNotepadGroup" display="none">
+      <text x="20" y="140" font-family="monospace" font-size="9" fill="#3b82f6" font-weight="bold">TABLE NOTES &#x2014; shared with your table</text>
+      <foreignObject x="16" y="144" width="272" height="46">
+        <textarea xmlns="http://www.w3.org/1999/xhtml" id="tableNotepad" placeholder="Jot down key discussion points..."
+          style="background:#0a0e1a; color:#f1f5f9; border:1px solid #1e293b; padding:6px; font-family:monospace; font-size:11px; border-radius:4px; width:100%; height:100%; box-sizing:border-box; resize:none;"></textarea>
+      </foreignObject>
+      <rect id="saveNotesBtn" x="296" y="144" width="48" height="46" rx="6" fill="#3b82f6" style="cursor:pointer"/>
+      <text x="320" y="172" font-family="monospace" font-size="11" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Save</text>
+      <text id="notesSaveConfirm" x="320" y="192" font-family="monospace" font-size="8" fill="#22c55e" text-anchor="middle" display="none">Saved</text>
+    </g>
 
     <!-- QUESTION SECTION -->
     <rect x="8" y="200" width="344" height="184" rx="8" fill="#111827" stroke="#1e293b"/>
@@ -185,6 +211,8 @@
     var Q_HASH        = '02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc';
     var C_SECRET      = 'mpcr:ai:comments';
     var C_HASH        = 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6';
+    var TABLES_SECRET = 'mpcr:ai:tables';
+    var TABLES_HASH   = '4a5392639292738bfc5c0b250f822de569a507d9dcdcfb6cbd97f50ad471160c';
 
     // Tensions data
     var TENSIONS = [
@@ -206,6 +234,10 @@
     var votingOpen = true;
     var myVote = 0;
     var isAnonymous = true;
+    var revoteOpen = false;
+    var myRevote = 0;
+    var lastLoadedNotes = '';
+    var notesSaving = false;
 
     // DOM refs
     var checkinMode = document.getElementById('checkinMode');
@@ -235,6 +267,15 @@
     var poleRightLabel2 = document.getElementById('poleRightLabel2');
     var discussPrompt = document.getElementById('discussPrompt');
     var commentThrottled = false;
+    var revoteLabel = document.getElementById('revoteLabel');
+    var compactVoteLabel = document.getElementById('compactVoteLabel');
+    var initialVoteLabel = document.getElementById('initialVoteLabel');
+    var revoteConfirm = document.getElementById('revoteConfirm');
+    var voteButtonsGroup = document.getElementById('voteButtonsGroup');
+    var tableNotepadGroup = document.getElementById('tableNotepadGroup');
+    var tableNotepad = document.getElementById('tableNotepad');
+    var saveNotesBtn = document.getElementById('saveNotesBtn');
+    var notesSaveConfirm = document.getElementById('notesSaveConfirm');
 
     // ============ UTILITY ============
     function genId() {
@@ -363,6 +404,13 @@
       (function(val) {
         var circle = document.getElementById('vote' + val);
         circle.addEventListener('click', function() {
+          // Handle revote mode
+          if (revoteOpen && !votingOpen) {
+            myRevote = val;
+            castRevote(val);
+            updateVoteDisplay();
+            return;
+          }
           if (!votingOpen) return;
           myVote = val;
           castVote(val);
@@ -372,31 +420,79 @@
     }
 
     function updateVoteDisplay() {
+      var showButtons = votingOpen || revoteOpen;
+      var isRevoting = revoteOpen && !votingOpen;
+      var isDiscussing = !votingOpen && !revoteOpen && currentPhase === 'tension';
+
+      // Toggle vote buttons group visibility
+      voteButtonsGroup.setAttribute('display', showButtons ? 'inline' : 'none');
+
+      // Compact vote label (shown when voting closed and not revoting)
+      if (!showButtons && myVote > 0) {
+        compactVoteLabel.textContent = 'Your position: ' + myVote;
+        compactVoteLabel.setAttribute('display', 'inline');
+      } else {
+        compactVoteLabel.setAttribute('display', 'none');
+      }
+
+      // Revote label
+      if (isRevoting) {
+        revoteLabel.setAttribute('display', 'inline');
+        voteClosedLabel.setAttribute('display', 'none');
+        initialVoteLabel.textContent = 'Your initial position: ' + (myVote > 0 ? myVote : '-');
+        initialVoteLabel.setAttribute('display', 'inline');
+        if (myRevote > 0) {
+          revoteConfirm.setAttribute('display', 'inline');
+          initialVoteLabel.setAttribute('display', 'none');
+        } else {
+          revoteConfirm.setAttribute('display', 'none');
+        }
+      } else {
+        revoteLabel.setAttribute('display', 'none');
+        initialVoteLabel.setAttribute('display', 'none');
+        revoteConfirm.setAttribute('display', 'none');
+      }
+
+      // Table notepad (shown during discussion when voting closed and not revoting)
+      if (isDiscussing) {
+        tableNotepadGroup.setAttribute('display', 'inline');
+        discussPrompt.setAttribute('display', 'none');
+      } else {
+        tableNotepadGroup.setAttribute('display', 'none');
+      }
+
+      // Style vote buttons based on current mode
+      var activeVote = isRevoting ? myRevote : myVote;
+
       for (var v = 1; v <= 5; v++) {
         var c = document.getElementById('vote' + v);
         var t = document.getElementById('vote' + v + 'Txt');
-        if (v === myVote) {
-          c.setAttribute('fill', '#c9a227');
-          c.setAttribute('stroke', '#c9a227');
+        if (v === activeVote) {
+          c.setAttribute('fill', isRevoting ? '#22c55e' : '#c9a227');
+          c.setAttribute('stroke', isRevoting ? '#22c55e' : '#c9a227');
           t.setAttribute('fill', '#0a0e1a');
         } else {
-          c.setAttribute('fill', votingOpen ? '#1e293b' : '#0a0e1a');
-          c.setAttribute('stroke', votingOpen ? '#94a3b8' : '#1e293b');
-          t.setAttribute('fill', votingOpen ? '#94a3b8' : '#1e293b');
+          c.setAttribute('fill', showButtons ? '#1e293b' : '#0a0e1a');
+          c.setAttribute('stroke', showButtons ? '#94a3b8' : '#1e293b');
+          t.setAttribute('fill', showButtons ? '#94a3b8' : '#1e293b');
         }
       }
-      if (myVote > 0) {
+
+      if (showButtons && !isRevoting && myVote > 0) {
         voteConfirm.setAttribute('display', 'inline');
         waitingMsg.setAttribute('display', 'none');
         discussPrompt.setAttribute('display', 'none');
+      } else {
+        voteConfirm.setAttribute('display', 'none');
       }
-      if (!votingOpen) {
+
+      if (!votingOpen && !isRevoting) {
         voteClosedLabel.setAttribute('display', 'inline');
         if (currentPhase === 'tension') {
-          discussPrompt.setAttribute('display', 'inline');
+          discussPrompt.setAttribute('display', 'none');
           voteConfirm.setAttribute('display', 'none');
         }
-      } else {
+      } else if (votingOpen) {
         voteClosedLabel.setAttribute('display', 'none');
         discussPrompt.setAttribute('display', 'none');
       }
@@ -412,6 +508,40 @@
         connDot.setAttribute('fill', '#ef4444');
       });
     }
+
+    function castRevote(val) {
+      var revoteKey = 'revote' + currentTension + ':' + myId;
+      var revoteData = {};
+      revoteData[revoteKey] = val;
+      patchMerge(VOTES_SECRET, revoteData).then(function() {
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+    }
+
+    // ============ TABLE NOTEPAD ============
+    saveNotesBtn.addEventListener('click', function() {
+      if (notesSaving) return;
+      var text = tableNotepad.value;
+      var noteKey = 'table' + myTable + ':tension' + currentTension;
+      var noteData = {};
+      noteData[noteKey] = text;
+      notesSaving = true;
+      saveNotesBtn.setAttribute('fill', '#1e293b');
+      patchMerge(TABLES_SECRET, noteData).then(function() {
+        connDot.setAttribute('fill', '#22c55e');
+        notesSaveConfirm.setAttribute('display', 'inline');
+        setTimeout(function() {
+          notesSaveConfirm.setAttribute('display', 'none');
+        }, 2000);
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      }).finally(function() {
+        notesSaving = false;
+        saveNotesBtn.setAttribute('fill', '#3b82f6');
+      });
+    });
 
     // Enter key support
     questionInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') askBtn.dispatchEvent(new Event('click')); });
@@ -649,6 +779,7 @@
         poleLeftLabel2.textContent = '';
         poleRightLabel.textContent = '';
         poleRightLabel2.textContent = '';
+        tableNotepadGroup.setAttribute('display', 'none');
         return;
       }
 
@@ -662,6 +793,7 @@
         poleLeftLabel2.textContent = '';
         poleRightLabel.textContent = '';
         poleRightLabel2.textContent = '';
+        tableNotepadGroup.setAttribute('display', 'none');
         return;
       }
 
@@ -683,6 +815,7 @@
         waitingMsg.setAttribute('display', 'inline');
         voteConfirm.setAttribute('display', 'none');
         discussPrompt.setAttribute('display', 'none');
+        tableNotepadGroup.setAttribute('display', 'none');
       } else {
         waitingMsg.setAttribute('display', 'none');
       }
@@ -698,12 +831,16 @@
             if (newTension !== currentTension) {
               currentTension = newTension;
               myVote = 0;
+              myRevote = 0;
+              lastLoadedNotes = '';
               voteConfirm.setAttribute('display', 'none');
             }
           }
           if (d.val.phase) currentPhase = d.val.phase;
           if (typeof d.val.votingOpen === 'boolean') votingOpen = d.val.votingOpen;
           else votingOpen = true;
+          if (typeof d.val.revoteOpen === 'boolean') revoteOpen = d.val.revoteOpen;
+          else revoteOpen = false;
           updateTensionDisplay();
           updateVoteDisplay();
         }
@@ -733,6 +870,23 @@
           footerParticipants.textContent = count + ' participant' + (count !== 1 ? 's' : '');
         }
       }).catch(function() {});
+
+      // Poll table notes (only when notepad is visible)
+      if (!votingOpen && !revoteOpen && currentPhase === 'tension') {
+        readHash(TABLES_HASH).then(function(d) {
+          if (d && d.val) {
+            var noteKey = 'table' + myTable + ':tension' + currentTension;
+            var notes = d.val[noteKey] || '';
+            // Only update textarea if user is not actively editing (avoid overwriting their typing)
+            if (notes !== lastLoadedNotes) {
+              lastLoadedNotes = notes;
+              if (document.activeElement !== tableNotepad) {
+                tableNotepad.value = notes;
+              }
+            }
+          }
+        }).catch(function() {});
+      }
     }
 
     // ============ INIT ============

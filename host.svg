@@ -1,12 +1,13 @@
-<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+<svg viewBox="0 0 900 750" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <clipPath id="qClip"><rect x="301" y="52" width="298" height="536"/></clipPath>
-    <clipPath id="pClip"><rect x="601" y="52" width="298" height="280"/></clipPath>
-    <clipPath id="cClip"><rect x="601" y="430" width="298" height="158"/></clipPath>
+    <clipPath id="qClip"><rect x="301" y="52" width="298" height="686"/></clipPath>
+    <clipPath id="pClip"><rect x="601" y="52" width="298" height="200"/></clipPath>
+    <clipPath id="cClip"><rect x="601" y="580" width="298" height="158"/></clipPath>
+    <clipPath id="tClip"><rect x="601" y="498" width="298" height="80"/></clipPath>
   </defs>
 
   <!-- Background -->
-  <rect width="900" height="600" fill="#0a0e1a"/>
+  <rect width="900" height="750" fill="#0a0e1a"/>
 
   <!-- Header bar -->
   <rect width="900" height="44" fill="#111827"/>
@@ -19,11 +20,11 @@
   <circle cx="880" cy="22" r="4" fill="#94a3b8" id="pollDot"/>
 
   <!-- Vertical dividers -->
-  <line x1="300" y1="44" x2="300" y2="600" stroke="#1e293b"/>
-  <line x1="600" y1="44" x2="600" y2="600" stroke="#1e293b"/>
+  <line x1="300" y1="44" x2="300" y2="750" stroke="#1e293b"/>
+  <line x1="600" y1="44" x2="600" y2="750" stroke="#1e293b"/>
 
   <!-- ==================== LEFT PANEL: FLOW CONTROL (0-300) ==================== -->
-  <rect x="0" y="44" width="300" height="556" fill="#111827"/>
+  <rect x="0" y="44" width="300" height="706" fill="#111827"/>
 
   <text x="150" y="68" font-family="monospace" font-size="12" fill="#c9a227" font-weight="bold" text-anchor="middle">HOST CONTROLS</text>
   <line x1="16" y1="74" x2="284" y2="74" stroke="#1e293b"/>
@@ -74,43 +75,48 @@
   <text x="150" y="374" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" font-weight="bold" id="btnVoteTxt" style="pointer-events:none">Open Voting</text>
   <rect x="16" y="354" width="268" height="30" rx="4" fill="transparent" id="btnVote" style="cursor:pointer"/>
 
+  <!-- Revote button -->
+  <rect x="16" y="392" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnRevoteBg" style="cursor:pointer"/>
+  <text x="150" y="411" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" font-weight="bold" id="btnRevoteTxt" style="pointer-events:none">Revote</text>
+  <rect x="16" y="392" width="268" height="28" rx="4" fill="transparent" id="btnRevote" style="cursor:pointer"/>
+
   <!-- Countdown timer -->
-  <text x="16" y="402" font-family="monospace" font-size="9" fill="#94a3b8">TIMER</text>
-  <rect x="16" y="408" width="130" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
-  <text x="81" y="427" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle" font-weight="bold" id="timerDisplay">1:30</text>
+  <text x="16" y="440" font-family="monospace" font-size="9" fill="#94a3b8">TIMER</text>
+  <rect x="16" y="446" width="130" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
+  <text x="81" y="465" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle" font-weight="bold" id="timerDisplay">1:30</text>
 
   <!-- Timer duration buttons -->
-  <rect x="154" y="408" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer60bg" style="cursor:pointer"/>
-  <text x="174" y="426" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer60txt" style="pointer-events:none">60s</text>
-  <rect x="154" y="408" width="40" height="28" rx="4" fill="transparent" id="btnTimer60" style="cursor:pointer"/>
+  <rect x="154" y="446" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer60bg" style="cursor:pointer"/>
+  <text x="174" y="464" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer60txt" style="pointer-events:none">60s</text>
+  <rect x="154" y="446" width="40" height="28" rx="4" fill="transparent" id="btnTimer60" style="cursor:pointer"/>
 
-  <rect x="198" y="408" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer90bg" style="cursor:pointer"/>
-  <text x="218" y="426" font-family="monospace" font-size="9" fill="#c9a227" text-anchor="middle" id="btnTimer90txt" style="pointer-events:none">90s</text>
-  <rect x="198" y="408" width="40" height="28" rx="4" fill="transparent" id="btnTimer90" style="cursor:pointer"/>
+  <rect x="198" y="446" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer90bg" style="cursor:pointer"/>
+  <text x="218" y="464" font-family="monospace" font-size="9" fill="#c9a227" text-anchor="middle" id="btnTimer90txt" style="pointer-events:none">90s</text>
+  <rect x="198" y="446" width="40" height="28" rx="4" fill="transparent" id="btnTimer90" style="cursor:pointer"/>
 
-  <rect x="242" y="408" width="42" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer120bg" style="cursor:pointer"/>
-  <text x="263" y="426" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer120txt" style="pointer-events:none">120s</text>
-  <rect x="242" y="408" width="42" height="28" rx="4" fill="transparent" id="btnTimer120" style="cursor:pointer"/>
+  <rect x="242" y="446" width="42" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer120bg" style="cursor:pointer"/>
+  <text x="263" y="464" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer120txt" style="pointer-events:none">120s</text>
+  <rect x="242" y="446" width="42" height="28" rx="4" fill="transparent" id="btnTimer120" style="cursor:pointer"/>
 
   <!-- Export data button -->
-  <line x1="16" y1="450" x2="284" y2="450" stroke="#1e293b"/>
-  <rect x="16" y="458" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#3b82f6" id="btnExportBg" style="cursor:pointer"/>
-  <text x="150" y="477" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold" id="btnExportTxt" style="pointer-events:none">Download Data</text>
-  <rect x="16" y="458" width="268" height="28" rx="4" fill="transparent" id="btnExport" style="cursor:pointer"/>
+  <line x1="16" y1="488" x2="284" y2="488" stroke="#1e293b"/>
+  <rect x="16" y="496" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#3b82f6" id="btnExportBg" style="cursor:pointer"/>
+  <text x="150" y="515" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold" id="btnExportTxt" style="pointer-events:none">Download Data</text>
+  <rect x="16" y="496" width="268" height="28" rx="4" fill="transparent" id="btnExport" style="cursor:pointer"/>
 
   <!-- Reset button -->
-  <line x1="16" y1="498" x2="284" y2="498" stroke="#1e293b"/>
-  <rect x="16" y="506" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#ef4444" id="btnResetBg" style="cursor:pointer"/>
-  <text x="150" y="525" font-family="monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold" id="btnResetTxt" style="pointer-events:none">Reset All</text>
-  <rect x="16" y="506" width="268" height="28" rx="4" fill="transparent" id="btnReset" style="cursor:pointer"/>
+  <line x1="16" y1="536" x2="284" y2="536" stroke="#1e293b"/>
+  <rect x="16" y="544" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#ef4444" id="btnResetBg" style="cursor:pointer"/>
+  <text x="150" y="563" font-family="monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold" id="btnResetTxt" style="pointer-events:none">Reset All</text>
+  <rect x="16" y="544" width="268" height="28" rx="4" fill="transparent" id="btnReset" style="cursor:pointer"/>
 
   <!-- State info -->
-  <text x="16" y="554" font-family="monospace" font-size="8" fill="#94a3b8" id="stateInfo">state: mpcr:ai:state</text>
-  <text x="16" y="566" font-family="monospace" font-size="7" fill="#94a3b8" id="stateHash">hash: 2cb87f5f...</text>
-  <text x="16" y="578" font-family="monospace" font-size="7" fill="#94a3b8" id="writeStatus">--</text>
+  <text x="16" y="592" font-family="monospace" font-size="8" fill="#94a3b8" id="stateInfo">state: mpcr:ai:state</text>
+  <text x="16" y="604" font-family="monospace" font-size="7" fill="#94a3b8" id="stateHash">hash: 2cb87f5f...</text>
+  <text x="16" y="616" font-family="monospace" font-size="7" fill="#94a3b8" id="writeStatus">--</text>
 
   <!-- ==================== CENTER PANEL: QUESTIONS (300-600) ==================== -->
-  <rect x="300" y="44" width="300" height="556" fill="#0a0e1a"/>
+  <rect x="300" y="44" width="300" height="706" fill="#0a0e1a"/>
   <rect x="301" y="44" width="298" height="30" fill="#111827"/>
   <text x="450" y="65" font-family="monospace" font-size="12" fill="#3b82f6" font-weight="bold" text-anchor="middle">QUESTIONS</text>
   <text x="590" y="65" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="qCount">(0)</text>
@@ -121,10 +127,10 @@
   </g>
 
   <!-- Scroll indicators -->
-  <text x="450" y="592" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle" id="qScrollHint"></text>
+  <text x="450" y="742" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle" id="qScrollHint"></text>
 
   <!-- ==================== RIGHT PANEL: STATS (600-900) ==================== -->
-  <rect x="600" y="44" width="300" height="556" fill="#0a0e1a"/>
+  <rect x="600" y="44" width="300" height="706" fill="#0a0e1a"/>
 
   <!-- Participants section -->
   <rect x="601" y="44" width="298" height="30" fill="#111827"/>
@@ -136,39 +142,30 @@
   </g>
 
   <!-- Vote distribution section -->
-  <line x1="610" y1="336" x2="890" y2="336" stroke="#1e293b"/>
-  <text x="616" y="356" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">VOTE DISTRIBUTION</text>
-  <text x="890" y="356" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="voteTotal">0 votes</text>
+  <line x1="610" y1="256" x2="890" y2="256" stroke="#1e293b"/>
+  <text x="616" y="274" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">VOTE DISTRIBUTION</text>
+  <text x="890" y="274" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="voteTotal">0 votes</text>
 
-  <!-- Bar chart area -->
-  <g id="voteBarsGroup" transform="translate(616, 366)">
-    <text x="0" y="14" font-family="monospace" font-size="9" fill="#94a3b8">1</text>
-    <rect x="18" y="4" width="0" height="12" rx="2" fill="#3b82f6" id="vbar1"/>
-    <text x="240" y="14" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount1">0</text>
+  <!-- Bar chart area (dynamically rendered) -->
+  <g id="voteBarsGroup" transform="translate(616, 282)"></g>
 
-    <text x="0" y="30" font-family="monospace" font-size="9" fill="#94a3b8">2</text>
-    <rect x="18" y="20" width="0" height="12" rx="2" fill="#3b82f6" id="vbar2"/>
-    <text x="240" y="30" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount2">0</text>
+  <!-- Shift indicator -->
+  <text x="616" y="478" font-family="monospace" font-size="8" fill="#94a3b8" id="shiftIndicator"></text>
 
-    <text x="0" y="46" font-family="monospace" font-size="9" fill="#94a3b8">3</text>
-    <rect x="18" y="36" width="0" height="12" rx="2" fill="#3b82f6" id="vbar3"/>
-    <text x="240" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount3">0</text>
+  <!-- Table Notes section -->
+  <line x1="610" y1="486" x2="890" y2="486" stroke="#1e293b"/>
+  <text x="616" y="504" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">TABLE NOTES</text>
 
-    <text x="0" y="62" font-family="monospace" font-size="9" fill="#94a3b8">4</text>
-    <rect x="18" y="52" width="0" height="12" rx="2" fill="#3b82f6" id="vbar4"/>
-    <text x="240" y="62" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount4">0</text>
-
-    <text x="0" y="78" font-family="monospace" font-size="9" fill="#94a3b8">5</text>
-    <rect x="18" y="68" width="0" height="12" rx="2" fill="#3b82f6" id="vbar5"/>
-    <text x="240" y="78" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount5">0</text>
+  <g clip-path="url(#tClip)">
+    <g id="tableNotesGroup" transform="translate(610, 510)"></g>
   </g>
 
   <!-- Comments section -->
-  <line x1="610" y1="456" x2="890" y2="456" stroke="#1e293b"/>
-  <text x="616" y="474" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">RECENT COMMENTS</text>
+  <line x1="610" y1="580" x2="890" y2="580" stroke="#1e293b"/>
+  <text x="616" y="598" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">RECENT COMMENTS</text>
 
   <g clip-path="url(#cClip)">
-    <g id="commentsGroup" transform="translate(610, 486)"></g>
+    <g id="commentsGroup" transform="translate(610, 610)"></g>
   </g>
 
   <script type="application/ecmascript"><![CDATA[
@@ -186,6 +183,8 @@
     var Q_HASH       = '02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc';
     var C_SECRET     = 'mpcr:ai:comments';
     var COMMENT_HASH = 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6';
+    var TABLES_SECRET = 'mpcr:ai:tables';
+    var TABLES_HASH   = '4a5392639292738bfc5c0b250f822de569a507d9dcdcfb6cbd97f50ad471160c';
 
     /* -- Tensions -- */
     var TENSIONS = [
@@ -199,6 +198,7 @@
     var currentPhase = 'checkin';
     var currentTension = 0;
     var votingOpen = false;
+    var revoteOpen = false;
     var activeBtn = 0;
 
     /* -- Cached data -- */
@@ -206,6 +206,7 @@
     var votes = {};
     var questions = [];
     var comments = [];
+    var tables = {};
     var qScrollOffset = 0;
 
     /* -- Timer state -- */
@@ -238,6 +239,11 @@
     var timerDisplay = document.getElementById('timerDisplay');
     var btnResetBg = document.getElementById('btnResetBg');
     var btnResetTxt = document.getElementById('btnResetTxt');
+    var btnRevoteBg = document.getElementById('btnRevoteBg');
+    var btnRevoteTxt = document.getElementById('btnRevoteTxt');
+    var voteBarsGroup = document.getElementById('voteBarsGroup');
+    var shiftIndicator = document.getElementById('shiftIndicator');
+    var tableNotesGroup = document.getElementById('tableNotesGroup');
 
     /* -- Phase button refs -- */
     var phaseBgs = [];
@@ -302,6 +308,21 @@
       }
     }
 
+    /* -- Revote button display -- */
+    function updateRevoteButton() {
+      if (revoteOpen) {
+        btnRevoteBg.setAttribute('fill', '#713f12');
+        btnRevoteBg.setAttribute('stroke', '#c9a227');
+        btnRevoteTxt.setAttribute('fill', '#c9a227');
+        btnRevoteTxt.textContent = 'Close Revote';
+      } else {
+        btnRevoteBg.setAttribute('fill', '#0a0e1a');
+        btnRevoteBg.setAttribute('stroke', '#1e293b');
+        btnRevoteTxt.setAttribute('fill', '#94a3b8');
+        btnRevoteTxt.textContent = 'Revote';
+      }
+    }
+
     /* -- Timer functions -- */
     function formatTimer(secs) {
       var m = Math.floor(secs / 60);
@@ -332,10 +353,15 @@
           timerRunning = false;
           clearInterval(timerInterval);
           timerInterval = null;
-          /* Auto-close voting */
+          /* Auto-close voting or revote */
           if (votingOpen) {
             votingOpen = false;
             updateVoteButton();
+            writeState();
+          }
+          if (revoteOpen) {
+            revoteOpen = false;
+            updateRevoteButton();
             writeState();
           }
         }
@@ -394,6 +420,7 @@
         phase: currentPhase,
         currentTension: currentTension,
         votingOpen: votingOpen,
+        revoteOpen: revoteOpen,
         updatedAt: Date.now()
       };
       try {
@@ -471,6 +498,18 @@
       }
     });
 
+    /* -- Revote toggle -- */
+    document.getElementById('btnRevote').addEventListener('click', function () {
+      revoteOpen = !revoteOpen;
+      updateRevoteButton();
+      writeState();
+      if (revoteOpen) {
+        startTimer();
+      } else {
+        stopTimer();
+      }
+    });
+
     /* -- Reset (double-click confirmation) -- */
     document.getElementById('btnReset').addEventListener('click', function () {
       if (!resetPrimed) {
@@ -494,15 +533,18 @@
       currentPhase = 'checkin';
       currentTension = 0;
       votingOpen = false;
+      revoteOpen = false;
       stopTimer();
       highlightPhase(0);
       updatePhaseDisplay();
       updateVoteButton();
+      updateRevoteButton();
       writeState();
       // Clear all other channels
       fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: VOTES_SECRET}) });
       fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: Q_SECRET}) });
       fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: C_SECRET}) });
+      fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: TABLES_SECRET}) });
     });
 
     /* -- Data export -- */
@@ -516,7 +558,8 @@
           checkins: null,
           votes: null,
           questions: null,
-          comments: null
+          comments: null,
+          tables: null
         };
         var r1 = await fetch(BASE + '/v/' + STATE_HASH);
         if (r1.ok) { var d1 = await r1.json(); exportData.state = d1.val || null; }
@@ -532,6 +575,9 @@
 
         var r5 = await fetch(BASE + '/v/' + COMMENT_HASH);
         if (r5.ok) { var d5 = await r5.json(); exportData.comments = d5.val || null; }
+
+        var r6 = await fetch(BASE + '/v/' + TABLES_HASH);
+        if (r6.ok) { var d6 = await r6.json(); exportData.tables = d6.val || null; }
 
         var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
         var url = URL.createObjectURL(blob);
@@ -606,12 +652,16 @@
       }
     }
 
-    /* -- Render vote distribution -- */
-    /* Flat keys: 'tension0:userId' = voteValue at top level */
+    /* -- Render vote distribution (dual bars: initial + revised) -- */
+    /* Flat keys: 'tension0:userId' = voteValue, 'revote0:userId' = revoteValue */
     function renderVotes() {
       var prefix = 'tension' + currentTension + ':';
+      var revPrefix = 'revote' + currentTension + ':';
       var total = 0;
+      var revTotal = 0;
       var counts = [0, 0, 0, 0, 0];
+      var revCounts = [0, 0, 0, 0, 0];
+      var hasRevotes = false;
       if (votes) {
         var allKeys = Object.keys(votes);
         for (var i = 0; i < allKeys.length; i++) {
@@ -622,16 +672,181 @@
               total++;
             }
           }
+          if (allKeys[i].indexOf(revPrefix) === 0) {
+            var revVal = votes[allKeys[i]];
+            if (typeof revVal === 'number' && revVal >= 1 && revVal <= 5) {
+              revCounts[revVal - 1]++;
+              revTotal++;
+              hasRevotes = true;
+            }
+          }
         }
       }
-      voteTotal.textContent = total + ' votes';
-      var maxCount = Math.max(1, Math.max.apply(null, counts));
-      var maxBarW = 200;
+      voteTotal.textContent = total + ' votes' + (hasRevotes ? ' / ' + revTotal + ' revotes' : '');
+
+      /* Clear existing bars */
+      while (voteBarsGroup.firstChild) voteBarsGroup.removeChild(voteBarsGroup.firstChild);
+
+      var maxBarW = 170;
+      var allMax = Math.max(1, Math.max.apply(null, counts));
+      if (hasRevotes) allMax = Math.max(allMax, Math.max.apply(null, revCounts));
+      var barH = hasRevotes ? 7 : 12;
+      var rowH = hasRevotes ? 24 : 16;
+
       for (var j = 0; j < 5; j++) {
-        var bar = document.getElementById('vbar' + (j + 1));
-        var ct = document.getElementById('vcount' + (j + 1));
-        bar.setAttribute('width', (counts[j] / maxCount) * maxBarW);
+        var yBase = j * rowH;
+
+        /* Row label */
+        var lbl = document.createElementNS(ns, 'text');
+        lbl.setAttribute('x', 0);
+        lbl.setAttribute('y', yBase + 12);
+        lbl.setAttribute('font-family', 'monospace');
+        lbl.setAttribute('font-size', '9');
+        lbl.setAttribute('fill', '#94a3b8');
+        lbl.textContent = String(j + 1);
+        voteBarsGroup.appendChild(lbl);
+
+        /* Initial bar (blue) */
+        var bar = document.createElementNS(ns, 'rect');
+        bar.setAttribute('x', 18);
+        bar.setAttribute('y', yBase + 2);
+        bar.setAttribute('width', (counts[j] / allMax) * maxBarW);
+        bar.setAttribute('height', barH);
+        bar.setAttribute('rx', 2);
+        bar.setAttribute('fill', '#3b82f6');
+        voteBarsGroup.appendChild(bar);
+
+        /* Initial count */
+        var ct = document.createElementNS(ns, 'text');
+        ct.setAttribute('x', 200);
+        ct.setAttribute('y', yBase + 10);
+        ct.setAttribute('font-family', 'monospace');
+        ct.setAttribute('font-size', '8');
+        ct.setAttribute('fill', '#94a3b8');
+        ct.setAttribute('text-anchor', 'end');
         ct.textContent = counts[j];
+        voteBarsGroup.appendChild(ct);
+
+        if (hasRevotes) {
+          /* Revised bar (gold) */
+          var rbar = document.createElementNS(ns, 'rect');
+          rbar.setAttribute('x', 18);
+          rbar.setAttribute('y', yBase + 2 + barH + 1);
+          rbar.setAttribute('width', (revCounts[j] / allMax) * maxBarW);
+          rbar.setAttribute('height', barH);
+          rbar.setAttribute('rx', 2);
+          rbar.setAttribute('fill', '#c9a227');
+          voteBarsGroup.appendChild(rbar);
+
+          /* Revised count */
+          var rct = document.createElementNS(ns, 'text');
+          rct.setAttribute('x', 200);
+          rct.setAttribute('y', yBase + 10 + barH + 1);
+          rct.setAttribute('font-family', 'monospace');
+          rct.setAttribute('font-size', '8');
+          rct.setAttribute('fill', '#c9a227');
+          rct.setAttribute('text-anchor', 'end');
+          rct.textContent = revCounts[j];
+          voteBarsGroup.appendChild(rct);
+        }
+      }
+
+      /* Legend when revote data exists */
+      if (hasRevotes) {
+        var legendY = 5 * rowH + 6;
+        var legRect1 = document.createElementNS(ns, 'rect');
+        legRect1.setAttribute('x', 18);
+        legRect1.setAttribute('y', legendY);
+        legRect1.setAttribute('width', 10);
+        legRect1.setAttribute('height', 7);
+        legRect1.setAttribute('rx', 1);
+        legRect1.setAttribute('fill', '#3b82f6');
+        voteBarsGroup.appendChild(legRect1);
+
+        var legTxt1 = document.createElementNS(ns, 'text');
+        legTxt1.setAttribute('x', 32);
+        legTxt1.setAttribute('y', legendY + 7);
+        legTxt1.setAttribute('font-family', 'monospace');
+        legTxt1.setAttribute('font-size', '7');
+        legTxt1.setAttribute('fill', '#94a3b8');
+        legTxt1.textContent = 'Initial';
+        voteBarsGroup.appendChild(legTxt1);
+
+        var legRect2 = document.createElementNS(ns, 'rect');
+        legRect2.setAttribute('x', 80);
+        legRect2.setAttribute('y', legendY);
+        legRect2.setAttribute('width', 10);
+        legRect2.setAttribute('height', 7);
+        legRect2.setAttribute('rx', 1);
+        legRect2.setAttribute('fill', '#c9a227');
+        voteBarsGroup.appendChild(legRect2);
+
+        var legTxt2 = document.createElementNS(ns, 'text');
+        legTxt2.setAttribute('x', 94);
+        legTxt2.setAttribute('y', legendY + 7);
+        legTxt2.setAttribute('font-family', 'monospace');
+        legTxt2.setAttribute('font-size', '7');
+        legTxt2.setAttribute('fill', '#c9a227');
+        legTxt2.textContent = 'Revised';
+        voteBarsGroup.appendChild(legTxt2);
+      }
+
+      /* Shift indicator */
+      if (hasRevotes && total > 0 && revTotal > 0) {
+        var initMean = 0;
+        var revMean = 0;
+        for (var m = 0; m < 5; m++) {
+          initMean += counts[m] * (m + 1);
+          revMean += revCounts[m] * (m + 1);
+        }
+        initMean = initMean / total;
+        revMean = revMean / revTotal;
+        var shift = revMean - initMean;
+        var arrow = shift > 0.05 ? '\u2191' : (shift < -0.05 ? '\u2193' : '\u2194');
+        shiftIndicator.textContent = 'Shift: ' + arrow + ' ' + (shift > 0 ? '+' : '') + shift.toFixed(2) + ' (mean ' + initMean.toFixed(1) + ' \u2192 ' + revMean.toFixed(1) + ')';
+        shiftIndicator.setAttribute('fill', shift > 0.05 ? '#22c55e' : (shift < -0.05 ? '#ef4444' : '#94a3b8'));
+      } else {
+        shiftIndicator.textContent = '';
+      }
+    }
+
+    /* -- Render table notes -- */
+    function renderTableNotes() {
+      while (tableNotesGroup.firstChild) tableNotesGroup.removeChild(tableNotesGroup.firstChild);
+      if (!tables || typeof tables !== 'object') return;
+      var pattern = 'tension' + currentTension;
+      var tkeys = Object.keys(tables);
+      var notes = [];
+      for (var i = 0; i < tkeys.length; i++) {
+        if (tkeys[i].indexOf(pattern) !== -1 && tkeys[i].indexOf('table') === 0) {
+          /* Extract table number: "table3:tension2" -> "3" */
+          var tNum = tkeys[i].replace('table', '').split(':')[0];
+          notes.push({ table: tNum, text: tables[tkeys[i]] });
+        }
+      }
+      notes.sort(function (a, b) { return parseInt(a.table) - parseInt(b.table); });
+      var maxShow = 5;
+      for (var j = 0; j < Math.min(notes.length, maxShow); j++) {
+        var y = j * 14;
+        var noteEl = document.createElementNS(ns, 'text');
+        noteEl.setAttribute('x', 0);
+        noteEl.setAttribute('y', y + 10);
+        noteEl.setAttribute('font-family', 'monospace');
+        noteEl.setAttribute('font-size', '8');
+        noteEl.setAttribute('fill', '#f1f5f9');
+        var noteText = 'Table ' + notes[j].table + ': ' + String(notes[j].text || '');
+        noteEl.textContent = noteText.substring(0, 42);
+        tableNotesGroup.appendChild(noteEl);
+      }
+      if (notes.length === 0) {
+        var emptyEl = document.createElementNS(ns, 'text');
+        emptyEl.setAttribute('x', 0);
+        emptyEl.setAttribute('y', 10);
+        emptyEl.setAttribute('font-family', 'monospace');
+        emptyEl.setAttribute('font-size', '8');
+        emptyEl.setAttribute('fill', '#94a3b8');
+        emptyEl.textContent = 'No table notes yet';
+        tableNotesGroup.appendChild(emptyEl);
       }
     }
 
@@ -849,12 +1064,14 @@
             currentPhase = d1.val.phase || 'checkin';
             currentTension = d1.val.currentTension || 0;
             votingOpen = d1.val.votingOpen || false;
+            revoteOpen = d1.val.revoteOpen || false;
             /* Sync button highlight */
             if (currentPhase === 'checkin') highlightPhase(0);
             else if (currentPhase === 'results') highlightPhase(5);
             else highlightPhase(currentTension + 1);
             updatePhaseDisplay();
             updateVoteButton();
+            updateRevoteButton();
           }
         }
       } catch (e) { ok = false; }
@@ -907,6 +1124,18 @@
         }
       } catch (e) { ok = false; }
 
+      /* Tables */
+      try {
+        var r6 = await fetch(BASE + '/v/' + TABLES_HASH);
+        if (r6.ok) {
+          var d6 = await r6.json();
+          if (d6.val) {
+            tables = d6.val;
+            renderTableNotes();
+          }
+        }
+      } catch (e) { ok = false; }
+
       if (ok) {
         pollDot.setAttribute('fill', '#22c55e');
         connDot.setAttribute('fill', '#22c55e');
@@ -921,6 +1150,7 @@
     highlightPhase(0);
     updatePhaseDisplay();
     updateVoteButton();
+    updateRevoteButton();
     highlightTimerButtons();
     updateTimerDisplay();
     pollAll();
