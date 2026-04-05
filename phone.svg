@@ -1,0 +1,654 @@
+<svg viewBox="0 0 360 640" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="360" height="640" fill="#0a0e1a"/>
+
+  <!-- ==================== MODE 1: CHECK-IN ==================== -->
+  <g id="checkinMode">
+    <!-- Header band -->
+    <rect x="0" y="0" width="360" height="80" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+    <text x="180" y="30" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold">MPCR LABS</text>
+    <text x="180" y="50" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">AI in Education: Central Tensions</text>
+    <text x="180" y="66" font-family="monospace" font-size="9" fill="#3b82f6" text-anchor="middle">FAU Round Table &#x2022; April 7 2026</text>
+
+    <!-- Welcome -->
+    <text x="180" y="104" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle" font-weight="bold">Welcome</text>
+    <text x="180" y="120" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">Enter your details to join the session</text>
+
+    <!-- Name input -->
+    <text x="20" y="148" font-family="monospace" font-size="10" fill="#94a3b8">YOUR NAME</text>
+    <foreignObject x="16" y="152" width="328" height="44">
+      <input xmlns="http://www.w3.org/1999/xhtml" id="nameInput" type="text" placeholder="Enter your name"
+        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+    </foreignObject>
+
+    <!-- Role selector -->
+    <text x="20" y="218" font-family="monospace" font-size="10" fill="#94a3b8">YOUR ROLE</text>
+    <rect id="roleEducator" x="16" y="224" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+    <text x="96" y="247" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleEducatorTxt">Educator</text>
+
+    <rect id="roleResearcher" x="184" y="224" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+    <text x="264" y="247" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleResearcherTxt">Researcher</text>
+
+    <rect id="rolePolicymaker" x="16" y="268" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+    <text x="96" y="291" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="rolePolicymakerTxt">Policymaker</text>
+
+    <rect id="roleStudent" x="184" y="268" width="160" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+    <text x="264" y="291" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="roleStudentTxt">Student</text>
+
+    <!-- Table number -->
+    <text x="20" y="328" font-family="monospace" font-size="10" fill="#94a3b8">TABLE NUMBER</text>
+    <g id="tableButtons">
+      <rect class="tblBtn" data-table="1" x="16"  y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="34"  y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">1</text>
+
+      <rect class="tblBtn" data-table="2" x="58"  y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="76"  y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">2</text>
+
+      <rect class="tblBtn" data-table="3" x="100" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="118" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">3</text>
+
+      <rect class="tblBtn" data-table="4" x="142" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="160" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">4</text>
+
+      <rect class="tblBtn" data-table="5" x="184" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="202" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">5</text>
+
+      <rect class="tblBtn" data-table="6" x="226" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="244" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">6</text>
+
+      <rect class="tblBtn" data-table="7" x="268" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="286" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">7</text>
+
+      <rect class="tblBtn" data-table="8" x="310" y="334" width="36" height="36" rx="6" fill="#111827" stroke="#1e293b" style="cursor:pointer"/>
+      <text x="328" y="357" font-family="monospace" font-size="13" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" class="tblTxt">8</text>
+    </g>
+
+    <!-- JOIN button -->
+    <rect id="joinBtn" x="16" y="390" width="328" height="50" rx="8" fill="#c9a227" style="cursor:pointer"/>
+    <text x="180" y="421" font-family="monospace" font-size="18" fill="#0a0e1a" text-anchor="middle" font-weight="bold" style="pointer-events:none">JOIN SESSION</text>
+
+    <!-- Validation message -->
+    <text id="joinMsg" x="180" y="460" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle"></text>
+
+    <!-- Tensions preview -->
+    <rect x="16" y="478" width="328" height="146" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="180" y="500" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="middle" font-weight="bold">TODAY'S TENSIONS</text>
+    <text x="28" y="520" font-family="monospace" font-size="9" fill="#94a3b8">T1</text>
+    <text x="48" y="520" font-family="monospace" font-size="9" fill="#f1f5f9">Cognitive offloading vs. deep learning</text>
+    <text x="28" y="540" font-family="monospace" font-size="9" fill="#94a3b8">T2</text>
+    <text x="48" y="540" font-family="monospace" font-size="9" fill="#f1f5f9">Personalization vs. belonging</text>
+    <text x="28" y="560" font-family="monospace" font-size="9" fill="#94a3b8">T3</text>
+    <text x="48" y="560" font-family="monospace" font-size="9" fill="#f1f5f9">Assistance vs. authorship</text>
+    <text x="28" y="580" font-family="monospace" font-size="9" fill="#94a3b8">T4</text>
+    <text x="48" y="580" font-family="monospace" font-size="9" fill="#f1f5f9">Innovation vs. governance</text>
+  </g>
+
+  <!-- ==================== MODE 2: PARTICIPATE ==================== -->
+  <g id="participateMode" display="none">
+    <!-- Header -->
+    <rect x="0" y="0" width="360" height="56" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+    <text x="16" y="22" font-family="monospace" font-size="12" fill="#c9a227" font-weight="bold">MPCR LABS</text>
+    <circle id="connDot" cx="340" cy="16" r="4" fill="#94a3b8"/>
+    <text id="tensionTitle" x="16" y="42" font-family="monospace" font-size="10" fill="#f1f5f9" font-weight="bold">Loading...</text>
+    <text id="phaseLabel" x="344" y="42" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end"></text>
+
+    <!-- Tension poles display -->
+    <rect x="0" y="56" width="360" height="32" fill="#0a0e1a"/>
+    <text id="tensionPoles" x="180" y="77" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle">&#x25C4;&#x2500;&#x2500;&#x25BA;</text>
+
+    <!-- VOTE SECTION -->
+    <rect x="8" y="94" width="344" height="100" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="20" y="114" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">YOUR POSITION</text>
+    <text id="voteClosedLabel" x="340" y="114" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" display="none">VOTING CLOSED</text>
+
+    <!-- 5 vote circles -->
+    <text x="46" y="140" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Strongly</text>
+    <text x="46" y="149" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Left</text>
+    <circle id="vote1" cx="46"  cy="165" r="16" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+    <text x="46"  y="170" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
+
+    <circle id="vote2" cx="118" cy="165" r="16" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+    <text x="118" y="170" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote2Txt">2</text>
+
+    <text x="180" y="149" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Neutral</text>
+    <circle id="vote3" cx="180" cy="165" r="16" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+    <text x="180" y="170" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote3Txt">3</text>
+
+    <circle id="vote4" cx="242" cy="165" r="16" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+    <text x="242" y="170" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
+
+    <text x="314" y="140" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Strongly</text>
+    <text x="314" y="149" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Right</text>
+    <circle id="vote5" cx="314" cy="165" r="16" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
+    <text x="314" y="170" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
+
+    <text id="voteConfirm" x="180" y="192" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="middle" display="none">Voted &#x2713;</text>
+
+    <!-- Waiting message -->
+    <text id="waitingMsg" x="180" y="192" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" display="none">Next topic starting soon...</text>
+
+    <!-- QUESTION SECTION -->
+    <rect x="8" y="200" width="344" height="184" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="20" y="220" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">QUESTIONS</text>
+    <foreignObject x="16" y="226" width="264" height="36">
+      <input xmlns="http://www.w3.org/1999/xhtml" id="questionInput" type="text" placeholder="Ask a question..."
+        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+    </foreignObject>
+    <rect id="askBtn" x="288" y="226" width="56" height="36" rx="6" fill="#3b82f6" style="cursor:pointer"/>
+    <text x="316" y="249" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Ask</text>
+
+    <!-- Question list (rendered by script) -->
+    <g id="questionList"></g>
+
+    <!-- COMMENT SECTION -->
+    <rect x="8" y="390" width="344" height="134" rx="8" fill="#111827" stroke="#1e293b"/>
+    <text x="20" y="410" font-family="monospace" font-size="10" fill="#c9a227" font-weight="bold">COMMENTS</text>
+
+    <!-- Anonymous toggle -->
+    <rect id="anonToggle" x="270" y="398" width="74" height="18" rx="4" fill="#1e293b" stroke="#c9a227" style="cursor:pointer"/>
+    <text id="anonLabel" x="307" y="411" font-family="monospace" font-size="8" fill="#c9a227" text-anchor="middle" style="pointer-events:none">Anonymous</text>
+
+    <foreignObject x="16" y="418" width="264" height="36">
+      <input xmlns="http://www.w3.org/1999/xhtml" id="commentInput" type="text" placeholder="Add a comment..."
+        style="background:#111827; color:#f1f5f9; border:1px solid #1e293b; padding:10px; font-family:monospace; font-size:16px; border-radius:6px; width:100%; box-sizing:border-box;" />
+    </foreignObject>
+    <rect id="postBtn" x="288" y="418" width="56" height="36" rx="6" fill="#3b82f6" style="cursor:pointer"/>
+    <text x="316" y="441" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" font-weight="bold" style="pointer-events:none">Post</text>
+
+    <!-- Comment list (rendered by script) -->
+    <g id="commentList"></g>
+
+    <!-- Footer -->
+    <rect x="0" y="612" width="360" height="28" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+    <text id="footerParticipants" x="180" y="630" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle">0 participants</text>
+  </g>
+
+  <script type="application/ecmascript"><![CDATA[
+    var BASE = 'https://statevec.com';
+    var SVG_NS = 'http://www.w3.org/2000/svg';
+
+    // Shared secrets
+    var STATE_SECRET  = 'mpcr:ai:state';
+    var STATE_HASH    = '2cb87f5f6c4c76da45361c4f934bee8e3d2ed29f0439fc35fbc1ae1727059be9';
+    var CHECKIN_SECRET = 'mpcr:ai:checkins';
+    var CHECKIN_HASH   = 'a0c0e74f772b453b6e0352781490c9ac4dfdc781af90b4b3f24b667557c1d4e1';
+    var VOTES_SECRET  = 'mpcr:ai:votes';
+    var VOTES_HASH    = '802e1abbe632e0612827bb2a79e8bc892a90e1b6188550cc587d0e3139763a10';
+    var Q_SECRET      = 'mpcr:ai:questions';
+    var Q_HASH        = '02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc';
+    var C_SECRET      = 'mpcr:ai:comments';
+    var C_HASH        = 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6';
+
+    // Tensions data
+    var TENSIONS = [
+      { id: 'tension0', left: 'Cognitive offloading', right: 'Deep learning', title: 'T1: Cognitive offloading vs. deep learning' },
+      { id: 'tension1', left: 'Personalization', right: 'Belonging', title: 'T2: Personalization vs. belonging' },
+      { id: 'tension2', left: 'Assistance', right: 'Authorship', title: 'T3: Assistance vs. authorship' },
+      { id: 'tension3', left: 'Innovation', right: 'Governance', title: 'T4: Innovation vs. governance' }
+    ];
+
+    // State
+    var myId = '';
+    var myName = '';
+    var myRole = '';
+    var myTable = 0;
+    var selectedRole = '';
+    var selectedTable = 0;
+    var currentTension = 0;
+    var currentPhase = 'waiting';
+    var votingOpen = true;
+    var myVote = 0;
+    var isAnonymous = true;
+
+    // DOM refs
+    var checkinMode = document.getElementById('checkinMode');
+    var participateMode = document.getElementById('participateMode');
+    var nameInput = document.getElementById('nameInput');
+    var joinBtn = document.getElementById('joinBtn');
+    var joinMsg = document.getElementById('joinMsg');
+    var tensionTitle = document.getElementById('tensionTitle');
+    var tensionPoles = document.getElementById('tensionPoles');
+    var phaseLabel = document.getElementById('phaseLabel');
+    var connDot = document.getElementById('connDot');
+    var voteConfirm = document.getElementById('voteConfirm');
+    var voteClosedLabel = document.getElementById('voteClosedLabel');
+    var waitingMsg = document.getElementById('waitingMsg');
+    var questionInput = document.getElementById('questionInput');
+    var askBtn = document.getElementById('askBtn');
+    var questionList = document.getElementById('questionList');
+    var commentInput = document.getElementById('commentInput');
+    var postBtn = document.getElementById('postBtn');
+    var commentList = document.getElementById('commentList');
+    var anonToggle = document.getElementById('anonToggle');
+    var anonLabel = document.getElementById('anonLabel');
+    var footerParticipants = document.getElementById('footerParticipants');
+
+    // ============ UTILITY ============
+    function genId() {
+      return 'u' + Math.random().toString(36).substring(2, 10) + Date.now().toString(36);
+    }
+
+    function patchMerge(secret, val) {
+      return fetch(BASE + '/v', {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ key: secret, val: val })
+      });
+    }
+
+    function readHash(hash) {
+      return fetch(BASE + '/v/' + hash).then(function(r) {
+        if (r.ok) return r.json();
+        return null;
+      });
+    }
+
+    // ============ CHECK-IN MODE ============
+    // Role selection
+    var roleButtons = ['Educator', 'Researcher', 'Policymaker', 'Student'];
+    roleButtons.forEach(function(role) {
+      var btn = document.getElementById('role' + role);
+      btn.addEventListener('click', function() {
+        selectedRole = role;
+        roleButtons.forEach(function(r) {
+          var b = document.getElementById('role' + r);
+          var t = document.getElementById('role' + r + 'Txt');
+          if (r === role) {
+            b.setAttribute('fill', '#c9a227');
+            b.setAttribute('stroke', '#c9a227');
+            t.setAttribute('fill', '#0a0e1a');
+          } else {
+            b.setAttribute('fill', '#111827');
+            b.setAttribute('stroke', '#1e293b');
+            t.setAttribute('fill', '#94a3b8');
+          }
+        });
+      });
+    });
+
+    // Table selection
+    var tblBtns = document.querySelectorAll('.tblBtn');
+    var tblTxts = document.querySelectorAll('.tblTxt');
+    for (var ti = 0; ti < tblBtns.length; ti++) {
+      (function(idx) {
+        tblBtns[idx].addEventListener('click', function() {
+          selectedTable = idx + 1;
+          for (var j = 0; j < tblBtns.length; j++) {
+            if (j === idx) {
+              tblBtns[j].setAttribute('fill', '#c9a227');
+              tblBtns[j].setAttribute('stroke', '#c9a227');
+              tblTxts[j].setAttribute('fill', '#0a0e1a');
+            } else {
+              tblBtns[j].setAttribute('fill', '#111827');
+              tblBtns[j].setAttribute('stroke', '#1e293b');
+              tblTxts[j].setAttribute('fill', '#94a3b8');
+            }
+          }
+        });
+      })(ti);
+    }
+
+    // Join handler
+    joinBtn.addEventListener('click', function() {
+      var name = nameInput.value.trim();
+      if (!name) { joinMsg.textContent = 'Please enter your name'; return; }
+      if (!selectedRole) { joinMsg.textContent = 'Please select a role'; return; }
+      if (!selectedTable) { joinMsg.textContent = 'Please select a table'; return; }
+
+      myName = name;
+      myRole = selectedRole;
+      myTable = selectedTable;
+      myId = genId();
+
+      // Save to localStorage
+      try {
+        localStorage.setItem('mpcr_ai_id', myId);
+        localStorage.setItem('mpcr_ai_name', myName);
+        localStorage.setItem('mpcr_ai_role', myRole);
+        localStorage.setItem('mpcr_ai_table', String(myTable));
+      } catch(e) {}
+
+      // Write checkin
+      var checkinData = {};
+      checkinData[myId] = { name: myName, role: myRole, table: myTable, t: Date.now() };
+      patchMerge(CHECKIN_SECRET, checkinData).then(function() {
+        switchToParticipate();
+      }).catch(function() {
+        switchToParticipate();
+      });
+    });
+
+    function switchToParticipate() {
+      checkinMode.setAttribute('display', 'none');
+      participateMode.setAttribute('display', 'inline');
+      pollAll();
+    }
+
+    // ============ CHECK EXISTING SESSION ============
+    function checkExistingSession() {
+      try {
+        var id = localStorage.getItem('mpcr_ai_id');
+        var name = localStorage.getItem('mpcr_ai_name');
+        var role = localStorage.getItem('mpcr_ai_role');
+        var table = localStorage.getItem('mpcr_ai_table');
+        if (id && name && role && table) {
+          myId = id;
+          myName = name;
+          myRole = role;
+          myTable = parseInt(table);
+          switchToParticipate();
+          return true;
+        }
+      } catch(e) {}
+      return false;
+    }
+
+    // ============ PARTICIPATE MODE ============
+
+    // Vote circles
+    for (var vi = 1; vi <= 5; vi++) {
+      (function(val) {
+        var circle = document.getElementById('vote' + val);
+        circle.addEventListener('click', function() {
+          if (!votingOpen) return;
+          myVote = val;
+          castVote(val);
+          updateVoteDisplay();
+        });
+      })(vi);
+    }
+
+    function updateVoteDisplay() {
+      for (var v = 1; v <= 5; v++) {
+        var c = document.getElementById('vote' + v);
+        var t = document.getElementById('vote' + v + 'Txt');
+        if (v === myVote) {
+          c.setAttribute('fill', '#c9a227');
+          c.setAttribute('stroke', '#c9a227');
+          t.setAttribute('fill', '#0a0e1a');
+        } else {
+          c.setAttribute('fill', votingOpen ? '#1e293b' : '#0a0e1a');
+          c.setAttribute('stroke', votingOpen ? '#94a3b8' : '#1e293b');
+          t.setAttribute('fill', votingOpen ? '#94a3b8' : '#1e293b');
+        }
+      }
+      if (myVote > 0) {
+        voteConfirm.setAttribute('display', 'inline');
+        waitingMsg.setAttribute('display', 'none');
+      }
+      if (!votingOpen) {
+        voteClosedLabel.setAttribute('display', 'inline');
+      } else {
+        voteClosedLabel.setAttribute('display', 'none');
+      }
+    }
+
+    function castVote(val) {
+      var tensionKey = TENSIONS[currentTension].id;
+      var voteData = {};
+      voteData[tensionKey] = {};
+      voteData[tensionKey][myId] = val;
+      patchMerge(VOTES_SECRET, voteData).then(function() {
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+    }
+
+    // Ask question
+    askBtn.addEventListener('click', function() {
+      var text = questionInput.value.trim();
+      if (!text) return;
+      var qId = 'q' + Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
+      var qData = {};
+      qData[qId] = { text: text, author: myName, table: myTable, votes: 0, voters: {}, t: Date.now() };
+      patchMerge(Q_SECRET, qData).then(function() {
+        questionInput.value = '';
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+    });
+
+    // Post comment
+    postBtn.addEventListener('click', function() {
+      var text = commentInput.value.trim();
+      if (!text) return;
+      var cId = 'c' + Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
+      var cData = {};
+      var authorName = isAnonymous ? 'Anonymous' : myName;
+      cData[cId] = { text: text, author: authorName, table: myTable, t: Date.now() };
+      patchMerge(C_SECRET, cData).then(function() {
+        commentInput.value = '';
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+    });
+
+    // Anonymous toggle
+    anonToggle.addEventListener('click', function() {
+      isAnonymous = !isAnonymous;
+      if (isAnonymous) {
+        anonToggle.setAttribute('stroke', '#c9a227');
+        anonLabel.textContent = 'Anonymous';
+        anonLabel.setAttribute('fill', '#c9a227');
+      } else {
+        anonToggle.setAttribute('stroke', '#3b82f6');
+        anonLabel.textContent = myName;
+        anonLabel.setAttribute('fill', '#3b82f6');
+      }
+    });
+
+    // ============ RENDERING ============
+    function renderQuestions(data) {
+      while (questionList.firstChild) questionList.removeChild(questionList.firstChild);
+      if (!data) return;
+
+      // Convert to array and sort by votes desc
+      var questions = [];
+      var keys = Object.keys(data);
+      for (var i = 0; i < keys.length; i++) {
+        var q = data[keys[i]];
+        if (q && q.text) {
+          q._id = keys[i];
+          // Count upvotes from voters object
+          var upvotes = 0;
+          if (q.voters) {
+            var vk = Object.keys(q.voters);
+            for (var vi2 = 0; vi2 < vk.length; vi2++) {
+              if (q.voters[vk[vi2]]) upvotes++;
+            }
+          }
+          q._upvotes = upvotes;
+          questions.push(q);
+        }
+      }
+      questions.sort(function(a, b) { return b._upvotes - a._upvotes; });
+
+      // Show top 3
+      var top = questions.slice(0, 3);
+      for (var j = 0; j < top.length; j++) {
+        var q2 = top[j];
+        var yy = 268 + j * 38;
+
+        // Upvote button
+        var upBtn = document.createElementNS(SVG_NS, 'rect');
+        upBtn.setAttribute('x', '20');
+        upBtn.setAttribute('y', yy);
+        upBtn.setAttribute('width', '32');
+        upBtn.setAttribute('height', '28');
+        upBtn.setAttribute('rx', '4');
+        upBtn.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#c9a227' : '#1e293b');
+        upBtn.setAttribute('style', 'cursor:pointer');
+        upBtn.setAttribute('data-qid', q2._id);
+        upBtn.addEventListener('click', function() {
+          upvoteQuestion(this.getAttribute('data-qid'));
+        });
+        questionList.appendChild(upBtn);
+
+        var upCount = document.createElementNS(SVG_NS, 'text');
+        upCount.setAttribute('x', '36');
+        upCount.setAttribute('y', yy + 12);
+        upCount.setAttribute('font-family', 'monospace');
+        upCount.setAttribute('font-size', '9');
+        upCount.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#0a0e1a' : '#f1f5f9');
+        upCount.setAttribute('text-anchor', 'middle');
+        upCount.setAttribute('style', 'pointer-events:none');
+        upCount.textContent = '\u25B2';
+        questionList.appendChild(upCount);
+
+        var upNum = document.createElementNS(SVG_NS, 'text');
+        upNum.setAttribute('x', '36');
+        upNum.setAttribute('y', yy + 24);
+        upNum.setAttribute('font-family', 'monospace');
+        upNum.setAttribute('font-size', '9');
+        upNum.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#0a0e1a' : '#94a3b8');
+        upNum.setAttribute('text-anchor', 'middle');
+        upNum.setAttribute('style', 'pointer-events:none');
+        upNum.textContent = String(q2._upvotes);
+        questionList.appendChild(upNum);
+
+        // Question text
+        var qText = document.createElementNS(SVG_NS, 'text');
+        qText.setAttribute('x', '60');
+        qText.setAttribute('y', yy + 13);
+        qText.setAttribute('font-family', 'monospace');
+        qText.setAttribute('font-size', '10');
+        qText.setAttribute('fill', '#f1f5f9');
+        var truncated = q2.text.length > 32 ? q2.text.substring(0, 32) + '...' : q2.text;
+        qText.textContent = truncated;
+        questionList.appendChild(qText);
+
+        // Author
+        var qAuthor = document.createElementNS(SVG_NS, 'text');
+        qAuthor.setAttribute('x', '60');
+        qAuthor.setAttribute('y', yy + 26);
+        qAuthor.setAttribute('font-family', 'monospace');
+        qAuthor.setAttribute('font-size', '8');
+        qAuthor.setAttribute('fill', '#94a3b8');
+        qAuthor.textContent = q2.author + ' \u2022 T' + q2.table;
+        questionList.appendChild(qAuthor);
+      }
+    }
+
+    function upvoteQuestion(qId) {
+      var patch = {};
+      patch[qId] = { voters: {} };
+      patch[qId].voters[myId] = true;
+      patchMerge(Q_SECRET, patch).then(function() {
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+    }
+
+    function renderComments(data) {
+      while (commentList.firstChild) commentList.removeChild(commentList.firstChild);
+      if (!data) return;
+
+      var comments = [];
+      var keys = Object.keys(data);
+      for (var i = 0; i < keys.length; i++) {
+        var c = data[keys[i]];
+        if (c && c.text) {
+          comments.push(c);
+        }
+      }
+      comments.sort(function(a, b) { return b.t - a.t; });
+
+      // Show last 3
+      var recent = comments.slice(0, 3);
+      for (var j = 0; j < recent.length; j++) {
+        var cm = recent[j];
+        var yy = 460 + j * 32;
+
+        var cAuthor = document.createElementNS(SVG_NS, 'text');
+        cAuthor.setAttribute('x', '20');
+        cAuthor.setAttribute('y', yy + 12);
+        cAuthor.setAttribute('font-family', 'monospace');
+        cAuthor.setAttribute('font-size', '9');
+        cAuthor.setAttribute('fill', '#c9a227');
+        cAuthor.textContent = cm.author;
+        commentList.appendChild(cAuthor);
+
+        var cText = document.createElementNS(SVG_NS, 'text');
+        cText.setAttribute('x', '20');
+        cText.setAttribute('y', yy + 26);
+        cText.setAttribute('font-family', 'monospace');
+        cText.setAttribute('font-size', '9');
+        cText.setAttribute('fill', '#f1f5f9');
+        var truncated2 = cm.text.length > 40 ? cm.text.substring(0, 40) + '...' : cm.text;
+        cText.textContent = truncated2;
+        commentList.appendChild(cText);
+      }
+    }
+
+    function updateTensionDisplay() {
+      var t = TENSIONS[currentTension];
+      if (!t) return;
+      tensionTitle.textContent = t.title;
+      tensionPoles.textContent = t.left + ' \u25C4\u2500\u2500\u25BA ' + t.right;
+
+      if (currentPhase === 'waiting') {
+        waitingMsg.setAttribute('display', 'inline');
+        voteConfirm.setAttribute('display', 'none');
+      } else {
+        waitingMsg.setAttribute('display', 'none');
+      }
+    }
+
+    // ============ POLLING ============
+    function pollAll() {
+      // Poll state
+      readHash(STATE_HASH).then(function(d) {
+        if (d && d.val) {
+          if (typeof d.val.currentTension === 'number') {
+            var newTension = d.val.currentTension;
+            if (newTension !== currentTension) {
+              currentTension = newTension;
+              myVote = 0;
+              voteConfirm.setAttribute('display', 'none');
+            }
+          }
+          if (d.val.phase) currentPhase = d.val.phase;
+          if (typeof d.val.votingOpen === 'boolean') votingOpen = d.val.votingOpen;
+          else votingOpen = true;
+          updateTensionDisplay();
+          updateVoteDisplay();
+        }
+        connDot.setAttribute('fill', '#22c55e');
+      }).catch(function() {
+        connDot.setAttribute('fill', '#ef4444');
+      });
+
+      // Poll questions
+      readHash(Q_HASH).then(function(d) {
+        if (d && d.val) {
+          renderQuestions(d.val);
+        }
+      }).catch(function() {});
+
+      // Poll comments
+      readHash(C_HASH).then(function(d) {
+        if (d && d.val) {
+          renderComments(d.val);
+        }
+      }).catch(function() {});
+
+      // Poll checkins for participant count
+      readHash(CHECKIN_HASH).then(function(d) {
+        if (d && d.val) {
+          var count = Object.keys(d.val).length;
+          footerParticipants.textContent = count + ' participant' + (count !== 1 ? 's' : '');
+        }
+      }).catch(function() {});
+    }
+
+    // ============ INIT ============
+    if (!checkExistingSession()) {
+      // Stay on check-in mode
+    }
+    setInterval(pollAll, 2000);
+  ]]></script>
+</svg>

@@ -1,0 +1,795 @@
+<svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <linearGradient id="spectrumGrad" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="50%" stop-color="#6b21a8"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+    <linearGradient id="spectrumGradMini" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#ef4444"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1280" height="720" fill="#0a0e1a"/>
+
+  <!-- ==================== TOP BAR ==================== -->
+  <rect x="0" y="0" width="1280" height="60" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+  <!-- Left: MPCR LABS -->
+  <text x="24" y="38" font-family="monospace" font-size="20" fill="#c9a227" font-weight="bold">MPCR LABS</text>
+  <!-- Center: Title -->
+  <text x="640" y="38" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle">AI in Education: Central Tensions</text>
+  <!-- Right: Participant count + green dot -->
+  <text x="1210" y="38" font-family="monospace" font-size="14" fill="#94a3b8" text-anchor="end" id="topParticipants">0 participants</text>
+  <circle cx="1240" cy="33" r="5" fill="#22c55e" id="connDot"/>
+
+  <!-- ==================== PHASE: CHECKIN ==================== -->
+  <g id="phaseCheckin" visibility="hidden">
+    <text x="640" y="220" font-family="monospace" font-size="48" fill="#f1f5f9" text-anchor="middle" font-weight="bold" filter="url(#glow)">Welcome</text>
+    <text x="640" y="270" font-family="monospace" font-size="20" fill="#94a3b8" text-anchor="middle">Scan the QR code to join</text>
+    <text x="640" y="310" font-family="monospace" font-size="24" fill="#c9a227" text-anchor="middle" id="checkinCount">0 checked in</text>
+    <!-- Name grid container -->
+    <g id="nameGrid" transform="translate(100, 340)"></g>
+  </g>
+
+  <!-- ==================== PHASE: TENSION ==================== -->
+  <g id="phaseTension" visibility="hidden">
+    <!-- Left column: The Tension (60% = ~740px, from x=24 to x=764) -->
+    <g id="tensionLeft" transform="translate(24, 80)">
+      <!-- Tension title -->
+      <text x="0" y="40" font-family="monospace" font-size="28" fill="#c9a227" font-weight="bold" filter="url(#glow)" id="tensionTitle">Loading tension...</text>
+
+      <!-- Spectrum bar background -->
+      <rect x="0" y="70" width="720" height="36" rx="18" fill="#1e293b" id="spectrumBg"/>
+      <!-- Spectrum bar gradient fill -->
+      <rect x="0" y="70" width="720" height="36" rx="18" fill="url(#spectrumGrad)" opacity="0.35"/>
+
+      <!-- Vote dots container -->
+      <g id="voteDots" transform="translate(0, 88)"></g>
+
+      <!-- Mean indicator -->
+      <polygon points="360,112 354,124 366,124" fill="#c9a227" id="meanIndicator"/>
+      <text x="360" y="140" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" id="meanLabel">mean</text>
+
+      <!-- Pole labels -->
+      <text x="0" y="160" font-family="monospace" font-size="12" fill="#3b82f6" id="poleLeft">strongly agree</text>
+      <text x="360" y="160" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">|</text>
+      <text x="720" y="160" font-family="monospace" font-size="12" fill="#ef4444" text-anchor="end" id="poleRight">strongly agree</text>
+
+      <!-- Vote summary -->
+      <text x="0" y="190" font-family="monospace" font-size="14" fill="#94a3b8" id="voteSummary">0 votes</text>
+
+      <!-- Tension description panels -->
+      <rect x="0" y="210" width="345" height="80" rx="8" fill="#111827" stroke="#3b82f6" stroke-width="1" opacity="0.6"/>
+      <text x="172" y="238" font-family="monospace" font-size="13" fill="#3b82f6" text-anchor="middle" font-weight="bold" id="tensionPoleALabel">Pole A</text>
+      <text x="172" y="260" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="tensionPoleADesc"></text>
+
+      <rect x="375" y="210" width="345" height="80" rx="8" fill="#111827" stroke="#ef4444" stroke-width="1" opacity="0.6"/>
+      <text x="547" y="238" font-family="monospace" font-size="13" fill="#ef4444" text-anchor="middle" font-weight="bold" id="tensionPoleBLabel">Pole B</text>
+      <text x="547" y="260" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="tensionPoleBDesc"></text>
+
+      <!-- Tension index indicator -->
+      <g id="tensionNav" transform="translate(0, 580)">
+        <circle cx="320" cy="0" r="6" fill="#1e293b" stroke="#94a3b8" id="navDot0"/>
+        <circle cx="340" cy="0" r="6" fill="#1e293b" stroke="#94a3b8" id="navDot1"/>
+        <circle cx="360" cy="0" r="6" fill="#1e293b" stroke="#94a3b8" id="navDot2"/>
+        <circle cx="380" cy="0" r="6" fill="#1e293b" stroke="#94a3b8" id="navDot3"/>
+      </g>
+    </g>
+
+    <!-- Right column: Questions and Comments (40% = ~480px, from x=784 to x=1256) -->
+    <g id="tensionRight" transform="translate(784, 80)">
+      <!-- TOP QUESTIONS header -->
+      <rect x="0" y="0" width="472" height="32" rx="6" fill="#111827" stroke="#1e293b"/>
+      <text x="16" y="22" font-family="monospace" font-size="14" fill="#c9a227" font-weight="bold">TOP QUESTIONS</text>
+      <text x="456" y="22" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="end" id="questionCount">0</text>
+
+      <!-- Questions container -->
+      <g id="questionsList" transform="translate(0, 40)"></g>
+
+      <!-- RECENT COMMENTS header -->
+      <rect x="0" y="320" width="472" height="32" rx="6" fill="#111827" stroke="#1e293b"/>
+      <text x="16" y="342" font-family="monospace" font-size="14" fill="#c9a227" font-weight="bold">RECENT COMMENTS</text>
+      <text x="456" y="342" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="end" id="commentCount">0</text>
+
+      <!-- Comments container -->
+      <g id="commentsList" transform="translate(0, 360)"></g>
+    </g>
+  </g>
+
+  <!-- ==================== PHASE: RESULTS ==================== -->
+  <g id="phaseResults" visibility="hidden">
+    <text x="640" y="110" font-family="monospace" font-size="36" fill="#c9a227" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
+
+    <!-- 4 mini spectrum charts side by side -->
+    <g id="resultsCharts" transform="translate(40, 140)">
+      <!-- T0 -->
+      <g transform="translate(0, 0)">
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="28" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle0">T0</text>
+        <text x="140" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub0"></text>
+        <rect x="20" y="60" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots0" transform="translate(20, 72)"></g>
+        <text x="20" y="100" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel0"></text>
+        <text x="260" y="100" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel0"></text>
+        <text x="140" y="130" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes0">0 votes</text>
+        <text x="140" y="150" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean0">mean: --</text>
+        <polygon points="140,164 134,176 146,176" fill="#c9a227" id="resultMeanArrow0"/>
+        <rect x="20" y="166" width="240" height="4" rx="2" fill="#1e293b"/>
+      </g>
+      <!-- T1 -->
+      <g transform="translate(300, 0)">
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="28" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle1">T1</text>
+        <text x="140" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub1"></text>
+        <rect x="20" y="60" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots1" transform="translate(20, 72)"></g>
+        <text x="20" y="100" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel1"></text>
+        <text x="260" y="100" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel1"></text>
+        <text x="140" y="130" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes1">0 votes</text>
+        <text x="140" y="150" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean1">mean: --</text>
+        <polygon points="140,164 134,176 146,176" fill="#c9a227" id="resultMeanArrow1"/>
+        <rect x="20" y="166" width="240" height="4" rx="2" fill="#1e293b"/>
+      </g>
+      <!-- T2 -->
+      <g transform="translate(600, 0)">
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="28" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle2">T2</text>
+        <text x="140" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub2"></text>
+        <rect x="20" y="60" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots2" transform="translate(20, 72)"></g>
+        <text x="20" y="100" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel2"></text>
+        <text x="260" y="100" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel2"></text>
+        <text x="140" y="130" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes2">0 votes</text>
+        <text x="140" y="150" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean2">mean: --</text>
+        <polygon points="140,164 134,176 146,176" fill="#c9a227" id="resultMeanArrow2"/>
+        <rect x="20" y="166" width="240" height="4" rx="2" fill="#1e293b"/>
+      </g>
+      <!-- T3 -->
+      <g transform="translate(900, 0)">
+        <rect x="0" y="0" width="280" height="200" rx="8" fill="#111827" stroke="#1e293b"/>
+        <text x="140" y="28" font-family="monospace" font-size="11" fill="#c9a227" text-anchor="middle" font-weight="bold" id="resultTitle3">T3</text>
+        <text x="140" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="resultSub3"></text>
+        <rect x="20" y="60" width="240" height="24" rx="12" fill="url(#spectrumGradMini)" opacity="0.3"/>
+        <g id="resultDots3" transform="translate(20, 72)"></g>
+        <text x="20" y="100" font-family="monospace" font-size="9" fill="#3b82f6" id="resultLeftLabel3"></text>
+        <text x="260" y="100" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" id="resultRightLabel3"></text>
+        <text x="140" y="130" font-family="monospace" font-size="12" fill="#f1f5f9" text-anchor="middle" id="resultVotes3">0 votes</text>
+        <text x="140" y="150" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="resultMean3">mean: --</text>
+        <polygon points="140,164 134,176 146,176" fill="#c9a227" id="resultMeanArrow3"/>
+        <rect x="20" y="166" width="240" height="4" rx="2" fill="#1e293b"/>
+      </g>
+    </g>
+
+    <!-- Summary stats -->
+    <rect x="240" y="380" width="800" height="80" rx="12" fill="#111827" stroke="#1e293b"/>
+    <text x="400" y="420" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalParticipants">0 participants</text>
+    <text x="640" y="420" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalQuestions">0 questions</text>
+    <text x="880" y="420" font-family="monospace" font-size="18" fill="#f1f5f9" text-anchor="middle" id="resultTotalComments">0 comments</text>
+    <text x="400" y="445" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">PARTICIPANTS</text>
+    <text x="640" y="445" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">QUESTIONS</text>
+    <text x="880" y="445" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle">COMMENTS</text>
+
+    <!-- Thank you -->
+    <text x="640" y="520" font-family="monospace" font-size="28" fill="#c9a227" text-anchor="middle" font-weight="bold">Thank you!</text>
+    <text x="640" y="555" font-family="monospace" font-size="14" fill="#94a3b8" text-anchor="middle">FAU Boca Raton  |  MPCR Labs Round Table</text>
+  </g>
+
+  <!-- ==================== BOTTOM STATUS BAR ==================== -->
+  <rect x="0" y="692" width="1280" height="28" fill="#111827" stroke="#1e293b" stroke-width="1"/>
+  <text x="24" y="710" font-family="monospace" font-size="10" fill="#94a3b8" id="statusText">connecting...</text>
+  <text x="640" y="710" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="phaseLabel">--</text>
+  <text x="1256" y="710" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="end" id="clockText"></text>
+
+  <script type="application/ecmascript"><![CDATA[
+    var BASE = 'https://statevec.com';
+    var ns = 'http://www.w3.org/2000/svg';
+
+    /* ── Hashes (read-only) ── */
+    var HASHES = {
+      state:    '2cb87f5f6c4c76da45361c4f934bee8e3d2ed29f0439fc35fbc1ae1727059be9',
+      checkins: 'a0c0e74f772b453b6e0352781490c9ac4dfdc781af90b4b3f24b667557c1d4e1',
+      votes:    '802e1abbe632e0612827bb2a79e8bc892a90e1b6188550cc587d0e3139763a10',
+      questions:'02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc',
+      comments: 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6'
+    };
+
+    /* ── Tension definitions ── */
+    var TENSIONS = [
+      { id: 'T0', title: 'Cognitive Offloading vs. Deep Learning',
+        left: 'Cognitive Offloading', right: 'Deep Learning',
+        leftDesc: 'AI handles routine tasks, freeing cognitive load',
+        rightDesc: 'Students must struggle to truly understand' },
+      { id: 'T1', title: 'Personalization vs. Belonging',
+        left: 'Personalization', right: 'Belonging',
+        leftDesc: 'Tailored AI paths for each learner',
+        rightDesc: 'Shared experience builds community' },
+      { id: 'T2', title: 'Assistance vs. Authorship',
+        left: 'Assistance', right: 'Authorship',
+        leftDesc: 'AI as a helpful collaborator',
+        rightDesc: 'Student owns original thought' },
+      { id: 'T3', title: 'Innovation vs. Governance',
+        left: 'Innovation', right: 'Governance',
+        leftDesc: 'Move fast, explore new tools',
+        rightDesc: 'Policies and guardrails first' }
+    ];
+
+    /* ── Cached state ── */
+    var state = {};
+    var checkins = {};
+    var votes = {};
+    var questions = {};
+    var comments = {};
+    var currentPhase = '';
+    var currentTensionIdx = -1;
+
+    /* ── DOM refs ── */
+    var connDot = document.getElementById('connDot');
+    var topParticipants = document.getElementById('topParticipants');
+    var statusText = document.getElementById('statusText');
+    var phaseLabel = document.getElementById('phaseLabel');
+    var clockText = document.getElementById('clockText');
+
+    var phaseCheckin = document.getElementById('phaseCheckin');
+    var phaseTension = document.getElementById('phaseTension');
+    var phaseResults = document.getElementById('phaseResults');
+
+    var checkinCount = document.getElementById('checkinCount');
+    var nameGrid = document.getElementById('nameGrid');
+
+    var tensionTitle = document.getElementById('tensionTitle');
+    var voteDots = document.getElementById('voteDots');
+    var meanIndicator = document.getElementById('meanIndicator');
+    var meanLabel = document.getElementById('meanLabel');
+    var poleLeft = document.getElementById('poleLeft');
+    var poleRight = document.getElementById('poleRight');
+    var voteSummary = document.getElementById('voteSummary');
+    var tensionPoleALabel = document.getElementById('tensionPoleALabel');
+    var tensionPoleBLabel = document.getElementById('tensionPoleBLabel');
+    var tensionPoleADesc = document.getElementById('tensionPoleADesc');
+    var tensionPoleBDesc = document.getElementById('tensionPoleBDesc');
+    var questionCount = document.getElementById('questionCount');
+    var commentCount = document.getElementById('commentCount');
+    var questionsList = document.getElementById('questionsList');
+    var commentsList = document.getElementById('commentsList');
+
+    /* ── Helpers ── */
+    function clearChildren(el) {
+      while (el.firstChild) el.removeChild(el.firstChild);
+    }
+
+    function truncate(str, max) {
+      if (!str) return '';
+      return str.length > max ? str.substring(0, max) + '...' : str;
+    }
+
+    function updateClock() {
+      var d = new Date();
+      var h = d.getHours();
+      var m = d.getMinutes();
+      var s = d.getSeconds();
+      clockText.textContent =
+        (h < 10 ? '0' : '') + h + ':' +
+        (m < 10 ? '0' : '') + m + ':' +
+        (s < 10 ? '0' : '') + s;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    /* ── Phase switching ── */
+    function showPhase(phase) {
+      phaseCheckin.setAttribute('visibility', phase === 'checkin' ? 'visible' : 'hidden');
+      phaseTension.setAttribute('visibility', phase === 'tension' ? 'visible' : 'hidden');
+      phaseResults.setAttribute('visibility', phase === 'results' ? 'visible' : 'hidden');
+      currentPhase = phase;
+      phaseLabel.textContent = phase ? phase.toUpperCase() : '--';
+    }
+
+    /* ── Render: Check-in phase ── */
+    function renderCheckin() {
+      var val = checkins.val || checkins;
+      var names = [];
+      if (val && typeof val === 'object') {
+        var keys = Object.keys(val);
+        for (var i = 0; i < keys.length; i++) {
+          var entry = val[keys[i]];
+          if (typeof entry === 'string') {
+            names.push(entry);
+          } else if (entry && entry.name) {
+            names.push(entry.name);
+          } else if (typeof entry === 'object' && entry !== null) {
+            /* entries might be {name, ts} or nested */
+            var eKeys = Object.keys(entry);
+            for (var j = 0; j < eKeys.length; j++) {
+              var sub = entry[eKeys[j]];
+              if (typeof sub === 'string') names.push(sub);
+              else if (sub && sub.name) names.push(sub.name);
+            }
+          }
+        }
+      }
+
+      checkinCount.textContent = names.length + ' checked in';
+      topParticipants.textContent = names.length + ' participants';
+
+      clearChildren(nameGrid);
+      var cols = 8;
+      var cellW = 130;
+      var cellH = 24;
+      for (var k = 0; k < names.length; k++) {
+        var col = k % cols;
+        var row = Math.floor(k / cols);
+        var t = document.createElementNS(ns, 'text');
+        t.setAttribute('x', col * cellW);
+        t.setAttribute('y', row * cellH + 16);
+        t.setAttribute('font-family', 'monospace');
+        t.setAttribute('font-size', '12');
+        t.setAttribute('fill', '#94a3b8');
+        t.textContent = truncate(names[k], 14);
+        nameGrid.appendChild(t);
+      }
+    }
+
+    /* ── Render: Tension phase ── */
+    function renderTension(tIdx) {
+      var t = TENSIONS[tIdx];
+      if (!t) return;
+      currentTensionIdx = tIdx;
+
+      tensionTitle.textContent = t.title;
+      poleLeft.textContent = t.left;
+      poleRight.textContent = t.right;
+      tensionPoleALabel.textContent = t.left;
+      tensionPoleBLabel.textContent = t.right;
+      tensionPoleADesc.textContent = t.leftDesc;
+      tensionPoleBDesc.textContent = t.rightDesc;
+
+      /* Nav dots */
+      for (var n = 0; n < 4; n++) {
+        var dot = document.getElementById('navDot' + n);
+        if (dot) {
+          dot.setAttribute('fill', n === tIdx ? '#c9a227' : '#1e293b');
+        }
+      }
+
+      /* Votes for this tension */
+      var tKey = 'T' + tIdx;
+      var voteList = [];
+      var val = votes.val || votes;
+      if (val && typeof val === 'object') {
+        var vKeys = Object.keys(val);
+        for (var i = 0; i < vKeys.length; i++) {
+          var entry = val[vKeys[i]];
+          if (entry && entry.tension === tKey && typeof entry.value === 'number') {
+            voteList.push(entry.value);
+          } else if (entry && entry.t === tIdx && typeof entry.v === 'number') {
+            voteList.push(entry.v);
+          } else if (entry && typeof entry === 'object') {
+            /* possibly nested per-tension */
+            var sub = entry[tKey];
+            if (typeof sub === 'number') voteList.push(sub);
+          }
+        }
+        /* Also check if votes are stored as T0: [array] */
+        if (val[tKey] && Array.isArray(val[tKey])) {
+          voteList = val[tKey];
+        } else if (typeof val[tKey] === 'object' && val[tKey] !== null && !Array.isArray(val[tKey])) {
+          var tVals = Object.keys(val[tKey]);
+          for (var j = 0; j < tVals.length; j++) {
+            var v = val[tKey][tVals[j]];
+            if (typeof v === 'number') voteList.push(v);
+            else if (v && typeof v.value === 'number') voteList.push(v.value);
+            else if (v && typeof v.v === 'number') voteList.push(v.v);
+          }
+        }
+      }
+
+      /* Draw vote dots on spectrum (1=far left, 5=far right over 720px) */
+      clearChildren(voteDots);
+      var SPECTRUM_W = 720;
+      var total = voteList.length;
+      var sum = 0;
+
+      /* Count votes at each position for stacking */
+      var posCount = {};
+      for (var vi = 0; vi < voteList.length; vi++) {
+        var v = Math.max(1, Math.min(5, voteList[vi]));
+        sum += v;
+        var posKey = Math.round(v * 10);
+        if (!posCount[posKey]) posCount[posKey] = 0;
+        posCount[posKey]++;
+      }
+
+      /* Draw dots */
+      var posDrawn = {};
+      for (var vi2 = 0; vi2 < voteList.length; vi2++) {
+        var vv = Math.max(1, Math.min(5, voteList[vi2]));
+        var posKey2 = Math.round(vv * 10);
+        if (!posDrawn[posKey2]) posDrawn[posKey2] = 0;
+        var stackIdx = posDrawn[posKey2];
+        posDrawn[posKey2]++;
+
+        var cx = ((vv - 1) / 4) * SPECTRUM_W;
+        /* Stack vertically: offset by -12 per stacked dot */
+        var cy = -8 - (stackIdx * 14);
+
+        var circle = document.createElementNS(ns, 'circle');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', 6);
+        circle.setAttribute('fill', '#f1f5f9');
+        circle.setAttribute('opacity', '0.7');
+        circle.setAttribute('stroke', '#0a0e1a');
+        circle.setAttribute('stroke-width', '1');
+        voteDots.appendChild(circle);
+      }
+
+      /* Mean */
+      var mean = total > 0 ? sum / total : 3;
+      var meanX = ((mean - 1) / 4) * SPECTRUM_W;
+      meanIndicator.setAttribute('points',
+        meanX + ',112 ' + (meanX - 6) + ',124 ' + (meanX + 6) + ',124');
+      meanLabel.setAttribute('x', meanX);
+      meanLabel.textContent = total > 0 ? 'mean: ' + mean.toFixed(1) : 'mean';
+
+      voteSummary.textContent = total + ' vote' + (total !== 1 ? 's' : '');
+    }
+
+    /* ── Render: Questions ── */
+    function renderQuestions(tIdx) {
+      clearChildren(questionsList);
+      var tKey = 'T' + tIdx;
+      var val = questions.val || questions;
+      var qList = [];
+
+      if (val && typeof val === 'object') {
+        var keys = Object.keys(val);
+        for (var i = 0; i < keys.length; i++) {
+          var q = val[keys[i]];
+          if (q && typeof q === 'object') {
+            /* Accept questions matching this tension or all */
+            if (!q.tension || q.tension === tKey || q.t === tIdx) {
+              qList.push({
+                text: q.text || q.q || q.question || keys[i],
+                upvotes: q.upvotes || q.up || q.votes || 0,
+                highlighted: q.highlighted || q.star || q.pinned || false,
+                name: q.name || q.author || 'anonymous'
+              });
+            }
+          }
+        }
+      }
+
+      /* Sort by upvotes descending */
+      qList.sort(function(a, b) { return b.upvotes - a.upvotes; });
+      var top5 = qList.slice(0, 5);
+
+      questionCount.textContent = qList.length + '';
+
+      for (var qi = 0; qi < top5.length; qi++) {
+        var q2 = top5[qi];
+        var y = qi * 54;
+
+        /* Background */
+        var bg = document.createElementNS(ns, 'rect');
+        bg.setAttribute('x', 0);
+        bg.setAttribute('y', y);
+        bg.setAttribute('width', 472);
+        bg.setAttribute('height', 48);
+        bg.setAttribute('rx', 6);
+        bg.setAttribute('fill', '#111827');
+        bg.setAttribute('stroke', q2.highlighted ? '#c9a227' : '#1e293b');
+        bg.setAttribute('stroke-width', q2.highlighted ? '2' : '1');
+        questionsList.appendChild(bg);
+
+        /* Star if highlighted */
+        if (q2.highlighted) {
+          var star = document.createElementNS(ns, 'text');
+          star.setAttribute('x', 12);
+          star.setAttribute('y', y + 22);
+          star.setAttribute('font-family', 'monospace');
+          star.setAttribute('font-size', '14');
+          star.setAttribute('fill', '#c9a227');
+          star.textContent = '\u2605';
+          questionsList.appendChild(star);
+        }
+
+        /* Question text */
+        var qt = document.createElementNS(ns, 'text');
+        qt.setAttribute('x', q2.highlighted ? 30 : 12);
+        qt.setAttribute('y', y + 20);
+        qt.setAttribute('font-family', 'monospace');
+        qt.setAttribute('font-size', '12');
+        qt.setAttribute('fill', '#f1f5f9');
+        qt.textContent = truncate(q2.text, 50);
+        questionsList.appendChild(qt);
+
+        /* Author */
+        var qa = document.createElementNS(ns, 'text');
+        qa.setAttribute('x', q2.highlighted ? 30 : 12);
+        qa.setAttribute('y', y + 38);
+        qa.setAttribute('font-family', 'monospace');
+        qa.setAttribute('font-size', '9');
+        qa.setAttribute('fill', '#94a3b8');
+        qa.textContent = q2.name;
+        questionsList.appendChild(qa);
+
+        /* Upvote count */
+        var uv = document.createElementNS(ns, 'text');
+        uv.setAttribute('x', 456);
+        uv.setAttribute('y', y + 22);
+        uv.setAttribute('font-family', 'monospace');
+        uv.setAttribute('font-size', '13');
+        uv.setAttribute('fill', '#3b82f6');
+        uv.setAttribute('text-anchor', 'end');
+        uv.textContent = '\u25B2 ' + q2.upvotes;
+        questionsList.appendChild(uv);
+      }
+    }
+
+    /* ── Render: Comments ── */
+    function renderComments(tIdx) {
+      clearChildren(commentsList);
+      var tKey = 'T' + tIdx;
+      var val = comments.val || comments;
+      var cList = [];
+
+      if (val && typeof val === 'object') {
+        var keys = Object.keys(val);
+        for (var i = 0; i < keys.length; i++) {
+          var c = val[keys[i]];
+          if (c && typeof c === 'object') {
+            if (!c.tension || c.tension === tKey || c.t === tIdx) {
+              cList.push({
+                text: c.text || c.msg || c.comment || '',
+                name: c.name || c.author || 'anonymous',
+                ts: c.ts || c.time || 0
+              });
+            }
+          }
+        }
+      }
+
+      /* Sort by timestamp descending, take last 4 */
+      cList.sort(function(a, b) { return b.ts - a.ts; });
+      var last4 = cList.slice(0, 4);
+
+      commentCount.textContent = cList.length + '';
+
+      for (var ci = 0; ci < last4.length; ci++) {
+        var c2 = last4[ci];
+        var y = ci * 54;
+
+        var bg = document.createElementNS(ns, 'rect');
+        bg.setAttribute('x', 0);
+        bg.setAttribute('y', y);
+        bg.setAttribute('width', 472);
+        bg.setAttribute('height', 48);
+        bg.setAttribute('rx', 6);
+        bg.setAttribute('fill', '#111827');
+        bg.setAttribute('stroke', '#1e293b');
+        commentsList.appendChild(bg);
+
+        var cn = document.createElementNS(ns, 'text');
+        cn.setAttribute('x', 12);
+        cn.setAttribute('y', y + 18);
+        cn.setAttribute('font-family', 'monospace');
+        cn.setAttribute('font-size', '10');
+        cn.setAttribute('fill', '#c9a227');
+        cn.textContent = c2.name;
+        commentsList.appendChild(cn);
+
+        var ct = document.createElementNS(ns, 'text');
+        ct.setAttribute('x', 12);
+        ct.setAttribute('y', y + 36);
+        ct.setAttribute('font-family', 'monospace');
+        ct.setAttribute('font-size', '11');
+        ct.setAttribute('fill', '#f1f5f9');
+        ct.textContent = truncate(c2.text, 52);
+        commentsList.appendChild(ct);
+      }
+    }
+
+    /* ── Render: Results phase ── */
+    function renderResults() {
+      var val = votes.val || votes;
+      var totalQ = 0;
+      var totalC = 0;
+      var totalP = 0;
+
+      /* Count participants from checkins */
+      var cVal = checkins.val || checkins;
+      if (cVal && typeof cVal === 'object') {
+        totalP = Object.keys(cVal).length;
+      }
+      topParticipants.textContent = totalP + ' participants';
+
+      /* Count questions */
+      var qVal = questions.val || questions;
+      if (qVal && typeof qVal === 'object') {
+        totalQ = Object.keys(qVal).length;
+      }
+
+      /* Count comments */
+      var cmVal = comments.val || comments;
+      if (cmVal && typeof cmVal === 'object') {
+        totalC = Object.keys(cmVal).length;
+      }
+
+      document.getElementById('resultTotalParticipants').textContent = totalP;
+      document.getElementById('resultTotalQuestions').textContent = totalQ;
+      document.getElementById('resultTotalComments').textContent = totalC;
+
+      /* Mini spectrum for each tension */
+      for (var ti = 0; ti < 4; ti++) {
+        var tDef = TENSIONS[ti];
+        document.getElementById('resultTitle' + ti).textContent = tDef.title;
+        document.getElementById('resultSub' + ti).textContent = tDef.left + ' vs. ' + tDef.right;
+        document.getElementById('resultLeftLabel' + ti).textContent = tDef.left;
+        document.getElementById('resultRightLabel' + ti).textContent = tDef.right;
+
+        var tKey = 'T' + ti;
+        var vList = [];
+
+        if (val && typeof val === 'object') {
+          var vKeys = Object.keys(val);
+          for (var vi = 0; vi < vKeys.length; vi++) {
+            var entry = val[vKeys[vi]];
+            if (entry && entry.tension === tKey && typeof entry.value === 'number') {
+              vList.push(entry.value);
+            } else if (entry && entry.t === ti && typeof entry.v === 'number') {
+              vList.push(entry.v);
+            }
+          }
+          if (val[tKey] && Array.isArray(val[tKey])) {
+            vList = val[tKey];
+          } else if (typeof val[tKey] === 'object' && val[tKey] !== null && !Array.isArray(val[tKey])) {
+            var tVals = Object.keys(val[tKey]);
+            for (var j = 0; j < tVals.length; j++) {
+              var v = val[tKey][tVals[j]];
+              if (typeof v === 'number') vList.push(v);
+              else if (v && typeof v.value === 'number') vList.push(v.value);
+              else if (v && typeof v.v === 'number') vList.push(v.v);
+            }
+          }
+        }
+
+        document.getElementById('resultVotes' + ti).textContent = vList.length + ' votes';
+
+        var dotsG = document.getElementById('resultDots' + ti);
+        clearChildren(dotsG);
+
+        var miniW = 240;
+        var sum = 0;
+        var posCount = {};
+        for (var k = 0; k < vList.length; k++) {
+          var vv = Math.max(1, Math.min(5, vList[k]));
+          sum += vv;
+          var pk = Math.round(vv * 10);
+          if (!posCount[pk]) posCount[pk] = 0;
+          posCount[pk]++;
+        }
+
+        var posDrawn = {};
+        for (var k2 = 0; k2 < vList.length; k2++) {
+          var vv2 = Math.max(1, Math.min(5, vList[k2]));
+          var pk2 = Math.round(vv2 * 10);
+          if (!posDrawn[pk2]) posDrawn[pk2] = 0;
+          var si = posDrawn[pk2];
+          posDrawn[pk2]++;
+
+          var cx = ((vv2 - 1) / 4) * miniW;
+          var cy = -4 - (si * 10);
+
+          var circle = document.createElementNS(ns, 'circle');
+          circle.setAttribute('cx', cx);
+          circle.setAttribute('cy', cy);
+          circle.setAttribute('r', 4);
+          circle.setAttribute('fill', '#f1f5f9');
+          circle.setAttribute('opacity', '0.7');
+          circle.setAttribute('stroke', '#0a0e1a');
+          circle.setAttribute('stroke-width', '1');
+          dotsG.appendChild(circle);
+        }
+
+        var mean = vList.length > 0 ? sum / vList.length : 3;
+        var meanX = 20 + ((mean - 1) / 4) * miniW;
+        document.getElementById('resultMean' + ti).textContent = vList.length > 0 ? 'mean: ' + mean.toFixed(1) : 'mean: --';
+        var arrow = document.getElementById('resultMeanArrow' + ti);
+        arrow.setAttribute('points',
+          meanX + ',164 ' + (meanX - 4) + ',174 ' + (meanX + 4) + ',174');
+      }
+    }
+
+    /* ── Fetch helper ── */
+    function fetchHash(hash) {
+      return fetch(BASE + '/v/' + hash).then(function(r) {
+        if (r.ok) return r.json();
+        return null;
+      }).catch(function() { return null; });
+    }
+
+    /* ── Main poll ── */
+    function poll() {
+      var fetches = [
+        fetchHash(HASHES.state),
+        fetchHash(HASHES.checkins),
+        fetchHash(HASHES.votes),
+        fetchHash(HASHES.questions),
+        fetchHash(HASHES.comments)
+      ];
+
+      Promise.all(fetches).then(function(results) {
+        var stateData = results[0];
+        var checkinsData = results[1];
+        var votesData = results[2];
+        var questionsData = results[3];
+        var commentsData = results[4];
+
+        connDot.setAttribute('fill', '#22c55e');
+        statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
+
+        if (stateData && stateData.val) state = stateData.val;
+        if (checkinsData && checkinsData.val) checkins = { val: checkinsData.val };
+        else if (checkinsData) checkins = checkinsData;
+        if (votesData && votesData.val) votes = { val: votesData.val };
+        else if (votesData) votes = votesData;
+        if (questionsData && questionsData.val) questions = { val: questionsData.val };
+        else if (questionsData) questions = questionsData;
+        if (commentsData && commentsData.val) comments = { val: commentsData.val };
+        else if (commentsData) comments = commentsData;
+
+        /* Determine phase */
+        var phase = 'checkin';
+        if (state && state.phase) {
+          phase = state.phase;
+        }
+
+        /* Determine tension index */
+        var tIdx = 0;
+        if (state && (typeof state.tension === 'number')) {
+          tIdx = state.tension;
+        } else if (state && (typeof state.tensionIndex === 'number')) {
+          tIdx = state.tensionIndex;
+        } else if (state && state.t !== undefined) {
+          tIdx = state.t;
+        }
+
+        /* Update participant count */
+        var cVal = checkins.val || checkins;
+        var pCount = 0;
+        if (cVal && typeof cVal === 'object') {
+          pCount = Object.keys(cVal).length;
+        }
+        topParticipants.textContent = pCount + ' participants';
+
+        /* Show appropriate phase */
+        showPhase(phase);
+
+        if (phase === 'checkin') {
+          renderCheckin();
+        } else if (phase === 'tension') {
+          renderTension(tIdx);
+          renderQuestions(tIdx);
+          renderComments(tIdx);
+        } else if (phase === 'results') {
+          renderResults();
+        }
+
+      }).catch(function(err) {
+        connDot.setAttribute('fill', '#ef4444');
+        statusText.textContent = 'error: ' + (err.message || 'poll failed');
+      });
+    }
+
+    /* ── Init ── */
+    showPhase('checkin');
+    poll();
+    setInterval(poll, 2000);
+  ]]></script>
+</svg>

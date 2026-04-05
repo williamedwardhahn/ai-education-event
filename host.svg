@@ -1,0 +1,703 @@
+<svg viewBox="0 0 900 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <clipPath id="qClip"><rect x="301" y="52" width="298" height="536"/></clipPath>
+    <clipPath id="pClip"><rect x="601" y="52" width="298" height="280"/></clipPath>
+    <clipPath id="cClip"><rect x="601" y="430" width="298" height="158"/></clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="600" fill="#0a0e1a"/>
+
+  <!-- Header bar -->
+  <rect width="900" height="44" fill="#111827"/>
+  <circle cx="20" cy="22" r="5" fill="#c9a227" id="connDot"/>
+  <text x="34" y="27" font-family="monospace" font-size="13" fill="#c9a227" font-weight="bold">MPCR LABS</text>
+  <text x="130" y="27" font-family="monospace" font-size="11" fill="#94a3b8">AI in Education: Central Tensions</text>
+  <text x="520" y="27" font-family="monospace" font-size="10" fill="#94a3b8">HOST PANEL</text>
+  <text x="820" y="18" font-family="monospace" font-size="9" fill="#94a3b8" id="clockDisplay">--:--:--</text>
+  <text x="820" y="30" font-family="monospace" font-size="9" fill="#94a3b8" id="pollStatus">polling...</text>
+  <circle cx="880" cy="22" r="4" fill="#94a3b8" id="pollDot"/>
+
+  <!-- Vertical dividers -->
+  <line x1="300" y1="44" x2="300" y2="600" stroke="#1e293b"/>
+  <line x1="600" y1="44" x2="600" y2="600" stroke="#1e293b"/>
+
+  <!-- ==================== LEFT PANEL: FLOW CONTROL (0-300) ==================== -->
+  <rect x="0" y="44" width="300" height="556" fill="#111827"/>
+
+  <text x="150" y="72" font-family="monospace" font-size="13" fill="#c9a227" font-weight="bold" text-anchor="middle">HOST CONTROLS</text>
+  <line x1="16" y1="82" x2="284" y2="82" stroke="#1e293b"/>
+
+  <!-- Current phase display -->
+  <text x="16" y="102" font-family="monospace" font-size="9" fill="#94a3b8">CURRENT PHASE</text>
+  <rect x="16" y="108" width="268" height="36" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
+  <text x="150" y="122" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="phaseLabel">Phase:</text>
+  <text x="150" y="136" font-family="monospace" font-size="8" fill="#f1f5f9" text-anchor="middle" id="phaseDetail">--</text>
+
+  <!-- Phase buttons -->
+  <text x="16" y="162" font-family="monospace" font-size="9" fill="#94a3b8">PHASES</text>
+
+  <!-- Button 0: Welcome / Check-in -->
+  <rect x="16" y="170" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase0bg" style="cursor:pointer"/>
+  <text x="150" y="191" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase0txt" style="pointer-events:none">Welcome / Check-in</text>
+  <rect x="16" y="170" width="268" height="32" rx="4" fill="transparent" id="btnPhase0" style="cursor:pointer"/>
+
+  <!-- Button 1: Tension 1 -->
+  <rect x="16" y="208" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase1bg" style="cursor:pointer"/>
+  <text x="150" y="229" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase1txt" style="pointer-events:none">T1: Cognitive offloading</text>
+  <rect x="16" y="208" width="268" height="32" rx="4" fill="transparent" id="btnPhase1" style="cursor:pointer"/>
+
+  <!-- Button 2: Tension 2 -->
+  <rect x="16" y="246" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase2bg" style="cursor:pointer"/>
+  <text x="150" y="267" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase2txt" style="pointer-events:none">T2: Personalization</text>
+  <rect x="16" y="246" width="268" height="32" rx="4" fill="transparent" id="btnPhase2" style="cursor:pointer"/>
+
+  <!-- Button 3: Tension 3 -->
+  <rect x="16" y="284" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase3bg" style="cursor:pointer"/>
+  <text x="150" y="305" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase3txt" style="pointer-events:none">T3: Assistance vs. authorship</text>
+  <rect x="16" y="284" width="268" height="32" rx="4" fill="transparent" id="btnPhase3" style="cursor:pointer"/>
+
+  <!-- Button 4: Tension 4 -->
+  <rect x="16" y="322" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase4bg" style="cursor:pointer"/>
+  <text x="150" y="343" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase4txt" style="pointer-events:none">T4: Innovation vs. governance</text>
+  <rect x="16" y="322" width="268" height="32" rx="4" fill="transparent" id="btnPhase4" style="cursor:pointer"/>
+
+  <!-- Button 5: Results -->
+  <rect x="16" y="360" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase5bg" style="cursor:pointer"/>
+  <text x="150" y="381" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase5txt" style="pointer-events:none">Results</text>
+  <rect x="16" y="360" width="268" height="32" rx="4" fill="transparent" id="btnPhase5" style="cursor:pointer"/>
+
+  <!-- Voting toggle -->
+  <line x1="16" y1="408" x2="284" y2="408" stroke="#1e293b"/>
+  <text x="16" y="428" font-family="monospace" font-size="9" fill="#94a3b8">VOTING</text>
+  <rect x="16" y="436" width="268" height="36" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnVoteBg" style="cursor:pointer"/>
+  <text x="150" y="459" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" font-weight="bold" id="btnVoteTxt" style="pointer-events:none">Open Voting</text>
+  <rect x="16" y="436" width="268" height="36" rx="4" fill="transparent" id="btnVote" style="cursor:pointer"/>
+
+  <!-- Reset button -->
+  <line x1="16" y1="490" x2="284" y2="490" stroke="#1e293b"/>
+  <rect x="16" y="504" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#ef4444" id="btnResetBg" style="cursor:pointer"/>
+  <text x="150" y="525" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold" id="btnResetTxt" style="pointer-events:none">Reset All</text>
+  <rect x="16" y="504" width="268" height="32" rx="4" fill="transparent" id="btnReset" style="cursor:pointer"/>
+
+  <!-- State info -->
+  <text x="16" y="560" font-family="monospace" font-size="8" fill="#94a3b8" id="stateInfo">state: mpcr:ai:state</text>
+  <text x="16" y="572" font-family="monospace" font-size="7" fill="#94a3b8" id="stateHash">hash: 2cb87f5f...</text>
+  <text x="16" y="584" font-family="monospace" font-size="7" fill="#94a3b8" id="writeStatus">--</text>
+
+  <!-- ==================== CENTER PANEL: QUESTIONS (300-600) ==================== -->
+  <rect x="300" y="44" width="300" height="556" fill="#0a0e1a"/>
+  <rect x="301" y="44" width="298" height="30" fill="#111827"/>
+  <text x="450" y="65" font-family="monospace" font-size="12" fill="#3b82f6" font-weight="bold" text-anchor="middle">QUESTIONS</text>
+  <text x="590" y="65" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="qCount">(0)</text>
+
+  <!-- Questions list (clipped scrollable region) -->
+  <g clip-path="url(#qClip)">
+    <g id="questionsGroup" transform="translate(310, 82)"></g>
+  </g>
+
+  <!-- Scroll indicators -->
+  <text x="450" y="592" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle" id="qScrollHint"></text>
+
+  <!-- ==================== RIGHT PANEL: STATS (600-900) ==================== -->
+  <rect x="600" y="44" width="300" height="556" fill="#0a0e1a"/>
+
+  <!-- Participants section -->
+  <rect x="601" y="44" width="298" height="30" fill="#111827"/>
+  <text x="616" y="65" font-family="monospace" font-size="12" fill="#3b82f6" font-weight="bold">PARTICIPANTS</text>
+  <text x="890" y="65" font-family="monospace" font-size="10" fill="#c9a227" text-anchor="end" id="participantCount">0</text>
+
+  <g clip-path="url(#pClip)">
+    <g id="participantsGroup" transform="translate(610, 82)"></g>
+  </g>
+
+  <!-- Vote distribution section -->
+  <line x1="610" y1="336" x2="890" y2="336" stroke="#1e293b"/>
+  <text x="616" y="356" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">VOTE DISTRIBUTION</text>
+  <text x="890" y="356" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="voteTotal">0 votes</text>
+
+  <!-- Bar chart area -->
+  <g id="voteBarsGroup" transform="translate(616, 366)">
+    <text x="0" y="14" font-family="monospace" font-size="9" fill="#94a3b8">1</text>
+    <rect x="18" y="4" width="0" height="12" rx="2" fill="#3b82f6" id="vbar1"/>
+    <text x="240" y="14" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount1">0</text>
+
+    <text x="0" y="30" font-family="monospace" font-size="9" fill="#94a3b8">2</text>
+    <rect x="18" y="20" width="0" height="12" rx="2" fill="#3b82f6" id="vbar2"/>
+    <text x="240" y="30" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount2">0</text>
+
+    <text x="0" y="46" font-family="monospace" font-size="9" fill="#94a3b8">3</text>
+    <rect x="18" y="36" width="0" height="12" rx="2" fill="#3b82f6" id="vbar3"/>
+    <text x="240" y="46" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount3">0</text>
+
+    <text x="0" y="62" font-family="monospace" font-size="9" fill="#94a3b8">4</text>
+    <rect x="18" y="52" width="0" height="12" rx="2" fill="#3b82f6" id="vbar4"/>
+    <text x="240" y="62" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount4">0</text>
+
+    <text x="0" y="78" font-family="monospace" font-size="9" fill="#94a3b8">5</text>
+    <rect x="18" y="68" width="0" height="12" rx="2" fill="#3b82f6" id="vbar5"/>
+    <text x="240" y="78" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="end" id="vcount5">0</text>
+  </g>
+
+  <!-- Comments section -->
+  <line x1="610" y1="456" x2="890" y2="456" stroke="#1e293b"/>
+  <text x="616" y="474" font-family="monospace" font-size="11" fill="#3b82f6" font-weight="bold">RECENT COMMENTS</text>
+
+  <g clip-path="url(#cClip)">
+    <g id="commentsGroup" transform="translate(610, 486)"></g>
+  </g>
+
+  <script type="application/ecmascript"><![CDATA[
+    var BASE = 'https://statevec.com';
+    var ns = 'http://www.w3.org/2000/svg';
+
+    /* ── Secrets ── */
+    var STATE_SECRET = 'mpcr:ai:state';
+    var STATE_HASH   = '2cb87f5f6c4c76da45361c4f934bee8e3d2ed29f0439fc35fbc1ae1727059be9';
+    var CHECKIN_HASH = 'a0c0e74f772b453b6e0352781490c9ac4dfdc781af90b4b3f24b667557c1d4e1';
+    var VOTES_HASH   = '802e1abbe632e0612827bb2a79e8bc892a90e1b6188550cc587d0e3139763a10';
+    var Q_SECRET     = 'mpcr:ai:questions';
+    var Q_HASH       = '02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc';
+    var COMMENT_HASH = 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6';
+
+    /* ── Tensions ── */
+    var TENSIONS = [
+      'Cognitive offloading vs. deep learning',
+      'Personalization vs. belonging',
+      'Assistance vs. authorship',
+      'Innovation vs. governance'
+    ];
+
+    /* ── State ── */
+    var currentPhase = 'checkin';
+    var currentTension = 0;
+    var votingOpen = false;
+    var activeBtn = 0;
+
+    /* ── Cached data ── */
+    var checkins = {};
+    var votes = {};
+    var questions = [];
+    var comments = [];
+    var qScrollOffset = 0;
+
+    /* ── DOM refs ── */
+    var connDot = document.getElementById('connDot');
+    var pollDot = document.getElementById('pollDot');
+    var pollStatus = document.getElementById('pollStatus');
+    var clockDisplay = document.getElementById('clockDisplay');
+    var phaseLabel = document.getElementById('phaseLabel');
+    var phaseDetail = document.getElementById('phaseDetail');
+    var btnVoteBg = document.getElementById('btnVoteBg');
+    var btnVoteTxt = document.getElementById('btnVoteTxt');
+    var writeStatus = document.getElementById('writeStatus');
+    var qCount = document.getElementById('qCount');
+    var participantCount = document.getElementById('participantCount');
+    var voteTotal = document.getElementById('voteTotal');
+    var questionsGroup = document.getElementById('questionsGroup');
+    var participantsGroup = document.getElementById('participantsGroup');
+    var commentsGroup = document.getElementById('commentsGroup');
+    var qScrollHint = document.getElementById('qScrollHint');
+
+    /* ── Phase button refs ── */
+    var phaseBgs = [];
+    var phaseTxts = [];
+    for (var i = 0; i < 6; i++) {
+      phaseBgs.push(document.getElementById('btnPhase' + i + 'bg'));
+      phaseTxts.push(document.getElementById('btnPhase' + i + 'txt'));
+    }
+
+    /* ── Clock ── */
+    function updateClock() {
+      var d = new Date();
+      clockDisplay.textContent = d.toLocaleTimeString();
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+
+    /* ── Highlight active phase button ── */
+    function highlightPhase(idx) {
+      activeBtn = idx;
+      for (var i = 0; i < 6; i++) {
+        if (i === idx) {
+          phaseBgs[i].setAttribute('fill', '#c9a227');
+          phaseBgs[i].setAttribute('stroke', '#c9a227');
+          phaseTxts[i].setAttribute('fill', '#0a0e1a');
+          phaseTxts[i].setAttribute('font-weight', 'bold');
+        } else {
+          phaseBgs[i].setAttribute('fill', '#0a0e1a');
+          phaseBgs[i].setAttribute('stroke', '#1e293b');
+          phaseTxts[i].setAttribute('fill', '#94a3b8');
+          phaseTxts[i].setAttribute('font-weight', 'normal');
+        }
+      }
+    }
+
+    /* ── Update phase display ── */
+    function updatePhaseDisplay() {
+      if (currentPhase === 'checkin') {
+        phaseLabel.textContent = 'Phase: Welcome / Check-in';
+        phaseDetail.textContent = 'Participants joining...';
+      } else if (currentPhase === 'results') {
+        phaseLabel.textContent = 'Phase: Results';
+        phaseDetail.textContent = 'Reviewing all tensions';
+      } else {
+        phaseLabel.textContent = 'Phase: Tension ' + (currentTension + 1);
+        phaseDetail.textContent = TENSIONS[currentTension];
+      }
+    }
+
+    /* ── Voting button display ── */
+    function updateVoteButton() {
+      if (votingOpen) {
+        btnVoteBg.setAttribute('fill', '#166534');
+        btnVoteBg.setAttribute('stroke', '#22c55e');
+        btnVoteTxt.setAttribute('fill', '#22c55e');
+        btnVoteTxt.textContent = 'Close Voting';
+      } else {
+        btnVoteBg.setAttribute('fill', '#0a0e1a');
+        btnVoteBg.setAttribute('stroke', '#1e293b');
+        btnVoteTxt.setAttribute('fill', '#94a3b8');
+        btnVoteTxt.textContent = 'Open Voting';
+      }
+    }
+
+    /* ── Write state to server (PUT) ── */
+    async function writeState() {
+      var stateObj = {
+        phase: currentPhase,
+        currentTension: currentTension,
+        votingOpen: votingOpen,
+        updatedAt: Date.now()
+      };
+      try {
+        var r = await fetch(BASE + '/v', {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ key: STATE_SECRET, val: stateObj, ttl: 86400 })
+        });
+        if (r.ok) {
+          writeStatus.textContent = 'state written ' + new Date().toLocaleTimeString();
+          writeStatus.setAttribute('fill', '#22c55e');
+          connDot.setAttribute('fill', '#22c55e');
+        } else {
+          writeStatus.textContent = 'write failed: ' + r.status;
+          writeStatus.setAttribute('fill', '#ef4444');
+        }
+      } catch (e) {
+        writeStatus.textContent = 'write error: ' + e.message;
+        writeStatus.setAttribute('fill', '#ef4444');
+        connDot.setAttribute('fill', '#ef4444');
+      }
+    }
+
+    /* ── Phase button handlers ── */
+    document.getElementById('btnPhase0').addEventListener('click', function () {
+      currentPhase = 'checkin';
+      highlightPhase(0);
+      updatePhaseDisplay();
+      writeState();
+    });
+    document.getElementById('btnPhase1').addEventListener('click', function () {
+      currentPhase = 'tension';
+      currentTension = 0;
+      highlightPhase(1);
+      updatePhaseDisplay();
+      writeState();
+    });
+    document.getElementById('btnPhase2').addEventListener('click', function () {
+      currentPhase = 'tension';
+      currentTension = 1;
+      highlightPhase(2);
+      updatePhaseDisplay();
+      writeState();
+    });
+    document.getElementById('btnPhase3').addEventListener('click', function () {
+      currentPhase = 'tension';
+      currentTension = 2;
+      highlightPhase(3);
+      updatePhaseDisplay();
+      writeState();
+    });
+    document.getElementById('btnPhase4').addEventListener('click', function () {
+      currentPhase = 'tension';
+      currentTension = 3;
+      highlightPhase(4);
+      updatePhaseDisplay();
+      writeState();
+    });
+    document.getElementById('btnPhase5').addEventListener('click', function () {
+      currentPhase = 'results';
+      highlightPhase(5);
+      updatePhaseDisplay();
+      writeState();
+    });
+
+    /* ── Voting toggle ── */
+    document.getElementById('btnVote').addEventListener('click', function () {
+      votingOpen = !votingOpen;
+      updateVoteButton();
+      writeState();
+    });
+
+    /* ── Reset ── */
+    document.getElementById('btnReset').addEventListener('click', function () {
+      currentPhase = 'checkin';
+      currentTension = 0;
+      votingOpen = false;
+      highlightPhase(0);
+      updatePhaseDisplay();
+      updateVoteButton();
+      writeState();
+    });
+
+    /* ── Render participants ── */
+    function renderParticipants() {
+      while (participantsGroup.firstChild) participantsGroup.removeChild(participantsGroup.firstChild);
+      var keys = Object.keys(checkins);
+      participantCount.textContent = keys.length;
+      var roleColors = {
+        educator: '#3b82f6',
+        researcher: '#22c55e',
+        policymaker: '#c9a227',
+        student: '#ef4444'
+      };
+      var maxShow = 16;
+      for (var i = 0; i < Math.min(keys.length, maxShow); i++) {
+        var entry = checkins[keys[i]];
+        var name = (entry && entry.name) ? entry.name : keys[i];
+        var role = (entry && entry.role) ? entry.role : 'participant';
+        var y = i * 16;
+
+        var dot = document.createElementNS(ns, 'circle');
+        dot.setAttribute('cx', 4);
+        dot.setAttribute('cy', y + 6);
+        dot.setAttribute('r', 3);
+        dot.setAttribute('fill', roleColors[role] || '#94a3b8');
+        participantsGroup.appendChild(dot);
+
+        var nameEl = document.createElementNS(ns, 'text');
+        nameEl.setAttribute('x', 14);
+        nameEl.setAttribute('y', y + 10);
+        nameEl.setAttribute('font-family', 'monospace');
+        nameEl.setAttribute('font-size', '9');
+        nameEl.setAttribute('fill', '#f1f5f9');
+        nameEl.textContent = name.substring(0, 18);
+        participantsGroup.appendChild(nameEl);
+
+        var badge = document.createElementNS(ns, 'text');
+        badge.setAttribute('x', 160);
+        badge.setAttribute('y', y + 10);
+        badge.setAttribute('font-family', 'monospace');
+        badge.setAttribute('font-size', '7');
+        badge.setAttribute('fill', roleColors[role] || '#94a3b8');
+        badge.textContent = role.substring(0, 12).toUpperCase();
+        participantsGroup.appendChild(badge);
+      }
+      if (keys.length > maxShow) {
+        var more = document.createElementNS(ns, 'text');
+        more.setAttribute('x', 0);
+        more.setAttribute('y', maxShow * 16 + 10);
+        more.setAttribute('font-family', 'monospace');
+        more.setAttribute('font-size', '8');
+        more.setAttribute('fill', '#94a3b8');
+        more.textContent = '+ ' + (keys.length - maxShow) + ' more';
+        participantsGroup.appendChild(more);
+      }
+    }
+
+    /* ── Render vote distribution ── */
+    function renderVotes() {
+      var tensionKey = 't' + currentTension;
+      var dist = (votes && votes[tensionKey]) ? votes[tensionKey] : {};
+      var total = 0;
+      var counts = [0, 0, 0, 0, 0];
+      for (var v = 1; v <= 5; v++) {
+        counts[v - 1] = dist[String(v)] || 0;
+        total += counts[v - 1];
+      }
+      voteTotal.textContent = total + ' votes';
+      var maxCount = Math.max(1, Math.max.apply(null, counts));
+      var maxBarW = 200;
+      for (var j = 0; j < 5; j++) {
+        var bar = document.getElementById('vbar' + (j + 1));
+        var ct = document.getElementById('vcount' + (j + 1));
+        bar.setAttribute('width', (counts[j] / maxCount) * maxBarW);
+        ct.textContent = counts[j];
+      }
+    }
+
+    /* ── Render questions ── */
+    function renderQuestions() {
+      while (questionsGroup.firstChild) questionsGroup.removeChild(questionsGroup.firstChild);
+      var tensionKey = 't' + currentTension;
+      var filtered = [];
+      if (Array.isArray(questions)) {
+        for (var i = 0; i < questions.length; i++) {
+          if (questions[i] && questions[i].tension === tensionKey) {
+            filtered.push(questions[i]);
+          }
+        }
+      } else if (questions && typeof questions === 'object') {
+        var qkeys = Object.keys(questions);
+        for (var k = 0; k < qkeys.length; k++) {
+          var q = questions[qkeys[k]];
+          if (q && q.tension === tensionKey) {
+            q._key = qkeys[k];
+            filtered.push(q);
+          }
+        }
+      }
+      /* Sort by upvotes descending */
+      filtered.sort(function (a, b) { return (b.upvotes || 0) - (a.upvotes || 0); });
+      qCount.textContent = '(' + filtered.length + ')';
+      var maxVisible = 15;
+      var startIdx = qScrollOffset;
+      if (startIdx > Math.max(0, filtered.length - maxVisible)) startIdx = Math.max(0, filtered.length - maxVisible);
+      var endIdx = Math.min(filtered.length, startIdx + maxVisible);
+
+      for (var j = startIdx; j < endIdx; j++) {
+        var q2 = filtered[j];
+        var y = (j - startIdx) * 34;
+        var highlighted = q2.highlighted === true;
+
+        /* Background */
+        var bg = document.createElementNS(ns, 'rect');
+        bg.setAttribute('x', 0);
+        bg.setAttribute('y', y);
+        bg.setAttribute('width', 276);
+        bg.setAttribute('height', 30);
+        bg.setAttribute('rx', 3);
+        bg.setAttribute('fill', highlighted ? '#1e293b' : '#111827');
+        bg.setAttribute('stroke', highlighted ? '#c9a227' : '#1e293b');
+        questionsGroup.appendChild(bg);
+
+        /* Text */
+        var txt = document.createElementNS(ns, 'text');
+        txt.setAttribute('x', 6);
+        txt.setAttribute('y', y + 13);
+        txt.setAttribute('font-family', 'monospace');
+        txt.setAttribute('font-size', '8');
+        txt.setAttribute('fill', highlighted ? '#c9a227' : '#f1f5f9');
+        txt.textContent = (q2.text || '').substring(0, 38);
+        questionsGroup.appendChild(txt);
+
+        /* Upvote count */
+        var uv = document.createElementNS(ns, 'text');
+        uv.setAttribute('x', 240);
+        uv.setAttribute('y', y + 13);
+        uv.setAttribute('font-family', 'monospace');
+        uv.setAttribute('font-size', '8');
+        uv.setAttribute('fill', '#3b82f6');
+        uv.setAttribute('text-anchor', 'end');
+        uv.textContent = (q2.upvotes || 0);
+        questionsGroup.appendChild(uv);
+
+        /* Author (small, below) */
+        var auth = document.createElementNS(ns, 'text');
+        auth.setAttribute('x', 6);
+        auth.setAttribute('y', y + 24);
+        auth.setAttribute('font-family', 'monospace');
+        auth.setAttribute('font-size', '7');
+        auth.setAttribute('fill', '#94a3b8');
+        auth.textContent = q2.author || '';
+        questionsGroup.appendChild(auth);
+
+        /* Star button */
+        var star = document.createElementNS(ns, 'text');
+        star.setAttribute('x', 262);
+        star.setAttribute('y', y + 24);
+        star.setAttribute('font-family', 'monospace');
+        star.setAttribute('font-size', '10');
+        star.setAttribute('fill', highlighted ? '#c9a227' : '#94a3b8');
+        star.setAttribute('text-anchor', 'middle');
+        star.setAttribute('style', 'cursor:pointer');
+        star.textContent = '\u2605';
+        star.setAttribute('data-qidx', String(j));
+        star.addEventListener('click', (function (qItem) {
+          return function () { highlightQuestion(qItem); };
+        })(q2));
+        questionsGroup.appendChild(star);
+      }
+
+      if (filtered.length > maxVisible) {
+        qScrollHint.textContent = 'showing ' + (startIdx + 1) + '-' + endIdx + ' of ' + filtered.length;
+      } else {
+        qScrollHint.textContent = '';
+      }
+    }
+
+    /* ── Highlight a question (PATCH merge) ── */
+    async function highlightQuestion(q) {
+      var updatedQ = {};
+      for (var k in q) { if (q.hasOwnProperty(k)) updatedQ[k] = q[k]; }
+      updatedQ.highlighted = !q.highlighted;
+      try {
+        var patchKey = q._key || null;
+        if (patchKey) {
+          var mergeVal = {};
+          mergeVal[patchKey] = updatedQ;
+          await fetch(BASE + '/v', {
+            method: 'PATCH',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ key: Q_SECRET, op: 'merge', val: mergeVal })
+          });
+        } else if (Array.isArray(questions)) {
+          /* For array-based storage, find index and rebuild */
+          var idx = -1;
+          for (var i = 0; i < questions.length; i++) {
+            if (questions[i].text === q.text && questions[i].tension === q.tension) {
+              idx = i;
+              break;
+            }
+          }
+          if (idx >= 0) {
+            questions[idx].highlighted = updatedQ.highlighted;
+            await fetch(BASE + '/v', {
+              method: 'PUT',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ key: Q_SECRET, val: questions, ttl: 86400 })
+            });
+          }
+        }
+        pollAll();
+      } catch (e) {
+        writeStatus.textContent = 'star error: ' + e.message;
+        writeStatus.setAttribute('fill', '#ef4444');
+      }
+    }
+
+    /* ── Render comments ── */
+    function renderComments() {
+      while (commentsGroup.firstChild) commentsGroup.removeChild(commentsGroup.firstChild);
+      var list = [];
+      if (Array.isArray(comments)) {
+        list = comments.slice(-5).reverse();
+      } else if (comments && typeof comments === 'object') {
+        var ck = Object.keys(comments);
+        for (var i = 0; i < ck.length; i++) {
+          list.push(comments[ck[i]]);
+        }
+        list.sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
+        list = list.slice(0, 5);
+      }
+      for (var j = 0; j < list.length; j++) {
+        var c = list[j];
+        var y = j * 22;
+        var nameEl = document.createElementNS(ns, 'text');
+        nameEl.setAttribute('x', 0);
+        nameEl.setAttribute('y', y + 10);
+        nameEl.setAttribute('font-family', 'monospace');
+        nameEl.setAttribute('font-size', '8');
+        nameEl.setAttribute('fill', '#c9a227');
+        nameEl.textContent = (c.name || c.from || 'anon').substring(0, 10);
+        commentsGroup.appendChild(nameEl);
+
+        var textEl = document.createElementNS(ns, 'text');
+        textEl.setAttribute('x', 70);
+        textEl.setAttribute('y', y + 10);
+        textEl.setAttribute('font-family', 'monospace');
+        textEl.setAttribute('font-size', '8');
+        textEl.setAttribute('fill', '#f1f5f9');
+        textEl.textContent = (c.text || '').substring(0, 28);
+        commentsGroup.appendChild(textEl);
+      }
+    }
+
+    /* ── Scroll questions via keyboard ── */
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowDown') { qScrollOffset++; renderQuestions(); }
+      if (e.key === 'ArrowUp' && qScrollOffset > 0) { qScrollOffset--; renderQuestions(); }
+    });
+
+    /* ── Poll all endpoints ── */
+    async function pollAll() {
+      pollDot.setAttribute('fill', '#3b82f6');
+      pollStatus.textContent = 'polling...';
+      var ok = true;
+
+      /* State */
+      try {
+        var r1 = await fetch(BASE + '/v/' + STATE_HASH);
+        if (r1.ok) {
+          var d1 = await r1.json();
+          if (d1.val) {
+            currentPhase = d1.val.phase || 'checkin';
+            currentTension = d1.val.currentTension || 0;
+            votingOpen = d1.val.votingOpen || false;
+            /* Sync button highlight */
+            if (currentPhase === 'checkin') highlightPhase(0);
+            else if (currentPhase === 'results') highlightPhase(5);
+            else highlightPhase(currentTension + 1);
+            updatePhaseDisplay();
+            updateVoteButton();
+          }
+        }
+      } catch (e) { ok = false; }
+
+      /* Check-ins */
+      try {
+        var r2 = await fetch(BASE + '/v/' + CHECKIN_HASH);
+        if (r2.ok) {
+          var d2 = await r2.json();
+          if (d2.val) {
+            checkins = d2.val;
+            renderParticipants();
+          }
+        }
+      } catch (e) { ok = false; }
+
+      /* Votes */
+      try {
+        var r3 = await fetch(BASE + '/v/' + VOTES_HASH);
+        if (r3.ok) {
+          var d3 = await r3.json();
+          if (d3.val) {
+            votes = d3.val;
+            renderVotes();
+          }
+        }
+      } catch (e) { ok = false; }
+
+      /* Questions */
+      try {
+        var r4 = await fetch(BASE + '/v/' + Q_HASH);
+        if (r4.ok) {
+          var d4 = await r4.json();
+          if (d4.val) {
+            questions = d4.val;
+            renderQuestions();
+          }
+        }
+      } catch (e) { ok = false; }
+
+      /* Comments */
+      try {
+        var r5 = await fetch(BASE + '/v/' + COMMENT_HASH);
+        if (r5.ok) {
+          var d5 = await r5.json();
+          if (d5.val) {
+            comments = d5.val;
+            renderComments();
+          }
+        }
+      } catch (e) { ok = false; }
+
+      if (ok) {
+        pollDot.setAttribute('fill', '#22c55e');
+        connDot.setAttribute('fill', '#22c55e');
+        pollStatus.textContent = 'connected';
+      } else {
+        pollDot.setAttribute('fill', '#ef4444');
+        pollStatus.textContent = 'error';
+      }
+    }
+
+    /* ── Init ── */
+    highlightPhase(0);
+    updatePhaseDisplay();
+    updateVoteButton();
+    pollAll();
+    setInterval(pollAll, 2000);
+  ]]></script>
+</svg>
