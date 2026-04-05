@@ -25,65 +25,89 @@
   <!-- ==================== LEFT PANEL: FLOW CONTROL (0-300) ==================== -->
   <rect x="0" y="44" width="300" height="556" fill="#111827"/>
 
-  <text x="150" y="72" font-family="monospace" font-size="13" fill="#c9a227" font-weight="bold" text-anchor="middle">HOST CONTROLS</text>
-  <line x1="16" y1="82" x2="284" y2="82" stroke="#1e293b"/>
+  <text x="150" y="68" font-family="monospace" font-size="12" fill="#c9a227" font-weight="bold" text-anchor="middle">HOST CONTROLS</text>
+  <line x1="16" y1="74" x2="284" y2="74" stroke="#1e293b"/>
 
   <!-- Current phase display -->
-  <text x="16" y="102" font-family="monospace" font-size="9" fill="#94a3b8">CURRENT PHASE</text>
-  <rect x="16" y="108" width="268" height="36" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
-  <text x="150" y="122" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="phaseLabel">Phase:</text>
-  <text x="150" y="136" font-family="monospace" font-size="8" fill="#f1f5f9" text-anchor="middle" id="phaseDetail">--</text>
+  <text x="16" y="90" font-family="monospace" font-size="9" fill="#94a3b8">CURRENT PHASE</text>
+  <rect x="16" y="94" width="268" height="30" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
+  <text x="150" y="106" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="phaseLabel">Phase:</text>
+  <text x="150" y="118" font-family="monospace" font-size="7" fill="#f1f5f9" text-anchor="middle" id="phaseDetail">--</text>
 
   <!-- Phase buttons -->
-  <text x="16" y="162" font-family="monospace" font-size="9" fill="#94a3b8">PHASES</text>
+  <text x="16" y="140" font-family="monospace" font-size="9" fill="#94a3b8">PHASES</text>
 
   <!-- Button 0: Welcome / Check-in -->
-  <rect x="16" y="170" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase0bg" style="cursor:pointer"/>
-  <text x="150" y="191" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase0txt" style="pointer-events:none">Welcome / Check-in</text>
-  <rect x="16" y="170" width="268" height="32" rx="4" fill="transparent" id="btnPhase0" style="cursor:pointer"/>
+  <rect x="16" y="146" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase0bg" style="cursor:pointer"/>
+  <text x="150" y="164" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase0txt" style="pointer-events:none">Welcome / Check-in</text>
+  <rect x="16" y="146" width="268" height="26" rx="4" fill="transparent" id="btnPhase0" style="cursor:pointer"/>
 
   <!-- Button 1: Tension 1 -->
-  <rect x="16" y="208" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase1bg" style="cursor:pointer"/>
-  <text x="150" y="229" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase1txt" style="pointer-events:none">T1: Cognitive offloading</text>
-  <rect x="16" y="208" width="268" height="32" rx="4" fill="transparent" id="btnPhase1" style="cursor:pointer"/>
+  <rect x="16" y="176" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase1bg" style="cursor:pointer"/>
+  <text x="150" y="194" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase1txt" style="pointer-events:none">T1: Cognitive offloading</text>
+  <rect x="16" y="176" width="268" height="26" rx="4" fill="transparent" id="btnPhase1" style="cursor:pointer"/>
 
   <!-- Button 2: Tension 2 -->
-  <rect x="16" y="246" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase2bg" style="cursor:pointer"/>
-  <text x="150" y="267" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase2txt" style="pointer-events:none">T2: Personalization</text>
-  <rect x="16" y="246" width="268" height="32" rx="4" fill="transparent" id="btnPhase2" style="cursor:pointer"/>
+  <rect x="16" y="206" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase2bg" style="cursor:pointer"/>
+  <text x="150" y="224" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase2txt" style="pointer-events:none">T2: Personalization</text>
+  <rect x="16" y="206" width="268" height="26" rx="4" fill="transparent" id="btnPhase2" style="cursor:pointer"/>
 
   <!-- Button 3: Tension 3 -->
-  <rect x="16" y="284" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase3bg" style="cursor:pointer"/>
-  <text x="150" y="305" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase3txt" style="pointer-events:none">T3: Assistance vs. authorship</text>
-  <rect x="16" y="284" width="268" height="32" rx="4" fill="transparent" id="btnPhase3" style="cursor:pointer"/>
+  <rect x="16" y="236" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase3bg" style="cursor:pointer"/>
+  <text x="150" y="254" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase3txt" style="pointer-events:none">T3: Assistance vs. authorship</text>
+  <rect x="16" y="236" width="268" height="26" rx="4" fill="transparent" id="btnPhase3" style="cursor:pointer"/>
 
   <!-- Button 4: Tension 4 -->
-  <rect x="16" y="322" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase4bg" style="cursor:pointer"/>
-  <text x="150" y="343" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase4txt" style="pointer-events:none">T4: Innovation vs. governance</text>
-  <rect x="16" y="322" width="268" height="32" rx="4" fill="transparent" id="btnPhase4" style="cursor:pointer"/>
+  <rect x="16" y="266" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase4bg" style="cursor:pointer"/>
+  <text x="150" y="284" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase4txt" style="pointer-events:none">T4: Innovation vs. governance</text>
+  <rect x="16" y="266" width="268" height="26" rx="4" fill="transparent" id="btnPhase4" style="cursor:pointer"/>
 
   <!-- Button 5: Results -->
-  <rect x="16" y="360" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase5bg" style="cursor:pointer"/>
-  <text x="150" y="381" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" id="btnPhase5txt" style="pointer-events:none">Results</text>
-  <rect x="16" y="360" width="268" height="32" rx="4" fill="transparent" id="btnPhase5" style="cursor:pointer"/>
+  <rect x="16" y="296" width="268" height="26" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnPhase5bg" style="cursor:pointer"/>
+  <text x="150" y="314" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" id="btnPhase5txt" style="pointer-events:none">Results</text>
+  <rect x="16" y="296" width="268" height="26" rx="4" fill="transparent" id="btnPhase5" style="cursor:pointer"/>
 
   <!-- Voting toggle -->
-  <line x1="16" y1="408" x2="284" y2="408" stroke="#1e293b"/>
-  <text x="16" y="428" font-family="monospace" font-size="9" fill="#94a3b8">VOTING</text>
-  <rect x="16" y="436" width="268" height="36" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnVoteBg" style="cursor:pointer"/>
-  <text x="150" y="459" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" font-weight="bold" id="btnVoteTxt" style="pointer-events:none">Open Voting</text>
-  <rect x="16" y="436" width="268" height="36" rx="4" fill="transparent" id="btnVote" style="cursor:pointer"/>
+  <line x1="16" y1="332" x2="284" y2="332" stroke="#1e293b"/>
+  <text x="16" y="348" font-family="monospace" font-size="9" fill="#94a3b8">VOTING</text>
+  <rect x="16" y="354" width="268" height="30" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnVoteBg" style="cursor:pointer"/>
+  <text x="150" y="374" font-family="monospace" font-size="11" fill="#94a3b8" text-anchor="middle" font-weight="bold" id="btnVoteTxt" style="pointer-events:none">Open Voting</text>
+  <rect x="16" y="354" width="268" height="30" rx="4" fill="transparent" id="btnVote" style="cursor:pointer"/>
+
+  <!-- Countdown timer -->
+  <text x="16" y="402" font-family="monospace" font-size="9" fill="#94a3b8">TIMER</text>
+  <rect x="16" y="408" width="130" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b"/>
+  <text x="81" y="427" font-family="monospace" font-size="16" fill="#f1f5f9" text-anchor="middle" font-weight="bold" id="timerDisplay">1:30</text>
+
+  <!-- Timer duration buttons -->
+  <rect x="154" y="408" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer60bg" style="cursor:pointer"/>
+  <text x="174" y="426" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer60txt" style="pointer-events:none">60s</text>
+  <rect x="154" y="408" width="40" height="28" rx="4" fill="transparent" id="btnTimer60" style="cursor:pointer"/>
+
+  <rect x="198" y="408" width="40" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer90bg" style="cursor:pointer"/>
+  <text x="218" y="426" font-family="monospace" font-size="9" fill="#c9a227" text-anchor="middle" id="btnTimer90txt" style="pointer-events:none">90s</text>
+  <rect x="198" y="408" width="40" height="28" rx="4" fill="transparent" id="btnTimer90" style="cursor:pointer"/>
+
+  <rect x="242" y="408" width="42" height="28" rx="4" fill="#0a0e1a" stroke="#1e293b" id="btnTimer120bg" style="cursor:pointer"/>
+  <text x="263" y="426" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle" id="btnTimer120txt" style="pointer-events:none">120s</text>
+  <rect x="242" y="408" width="42" height="28" rx="4" fill="transparent" id="btnTimer120" style="cursor:pointer"/>
+
+  <!-- Export data button -->
+  <line x1="16" y1="450" x2="284" y2="450" stroke="#1e293b"/>
+  <rect x="16" y="458" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#3b82f6" id="btnExportBg" style="cursor:pointer"/>
+  <text x="150" y="477" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" font-weight="bold" id="btnExportTxt" style="pointer-events:none">Download Data</text>
+  <rect x="16" y="458" width="268" height="28" rx="4" fill="transparent" id="btnExport" style="cursor:pointer"/>
 
   <!-- Reset button -->
-  <line x1="16" y1="490" x2="284" y2="490" stroke="#1e293b"/>
-  <rect x="16" y="504" width="268" height="32" rx="4" fill="#0a0e1a" stroke="#ef4444" id="btnResetBg" style="cursor:pointer"/>
-  <text x="150" y="525" font-family="monospace" font-size="11" fill="#ef4444" text-anchor="middle" font-weight="bold" id="btnResetTxt" style="pointer-events:none">Reset All</text>
-  <rect x="16" y="504" width="268" height="32" rx="4" fill="transparent" id="btnReset" style="cursor:pointer"/>
+  <line x1="16" y1="498" x2="284" y2="498" stroke="#1e293b"/>
+  <rect x="16" y="506" width="268" height="28" rx="4" fill="#0a0e1a" stroke="#ef4444" id="btnResetBg" style="cursor:pointer"/>
+  <text x="150" y="525" font-family="monospace" font-size="10" fill="#ef4444" text-anchor="middle" font-weight="bold" id="btnResetTxt" style="pointer-events:none">Reset All</text>
+  <rect x="16" y="506" width="268" height="28" rx="4" fill="transparent" id="btnReset" style="cursor:pointer"/>
 
   <!-- State info -->
-  <text x="16" y="560" font-family="monospace" font-size="8" fill="#94a3b8" id="stateInfo">state: mpcr:ai:state</text>
-  <text x="16" y="572" font-family="monospace" font-size="7" fill="#94a3b8" id="stateHash">hash: 2cb87f5f...</text>
-  <text x="16" y="584" font-family="monospace" font-size="7" fill="#94a3b8" id="writeStatus">--</text>
+  <text x="16" y="554" font-family="monospace" font-size="8" fill="#94a3b8" id="stateInfo">state: mpcr:ai:state</text>
+  <text x="16" y="566" font-family="monospace" font-size="7" fill="#94a3b8" id="stateHash">hash: 2cb87f5f...</text>
+  <text x="16" y="578" font-family="monospace" font-size="7" fill="#94a3b8" id="writeStatus">--</text>
 
   <!-- ==================== CENTER PANEL: QUESTIONS (300-600) ==================== -->
   <rect x="300" y="44" width="300" height="556" fill="#0a0e1a"/>
@@ -151,16 +175,19 @@
     var BASE = 'https://statevec.com';
     var ns = 'http://www.w3.org/2000/svg';
 
-    /* ── Secrets ── */
+    /* -- Secrets -- */
     var STATE_SECRET = 'mpcr:ai:state';
     var STATE_HASH   = '2cb87f5f6c4c76da45361c4f934bee8e3d2ed29f0439fc35fbc1ae1727059be9';
+    var CHECKIN_SECRET = 'mpcr:ai:checkins';
     var CHECKIN_HASH = 'a0c0e74f772b453b6e0352781490c9ac4dfdc781af90b4b3f24b667557c1d4e1';
+    var VOTES_SECRET = 'mpcr:ai:votes';
     var VOTES_HASH   = '802e1abbe632e0612827bb2a79e8bc892a90e1b6188550cc587d0e3139763a10';
     var Q_SECRET     = 'mpcr:ai:questions';
     var Q_HASH       = '02039b6bc9f648e1ddb26a3b3d1c192c210f68fc624ad875ea2c45974f855dfc';
+    var C_SECRET     = 'mpcr:ai:comments';
     var COMMENT_HASH = 'f28f9c8c5d9344c36a685ebc3817b445b16d76ae1eea257514362d953a36e2e6';
 
-    /* ── Tensions ── */
+    /* -- Tensions -- */
     var TENSIONS = [
       'Cognitive offloading vs. deep learning',
       'Personalization vs. belonging',
@@ -168,20 +195,30 @@
       'Innovation vs. governance'
     ];
 
-    /* ── State ── */
+    /* -- State -- */
     var currentPhase = 'checkin';
     var currentTension = 0;
     var votingOpen = false;
     var activeBtn = 0;
 
-    /* ── Cached data ── */
+    /* -- Cached data -- */
     var checkins = {};
     var votes = {};
     var questions = [];
     var comments = [];
     var qScrollOffset = 0;
 
-    /* ── DOM refs ── */
+    /* -- Timer state -- */
+    var timerDuration = 90;
+    var timerRemaining = 90;
+    var timerRunning = false;
+    var timerInterval = null;
+
+    /* -- Reset confirmation state -- */
+    var resetPrimed = false;
+    var resetPrimeTimeout = null;
+
+    /* -- DOM refs -- */
     var connDot = document.getElementById('connDot');
     var pollDot = document.getElementById('pollDot');
     var pollStatus = document.getElementById('pollStatus');
@@ -198,8 +235,11 @@
     var participantsGroup = document.getElementById('participantsGroup');
     var commentsGroup = document.getElementById('commentsGroup');
     var qScrollHint = document.getElementById('qScrollHint');
+    var timerDisplay = document.getElementById('timerDisplay');
+    var btnResetBg = document.getElementById('btnResetBg');
+    var btnResetTxt = document.getElementById('btnResetTxt');
 
-    /* ── Phase button refs ── */
+    /* -- Phase button refs -- */
     var phaseBgs = [];
     var phaseTxts = [];
     for (var i = 0; i < 6; i++) {
@@ -207,7 +247,7 @@
       phaseTxts.push(document.getElementById('btnPhase' + i + 'txt'));
     }
 
-    /* ── Clock ── */
+    /* -- Clock -- */
     function updateClock() {
       var d = new Date();
       clockDisplay.textContent = d.toLocaleTimeString();
@@ -215,7 +255,7 @@
     setInterval(updateClock, 1000);
     updateClock();
 
-    /* ── Highlight active phase button ── */
+    /* -- Highlight active phase button -- */
     function highlightPhase(idx) {
       activeBtn = idx;
       for (var i = 0; i < 6; i++) {
@@ -233,7 +273,7 @@
       }
     }
 
-    /* ── Update phase display ── */
+    /* -- Update phase display -- */
     function updatePhaseDisplay() {
       if (currentPhase === 'checkin') {
         phaseLabel.textContent = 'Phase: Welcome / Check-in';
@@ -247,7 +287,7 @@
       }
     }
 
-    /* ── Voting button display ── */
+    /* -- Voting button display -- */
     function updateVoteButton() {
       if (votingOpen) {
         btnVoteBg.setAttribute('fill', '#166534');
@@ -262,7 +302,93 @@
       }
     }
 
-    /* ── Write state to server (PUT) ── */
+    /* -- Timer functions -- */
+    function formatTimer(secs) {
+      var m = Math.floor(secs / 60);
+      var s = secs % 60;
+      return m + ':' + (s < 10 ? '0' : '') + s;
+    }
+
+    function updateTimerDisplay() {
+      timerDisplay.textContent = formatTimer(timerRemaining);
+      if (timerRunning && timerRemaining <= 10) {
+        timerDisplay.setAttribute('fill', '#ef4444');
+      } else if (timerRunning) {
+        timerDisplay.setAttribute('fill', '#22c55e');
+      } else {
+        timerDisplay.setAttribute('fill', '#f1f5f9');
+      }
+    }
+
+    function startTimer() {
+      if (timerInterval) clearInterval(timerInterval);
+      timerRemaining = timerDuration;
+      timerRunning = true;
+      updateTimerDisplay();
+      timerInterval = setInterval(function () {
+        timerRemaining--;
+        if (timerRemaining <= 0) {
+          timerRemaining = 0;
+          timerRunning = false;
+          clearInterval(timerInterval);
+          timerInterval = null;
+          /* Auto-close voting */
+          if (votingOpen) {
+            votingOpen = false;
+            updateVoteButton();
+            writeState();
+          }
+        }
+        updateTimerDisplay();
+      }, 1000);
+    }
+
+    function stopTimer() {
+      timerRunning = false;
+      if (timerInterval) {
+        clearInterval(timerInterval);
+        timerInterval = null;
+      }
+      timerRemaining = timerDuration;
+      updateTimerDisplay();
+    }
+
+    function setTimerDuration(secs) {
+      timerDuration = secs;
+      if (!timerRunning) {
+        timerRemaining = secs;
+      }
+      updateTimerDisplay();
+      highlightTimerButtons();
+    }
+
+    function highlightTimerButtons() {
+      var durations = [60, 90, 120];
+      for (var i = 0; i < durations.length; i++) {
+        var bg = document.getElementById('btnTimer' + durations[i] + 'bg');
+        var txt = document.getElementById('btnTimer' + durations[i] + 'txt');
+        if (durations[i] === timerDuration) {
+          bg.setAttribute('stroke', '#c9a227');
+          txt.setAttribute('fill', '#c9a227');
+        } else {
+          bg.setAttribute('stroke', '#1e293b');
+          txt.setAttribute('fill', '#94a3b8');
+        }
+      }
+    }
+
+    /* Timer duration button handlers */
+    document.getElementById('btnTimer60').addEventListener('click', function () {
+      setTimerDuration(60);
+    });
+    document.getElementById('btnTimer90').addEventListener('click', function () {
+      setTimerDuration(90);
+    });
+    document.getElementById('btnTimer120').addEventListener('click', function () {
+      setTimerDuration(120);
+    });
+
+    /* -- Write state to server (PUT) -- */
     async function writeState() {
       var stateObj = {
         phase: currentPhase,
@@ -291,7 +417,7 @@
       }
     }
 
-    /* ── Phase button handlers ── */
+    /* -- Phase button handlers -- */
     document.getElementById('btnPhase0').addEventListener('click', function () {
       currentPhase = 'checkin';
       highlightPhase(0);
@@ -333,30 +459,100 @@
       writeState();
     });
 
-    /* ── Voting toggle ── */
+    /* -- Voting toggle -- */
     document.getElementById('btnVote').addEventListener('click', function () {
       votingOpen = !votingOpen;
       updateVoteButton();
       writeState();
+      if (votingOpen) {
+        startTimer();
+      } else {
+        stopTimer();
+      }
     });
 
-    /* ── Reset ── */
+    /* -- Reset (double-click confirmation) -- */
     document.getElementById('btnReset').addEventListener('click', function () {
+      if (!resetPrimed) {
+        /* First click: prime for confirmation */
+        resetPrimed = true;
+        btnResetBg.setAttribute('fill', '#7f1d1d');
+        btnResetTxt.textContent = 'Click again to confirm';
+        if (resetPrimeTimeout) clearTimeout(resetPrimeTimeout);
+        resetPrimeTimeout = setTimeout(function () {
+          resetPrimed = false;
+          btnResetBg.setAttribute('fill', '#0a0e1a');
+          btnResetTxt.textContent = 'Reset All';
+        }, 3000);
+        return;
+      }
+      /* Second click: actually reset */
+      resetPrimed = false;
+      if (resetPrimeTimeout) clearTimeout(resetPrimeTimeout);
+      btnResetBg.setAttribute('fill', '#0a0e1a');
+      btnResetTxt.textContent = 'Reset All';
       currentPhase = 'checkin';
       currentTension = 0;
       votingOpen = false;
+      stopTimer();
       highlightPhase(0);
       updatePhaseDisplay();
       updateVoteButton();
       writeState();
     });
 
-    /* ── Render participants ── */
+    /* -- Data export -- */
+    document.getElementById('btnExport').addEventListener('click', async function () {
+      var btnTxt = document.getElementById('btnExportTxt');
+      btnTxt.textContent = 'Exporting...';
+      try {
+        var exportData = {
+          exportedAt: new Date().toISOString(),
+          state: null,
+          checkins: null,
+          votes: null,
+          questions: null,
+          comments: null
+        };
+        var r1 = await fetch(BASE + '/v/' + STATE_HASH);
+        if (r1.ok) { var d1 = await r1.json(); exportData.state = d1.val || null; }
+
+        var r2 = await fetch(BASE + '/v/' + CHECKIN_HASH);
+        if (r2.ok) { var d2 = await r2.json(); exportData.checkins = d2.val || null; }
+
+        var r3 = await fetch(BASE + '/v/' + VOTES_HASH);
+        if (r3.ok) { var d3 = await r3.json(); exportData.votes = d3.val || null; }
+
+        var r4 = await fetch(BASE + '/v/' + Q_HASH);
+        if (r4.ok) { var d4 = await r4.json(); exportData.questions = d4.val || null; }
+
+        var r5 = await fetch(BASE + '/v/' + COMMENT_HASH);
+        if (r5.ok) { var d5 = await r5.json(); exportData.comments = d5.val || null; }
+
+        var blob = new Blob([JSON.stringify(exportData, null, 2)], { type: 'application/json' });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElementNS('http://www.w3.org/1999/xhtml', 'a');
+        a.href = url;
+        a.download = 'mpcr-ai-export-' + new Date().toISOString().replace(/[:.]/g, '-') + '.json';
+        a.click();
+        URL.revokeObjectURL(url);
+        btnTxt.textContent = 'Download Data';
+      } catch (e) {
+        btnTxt.textContent = 'Export failed';
+        setTimeout(function () { btnTxt.textContent = 'Download Data'; }, 2000);
+      }
+    });
+
+    /* -- Render participants -- */
     function renderParticipants() {
       while (participantsGroup.firstChild) participantsGroup.removeChild(participantsGroup.firstChild);
       var keys = Object.keys(checkins);
       participantCount.textContent = keys.length;
       var roleColors = {
+        Educator: '#3b82f6',
+        Researcher: '#22c55e',
+        Policymaker: '#c9a227',
+        Student: '#ef4444',
         educator: '#3b82f6',
         researcher: '#22c55e',
         policymaker: '#c9a227',
@@ -391,7 +587,7 @@
         badge.setAttribute('font-family', 'monospace');
         badge.setAttribute('font-size', '7');
         badge.setAttribute('fill', roleColors[role] || '#94a3b8');
-        badge.textContent = role.substring(0, 12).toUpperCase();
+        badge.textContent = (role || '').substring(0, 12).toUpperCase();
         participantsGroup.appendChild(badge);
       }
       if (keys.length > maxShow) {
@@ -406,15 +602,20 @@
       }
     }
 
-    /* ── Render vote distribution ── */
+    /* -- Render vote distribution -- */
+    /* FIX #1 and #2: Use 'tension' + currentTension key, iterate user IDs, count into 5 buckets */
     function renderVotes() {
-      var tensionKey = 't' + currentTension;
-      var dist = (votes && votes[tensionKey]) ? votes[tensionKey] : {};
+      var tensionKey = 'tension' + currentTension;
+      var tensionVotes = (votes && votes[tensionKey]) ? votes[tensionKey] : {};
+      var userIds = Object.keys(tensionVotes);
       var total = 0;
       var counts = [0, 0, 0, 0, 0];
-      for (var v = 1; v <= 5; v++) {
-        counts[v - 1] = dist[String(v)] || 0;
-        total += counts[v - 1];
+      for (var i = 0; i < userIds.length; i++) {
+        var voteVal = tensionVotes[userIds[i]];
+        if (typeof voteVal === 'number' && voteVal >= 1 && voteVal <= 5) {
+          counts[voteVal - 1]++;
+          total++;
+        }
       }
       voteTotal.textContent = total + ' votes';
       var maxCount = Math.max(1, Math.max.apply(null, counts));
@@ -427,14 +628,14 @@
       }
     }
 
-    /* ── Render questions ── */
+    /* -- Render questions -- */
+    /* FIX #3: Filter by question.tension === currentTension (numeric) */
     function renderQuestions() {
       while (questionsGroup.firstChild) questionsGroup.removeChild(questionsGroup.firstChild);
-      var tensionKey = 't' + currentTension;
       var filtered = [];
       if (Array.isArray(questions)) {
         for (var i = 0; i < questions.length; i++) {
-          if (questions[i] && questions[i].tension === tensionKey) {
+          if (questions[i] && questions[i].tension === currentTension) {
             filtered.push(questions[i]);
           }
         }
@@ -442,7 +643,7 @@
         var qkeys = Object.keys(questions);
         for (var k = 0; k < qkeys.length; k++) {
           var q = questions[qkeys[k]];
-          if (q && q.tension === tensionKey) {
+          if (q && q.tension === currentTension) {
             q._key = qkeys[k];
             filtered.push(q);
           }
@@ -527,7 +728,7 @@
       }
     }
 
-    /* ── Highlight a question (PATCH merge) ── */
+    /* -- Highlight a question (PATCH merge) -- */
     async function highlightQuestion(q) {
       var updatedQ = {};
       for (var k in q) { if (q.hasOwnProperty(k)) updatedQ[k] = q[k]; }
@@ -567,16 +768,25 @@
       }
     }
 
-    /* ── Render comments ── */
+    /* -- Render comments -- */
+    /* FIX #4: Filter by comment.tension === currentTension (numeric) */
     function renderComments() {
       while (commentsGroup.firstChild) commentsGroup.removeChild(commentsGroup.firstChild);
       var list = [];
       if (Array.isArray(comments)) {
-        list = comments.slice(-5).reverse();
+        for (var ci = 0; ci < comments.length; ci++) {
+          if (comments[ci] && comments[ci].tension === currentTension) {
+            list.push(comments[ci]);
+          }
+        }
+        list = list.slice(-5).reverse();
       } else if (comments && typeof comments === 'object') {
         var ck = Object.keys(comments);
         for (var i = 0; i < ck.length; i++) {
-          list.push(comments[ck[i]]);
+          var cm = comments[ck[i]];
+          if (cm && cm.tension === currentTension) {
+            list.push(cm);
+          }
         }
         list.sort(function (a, b) { return (b.t || 0) - (a.t || 0); });
         list = list.slice(0, 5);
@@ -590,7 +800,7 @@
         nameEl.setAttribute('font-family', 'monospace');
         nameEl.setAttribute('font-size', '8');
         nameEl.setAttribute('fill', '#c9a227');
-        nameEl.textContent = (c.name || c.from || 'anon').substring(0, 10);
+        nameEl.textContent = (c.author || c.name || c.from || 'anon').substring(0, 10);
         commentsGroup.appendChild(nameEl);
 
         var textEl = document.createElementNS(ns, 'text');
@@ -604,13 +814,13 @@
       }
     }
 
-    /* ── Scroll questions via keyboard ── */
+    /* -- Scroll questions via keyboard -- */
     document.addEventListener('keydown', function (e) {
       if (e.key === 'ArrowDown') { qScrollOffset++; renderQuestions(); }
       if (e.key === 'ArrowUp' && qScrollOffset > 0) { qScrollOffset--; renderQuestions(); }
     });
 
-    /* ── Poll all endpoints ── */
+    /* -- Poll all endpoints -- */
     async function pollAll() {
       pollDot.setAttribute('fill', '#3b82f6');
       pollStatus.textContent = 'polling...';
@@ -693,10 +903,12 @@
       }
     }
 
-    /* ── Init ── */
+    /* -- Init -- */
     highlightPhase(0);
     updatePhaseDisplay();
     updateVoteButton();
+    highlightTimerButtons();
+    updateTimerDisplay();
     pollAll();
     setInterval(pollAll, 2000);
   ]]></script>
