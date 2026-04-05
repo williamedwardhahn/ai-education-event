@@ -1,4 +1,13 @@
+<?xml-stylesheet type="text/css" href="theme-dark.css"?>
 <svg viewBox="0 0 1280 720" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    :root {
+      --bg: #0f1419; --panel: #1a1f2e; --border: #2a3040; --header: #003366;
+      --text: #e8e8e8; --text-muted: #8899aa;
+      --red: #CC0000; --blue: #126BD9; --sand: #D4B98B; --green: #4ade80;
+      --red-dark: #660000; --text-on-red: #ffffff; --text-on-blue: #ffffff;
+    }
+  </style>
   <defs>
     <filter id="glow">
       <feGaussianBlur stdDeviation="3" result="blur"/>
@@ -16,25 +25,25 @@
   </defs>
 
   <!-- Background -->
-  <rect width="1280" height="720" fill="#003366"/>
+  <rect width="1280" height="720" style="fill: var(--bg)"/>
 
   <!-- ==================== TOP BAR ==================== -->
-  <rect x="0" y="0" width="1280" height="60" fill="#002244" stroke="#004488" stroke-width="1"/>
+  <rect x="0" y="0" width="1280" height="60" style="fill: var(--header); stroke: var(--panel)" stroke-width="1"/>
   <!-- Left: MPCR LABS -->
-  <text x="24" y="38" font-family="monospace" font-size="20" fill="#CC0000" font-weight="bold">MPCR LABS</text>
+  <text x="24" y="38" font-family="monospace" font-size="20" font-weight="bold" style="fill: white">MPCR LABS</text>
   <!-- Center: Title -->
-  <text x="640" y="38" font-family="monospace" font-size="16" fill="#D9ECFF" text-anchor="middle">AI in Education: Central Tensions</text>
+  <text x="640" y="38" font-family="monospace" font-size="16" style="fill: var(--text)" text-anchor="middle">AI in Education: Central Tensions</text>
   <!-- Right: Participant count + green dot -->
-  <text x="1210" y="38" font-family="monospace" font-size="14" fill="#7A97AB" text-anchor="end" id="topParticipants">0 participants</text>
-  <circle cx="1240" cy="33" r="5" fill="#126BD9" id="connDot"/>
+  <text x="1210" y="38" font-family="monospace" font-size="14" style="fill: var(--sand)" text-anchor="end" id="topParticipants">0 participants</text>
+  <circle cx="1240" cy="33" r="5" style="fill: var(--blue)" id="connDot"/>
 
   <!-- ==================== PHASE: CHECKIN ==================== -->
   <g id="phaseCheckin" visibility="hidden">
-    <text x="640" y="120" font-family="monospace" font-size="48" fill="#D9ECFF" text-anchor="middle" font-weight="bold" filter="url(#glow)">Welcome</text>
-    <text x="640" y="160" font-family="monospace" font-size="16" fill="#7A97AB" text-anchor="middle">Scan to join the session</text>
+    <text x="640" y="120" font-family="monospace" font-size="48" style="fill: var(--text)" text-anchor="middle" font-weight="bold" filter="url(#glow)">Welcome</text>
+    <text x="640" y="160" font-family="monospace" font-size="16" style="fill: var(--text-muted)" text-anchor="middle">Scan to join the session</text>
     <!-- QR code (white bg, centered) -->
     <rect x="488" y="180" width="304" height="304" rx="12" fill="#ffffff"/>
-    <g transform="translate(498,190) scale(5.8)" fill="#003366" id="qrGroup">
+    <g transform="translate(498,190) scale(5.8)" style="fill: var(--header)" id="qrGroup">
       <rect x="2" y="2" width="7" height="1"/>
       <rect x="10" y="2" width="2" height="1"/>
       <rect x="13" y="2" width="1" height="1"/>
@@ -560,7 +569,7 @@
       <rect x="38" y="46" width="5" height="1"/>
       <rect x="45" y="46" width="1" height="1"/>
     </g>
-    <text x="640" y="520" font-family="monospace" font-size="24" fill="#CC0000" text-anchor="middle" id="checkinCount">0 checked in</text>
+    <text x="640" y="520" font-family="monospace" font-size="24" style="fill: var(--red)" text-anchor="middle" id="checkinCount">0 checked in</text>
     <!-- Name grid container -->
     <g id="nameGrid" transform="translate(100, 550)"></g>
   </g>
@@ -570,17 +579,17 @@
     <!-- Left column: The Tension (60% = ~740px, from x=24 to x=764) -->
     <g id="tensionLeft" transform="translate(24, 80)">
       <!-- Tension title -->
-      <text x="0" y="40" font-family="monospace" font-size="28" fill="#CC0000" font-weight="bold" filter="url(#glow)" id="tensionTitle">Loading tension...</text>
+      <text x="0" y="40" font-family="monospace" font-size="28" style="fill: var(--red)" font-weight="bold" filter="url(#glow)" id="tensionTitle">Loading tension...</text>
 
       <!-- Voting countdown timer -->
-      <text x="0" y="68" font-family="monospace" font-size="36" fill="#D9ECFF" font-weight="bold" id="countdownTimer" visibility="hidden">0:45</text>
-      <text x="120" y="68" font-family="monospace" font-size="14" fill="#7A97AB" id="countdownLabel" visibility="hidden">voting open</text>
+      <text x="0" y="68" font-family="monospace" font-size="36" style="fill: var(--text)" font-weight="bold" id="countdownTimer" visibility="hidden">0:45</text>
+      <text x="120" y="68" font-family="monospace" font-size="14" style="fill: var(--text-muted)" id="countdownLabel" visibility="hidden">voting open</text>
 
       <!-- INITIAL votes label (shown when revote data exists) -->
-      <text x="0" y="78" font-family="monospace" font-size="10" fill="#126BD9" font-weight="bold" id="initialVotesLabel" visibility="hidden">INITIAL</text>
+      <text x="0" y="78" font-family="monospace" font-size="10" style="fill: var(--blue)" font-weight="bold" id="initialVotesLabel" visibility="hidden">INITIAL</text>
 
       <!-- Spectrum bar background -->
-      <rect x="0" y="80" width="720" height="36" rx="18" fill="#004488" id="spectrumBg"/>
+      <rect x="0" y="80" width="720" height="36" rx="18" style="fill: var(--border)" id="spectrumBg"/>
       <!-- Spectrum bar gradient fill -->
       <rect x="0" y="80" width="720" height="36" rx="18" fill="url(#spectrumGrad)" opacity="0.35"/>
 
@@ -588,71 +597,71 @@
       <g id="voteDots" transform="translate(0, 98)"></g>
 
       <!-- Mean indicator -->
-      <polygon points="360,122 354,134 366,134" fill="#CC0000" id="meanIndicator"/>
-      <text x="360" y="150" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle" id="meanLabel">mean</text>
+      <polygon points="360,122 354,134 366,134" style="fill: var(--blue)" id="meanIndicator"/>
+      <text x="360" y="150" font-family="monospace" font-size="11" style="fill: var(--blue)" text-anchor="middle" id="meanLabel">mean</text>
 
       <!-- Revote section (shown when revote data exists) -->
-      <text x="0" y="160" font-family="monospace" font-size="10" fill="#D4B98B" font-weight="bold" id="revoteLabel" visibility="hidden">AFTER DISCUSSION</text>
-      <rect x="0" y="162" width="720" height="36" rx="18" fill="#004488" id="revoteSpectrumBg" visibility="hidden"/>
+      <text x="0" y="160" font-family="monospace" font-size="10" style="fill: var(--sand)" font-weight="bold" id="revoteLabel" visibility="hidden">AFTER DISCUSSION</text>
+      <rect x="0" y="162" width="720" height="36" rx="18" style="fill: var(--border)" id="revoteSpectrumBg" visibility="hidden"/>
       <rect x="0" y="162" width="720" height="36" rx="18" fill="url(#spectrumGrad)" opacity="0.35" id="revoteSpectrumGrad" visibility="hidden"/>
       <g id="revoteDots" transform="translate(0, 180)"></g>
-      <polygon points="360,204 354,216 366,216" fill="#D4B98B" id="revoteMeanIndicator" visibility="hidden"/>
-      <text x="360" y="232" font-family="monospace" font-size="11" fill="#D4B98B" text-anchor="middle" id="revoteMeanLabel" visibility="hidden">mean</text>
+      <polygon points="360,204 354,216 366,216" style="fill: var(--sand)" id="revoteMeanIndicator" visibility="hidden"/>
+      <text x="360" y="232" font-family="monospace" font-size="11" style="fill: var(--sand)" text-anchor="middle" id="revoteMeanLabel" visibility="hidden">mean</text>
 
       <!-- Shift arrow and text -->
       <g id="shiftArrowGroup" visibility="hidden">
-        <line x1="360" y1="136" x2="360" y2="200" stroke="#CC0000" stroke-width="2" stroke-dasharray="4,3" id="shiftArrowLine"/>
-        <polygon points="360,200 355,192 365,192" fill="#CC0000" id="shiftArrowHead"/>
-        <text x="360" y="248" font-family="monospace" font-size="13" fill="#CC0000" text-anchor="middle" font-weight="bold" id="shiftText">Shift: 0.0 → 0.0</text>
+        <line x1="360" y1="136" x2="360" y2="200" style="stroke: var(--red)" stroke-width="2" stroke-dasharray="4,3" id="shiftArrowLine"/>
+        <polygon points="360,200 355,192 365,192" style="fill: var(--red)" id="shiftArrowHead"/>
+        <text x="360" y="248" font-family="monospace" font-size="13" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="shiftText">Shift: 0.0 &#x2192; 0.0</text>
       </g>
 
       <!-- Pole labels (dynamic) — position adjusts based on revote visibility -->
-      <text x="0" y="170" font-family="monospace" font-size="13" fill="#126BD9" font-weight="bold" id="poleLeft">Pole A</text>
-      <text x="360" y="170" font-family="monospace" font-size="13" fill="#7A97AB" text-anchor="middle" id="poleMiddle">&#x25C4;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x25BA;</text>
-      <text x="720" y="170" font-family="monospace" font-size="13" fill="#CC0000" text-anchor="end" font-weight="bold" id="poleRight">Pole B</text>
+      <text x="0" y="170" font-family="monospace" font-size="13" style="fill: var(--blue)" font-weight="bold" id="poleLeft">Pole A</text>
+      <text x="360" y="170" font-family="monospace" font-size="13" style="fill: var(--text-muted)" text-anchor="middle" id="poleMiddle">&#x25C4;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x2500;&#x25BA;</text>
+      <text x="720" y="170" font-family="monospace" font-size="13" style="fill: var(--red)" text-anchor="end" font-weight="bold" id="poleRight">Pole B</text>
 
       <!-- Vote summary -->
-      <text x="0" y="200" font-family="monospace" font-size="14" fill="#7A97AB" id="voteSummary">0 votes</text>
+      <text x="0" y="200" font-family="monospace" font-size="14" style="fill: var(--text-muted)" id="voteSummary">0 votes</text>
 
       <!-- Tension description panels -->
-      <rect x="0" y="220" width="345" height="80" rx="8" fill="#002244" stroke="#126BD9" stroke-width="1" opacity="0.6" id="tensionPoleABox"/>
-      <text x="172" y="248" font-family="monospace" font-size="13" fill="#126BD9" text-anchor="middle" font-weight="bold" id="tensionPoleALabel">Pole A</text>
-      <text x="172" y="270" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="tensionPoleADesc"></text>
+      <rect x="0" y="220" width="345" height="80" rx="8" style="fill: var(--panel); stroke: var(--blue)" stroke-width="1" opacity="0.6" id="tensionPoleABox"/>
+      <text x="172" y="248" font-family="monospace" font-size="13" style="fill: var(--blue)" text-anchor="middle" font-weight="bold" id="tensionPoleALabel">Pole A</text>
+      <text x="172" y="270" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="tensionPoleADesc"></text>
 
-      <rect x="375" y="220" width="345" height="80" rx="8" fill="#002244" stroke="#CC0000" stroke-width="1" opacity="0.6" id="tensionPoleBBox"/>
-      <text x="547" y="248" font-family="monospace" font-size="13" fill="#CC0000" text-anchor="middle" font-weight="bold" id="tensionPoleBLabel">Pole B</text>
-      <text x="547" y="270" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="tensionPoleBDesc"></text>
+      <rect x="375" y="220" width="345" height="80" rx="8" style="fill: var(--panel); stroke: var(--red)" stroke-width="1" opacity="0.6" id="tensionPoleBBox"/>
+      <text x="547" y="248" font-family="monospace" font-size="13" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="tensionPoleBLabel">Pole B</text>
+      <text x="547" y="270" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="tensionPoleBDesc"></text>
 
       <!-- Tension index indicator -->
       <g id="tensionNav" transform="translate(0, 580)">
-        <circle cx="320" cy="0" r="6" fill="#004488" stroke="#7A97AB" id="navDot0"/>
-        <circle cx="340" cy="0" r="6" fill="#004488" stroke="#7A97AB" id="navDot1"/>
-        <circle cx="360" cy="0" r="6" fill="#004488" stroke="#7A97AB" id="navDot2"/>
-        <circle cx="380" cy="0" r="6" fill="#004488" stroke="#7A97AB" id="navDot3"/>
+        <circle cx="320" cy="0" r="6" style="fill: var(--border); stroke: var(--text-muted)" id="navDot0"/>
+        <circle cx="340" cy="0" r="6" style="fill: var(--border); stroke: var(--text-muted)" id="navDot1"/>
+        <circle cx="360" cy="0" r="6" style="fill: var(--border); stroke: var(--text-muted)" id="navDot2"/>
+        <circle cx="380" cy="0" r="6" style="fill: var(--border); stroke: var(--text-muted)" id="navDot3"/>
       </g>
     </g>
 
     <!-- Right column: Questions, Table Notes, and Comments (40% = ~480px, from x=784 to x=1256) -->
     <g id="tensionRight" transform="translate(784, 80)">
       <!-- TOP QUESTIONS header -->
-      <rect x="0" y="0" width="472" height="32" rx="6" fill="#002244" stroke="#004488"/>
-      <text x="16" y="22" font-family="monospace" font-size="14" fill="#CC0000" font-weight="bold">TOP QUESTIONS</text>
-      <text x="456" y="22" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="end" id="questionCount">0</text>
+      <rect x="0" y="0" width="472" height="32" rx="6" style="fill: var(--panel); stroke: var(--border)"/>
+      <text x="16" y="22" font-family="monospace" font-size="14" style="fill: var(--sand)" font-weight="bold">TOP QUESTIONS</text>
+      <text x="456" y="22" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="end" id="questionCount">0</text>
 
       <!-- Questions container -->
       <g id="questionsList" transform="translate(0, 40)"></g>
 
       <!-- TABLE NOTES section (shown during discussion when voting closed) -->
       <g id="tableNotesSection" visibility="hidden">
-        <rect x="0" y="260" width="472" height="32" rx="6" fill="#002244" stroke="#D4B98B" stroke-width="1" id="tableNotesHeader"/>
-        <text x="16" y="282" font-family="monospace" font-size="14" fill="#D4B98B" font-weight="bold" id="tableNotesTitle">TABLE NOTES</text>
+        <rect x="0" y="260" width="472" height="32" rx="6" style="fill: var(--panel); stroke: var(--sand)" stroke-width="1" id="tableNotesHeader"/>
+        <text x="16" y="282" font-family="monospace" font-size="14" style="fill: var(--sand)" font-weight="bold" id="tableNotesTitle">TABLE NOTES</text>
         <g id="tableNotesList" transform="translate(0, 300)"></g>
       </g>
 
       <!-- RECENT COMMENTS header -->
-      <rect x="0" y="320" width="472" height="32" rx="6" fill="#002244" stroke="#004488" id="commentsHeader"/>
-      <text x="16" y="342" font-family="monospace" font-size="14" fill="#CC0000" font-weight="bold" id="commentsHeaderText">RECENT COMMENTS</text>
-      <text x="456" y="342" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="end" id="commentCount">0</text>
+      <rect x="0" y="320" width="472" height="32" rx="6" style="fill: var(--panel); stroke: var(--border)" id="commentsHeader"/>
+      <text x="16" y="342" font-family="monospace" font-size="14" style="fill: var(--sand)" font-weight="bold" id="commentsHeaderText">RECENT COMMENTS</text>
+      <text x="456" y="342" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="end" id="commentCount">0</text>
 
       <!-- Comments container -->
       <g id="commentsList" transform="translate(0, 360)"></g>
@@ -661,143 +670,158 @@
 
   <!-- ==================== PHASE: RESULTS ==================== -->
   <g id="phaseResults" visibility="hidden">
-    <text x="640" y="90" font-family="monospace" font-size="36" fill="#CC0000" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
+    <text x="640" y="90" font-family="monospace" font-size="36" style="fill: var(--red)" text-anchor="middle" font-weight="bold" filter="url(#glow)">SESSION COMPLETE</text>
 
     <!-- Narrative insights — large focus area -->
     <g transform="translate(40, 110)">
       <!-- Most Divided -->
-      <rect x="0" y="0" width="585" height="64" rx="8" fill="#002244" stroke="#CC0000" stroke-width="1"/>
-      <text x="16" y="22" font-family="monospace" font-size="11" fill="#CC0000" font-weight="bold">MOST DIVIDED</text>
-      <text x="16" y="48" font-family="monospace" font-size="16" fill="#D9ECFF" id="resultMostDivided">The room was most divided on: --</text>
+      <rect x="0" y="0" width="585" height="64" rx="8" style="fill: var(--panel); stroke: var(--red)" stroke-width="1"/>
+      <text x="16" y="22" font-family="monospace" font-size="11" style="fill: var(--text-muted)" font-weight="bold">MOST DIVIDED</text>
+      <text x="16" y="48" font-family="monospace" font-size="16" style="fill: var(--text)" id="resultMostDivided">The room was most divided on: --</text>
 
       <!-- Strongest Consensus -->
-      <rect x="600" y="0" width="600" height="64" rx="8" fill="#002244" stroke="#126BD9" stroke-width="1"/>
-      <text x="616" y="22" font-family="monospace" font-size="11" fill="#126BD9" font-weight="bold">STRONGEST CONSENSUS</text>
-      <text x="616" y="48" font-family="monospace" font-size="16" fill="#D9ECFF" id="resultStrongestConsensus">The room agreed most on: --</text>
+      <rect x="600" y="0" width="600" height="64" rx="8" style="fill: var(--panel); stroke: var(--blue)" stroke-width="1"/>
+      <text x="616" y="22" font-family="monospace" font-size="11" style="fill: var(--text-muted)" font-weight="bold">STRONGEST CONSENSUS</text>
+      <text x="616" y="48" font-family="monospace" font-size="16" style="fill: var(--text)" id="resultStrongestConsensus">The room agreed most on: --</text>
 
       <!-- Biggest Shift -->
-      <rect x="0" y="74" width="585" height="64" rx="8" fill="#002244" stroke="#D4B98B" stroke-width="1"/>
-      <text x="16" y="96" font-family="monospace" font-size="11" fill="#D4B98B" font-weight="bold">BIGGEST SHIFT</text>
-      <text x="16" y="122" font-family="monospace" font-size="16" fill="#D9ECFF" id="resultBiggestShift">No revote data yet</text>
+      <rect x="0" y="74" width="585" height="64" rx="8" style="fill: var(--panel); stroke: var(--sand)" stroke-width="1"/>
+      <text x="16" y="96" font-family="monospace" font-size="11" style="fill: var(--text-muted)" font-weight="bold">BIGGEST SHIFT</text>
+      <text x="16" y="122" font-family="monospace" font-size="16" style="fill: var(--text)" id="resultBiggestShift">No revote data yet</text>
 
       <!-- Question of the Night -->
-      <rect x="600" y="74" width="600" height="64" rx="8" fill="#002244" stroke="#CC0000" stroke-width="1"/>
-      <text x="616" y="96" font-family="monospace" font-size="11" fill="#CC0000" font-weight="bold">QUESTION OF THE NIGHT</text>
-      <text x="616" y="122" font-family="monospace" font-size="16" fill="#D9ECFF" id="resultTopQuestion">--</text>
+      <rect x="600" y="74" width="600" height="64" rx="8" style="fill: var(--panel); stroke: var(--red)" stroke-width="1"/>
+      <text x="616" y="96" font-family="monospace" font-size="11" style="fill: var(--text-muted)" font-weight="bold">QUESTION OF THE NIGHT</text>
+      <text x="616" y="122" font-family="monospace" font-size="16" style="fill: var(--text)" id="resultTopQuestion">--</text>
     </g>
 
     <!-- 4 mini spectrum charts side by side -->
     <g id="resultsCharts" transform="translate(40, 270)">
       <!-- T0 -->
       <g transform="translate(0, 0)">
-        <rect x="0" y="0" width="280" height="200" rx="8" fill="#002244" stroke="#004488"/>
-        <text x="140" y="20" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle" font-weight="bold" id="resultTitle0">T0</text>
-        <text x="140" y="36" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle" id="resultSub0"></text>
+        <rect x="0" y="0" width="280" height="200" rx="8" style="fill: var(--panel); stroke: var(--border)"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="resultTitle0">T0</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" style="fill: var(--text-muted)" text-anchor="middle" id="resultSub0"></text>
         <!-- Initial (blue) label -->
-        <text x="20" y="52" font-family="monospace" font-size="8" fill="#126BD9" id="resultInitLabel0">INITIAL</text>
+        <text x="20" y="52" font-family="monospace" font-size="8" style="fill: var(--blue)" id="resultInitLabel0">INITIAL</text>
         <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
         <g id="resultDots0" transform="translate(20, 64)"></g>
         <!-- Revote (gold) label and bar -->
-        <text x="20" y="90" font-family="monospace" font-size="8" fill="#D4B98B" id="resultRevoteLabel0" visibility="hidden">AFTER DISCUSSION</text>
+        <text x="20" y="90" font-family="monospace" font-size="8" style="fill: var(--sand)" id="resultRevoteLabel0" visibility="hidden">AFTER DISCUSSION</text>
         <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg0" visibility="hidden"/>
         <g id="resultRevoteDots0" transform="translate(20, 102)"></g>
         <!-- Shift arrow for mini chart -->
         <g id="resultShiftArrow0" visibility="hidden">
-          <line x1="140" y1="78" x2="140" y2="92" stroke="#CC0000" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine0"/>
-          <polygon points="140,92 137,86 143,86" fill="#CC0000" id="resultShiftHead0"/>
+          <line x1="140" y1="78" x2="140" y2="92" style="stroke: var(--red)" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine0"/>
+          <polygon points="140,92 137,86 143,86" style="fill: var(--red)" id="resultShiftHead0"/>
         </g>
-        <text x="20" y="130" font-family="monospace" font-size="9" fill="#126BD9" id="resultLeftLabel0"></text>
-        <text x="260" y="130" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="end" id="resultRightLabel0"></text>
-        <text x="140" y="150" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" id="resultVotes0">0 votes</text>
-        <text x="140" y="166" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="resultMean0">mean: --</text>
+        <text x="20" y="130" font-family="monospace" font-size="9" style="fill: var(--blue)" id="resultLeftLabel0"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" style="fill: var(--red)" text-anchor="end" id="resultRightLabel0"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" style="fill: var(--text)" text-anchor="middle" id="resultVotes0">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="resultMean0">mean: --</text>
         <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev0">std dev: --</text>
-        <text x="140" y="196" font-family="monospace" font-size="9" fill="#D4B98B" text-anchor="middle" id="resultShiftText0"></text>
+        <text x="140" y="196" font-family="monospace" font-size="9" style="fill: var(--sand)" text-anchor="middle" id="resultShiftText0"></text>
       </g>
       <!-- T1 -->
       <g transform="translate(300, 0)">
-        <rect x="0" y="0" width="280" height="200" rx="8" fill="#002244" stroke="#004488"/>
-        <text x="140" y="20" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle" font-weight="bold" id="resultTitle1">T1</text>
-        <text x="140" y="36" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle" id="resultSub1"></text>
-        <text x="20" y="52" font-family="monospace" font-size="8" fill="#126BD9" id="resultInitLabel1">INITIAL</text>
+        <rect x="0" y="0" width="280" height="200" rx="8" style="fill: var(--panel); stroke: var(--border)"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="resultTitle1">T1</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" style="fill: var(--text-muted)" text-anchor="middle" id="resultSub1"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" style="fill: var(--blue)" id="resultInitLabel1">INITIAL</text>
         <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
         <g id="resultDots1" transform="translate(20, 64)"></g>
-        <text x="20" y="90" font-family="monospace" font-size="8" fill="#D4B98B" id="resultRevoteLabel1" visibility="hidden">AFTER DISCUSSION</text>
+        <text x="20" y="90" font-family="monospace" font-size="8" style="fill: var(--sand)" id="resultRevoteLabel1" visibility="hidden">AFTER DISCUSSION</text>
         <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg1" visibility="hidden"/>
         <g id="resultRevoteDots1" transform="translate(20, 102)"></g>
         <g id="resultShiftArrow1" visibility="hidden">
-          <line x1="140" y1="78" x2="140" y2="92" stroke="#CC0000" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine1"/>
-          <polygon points="140,92 137,86 143,86" fill="#CC0000" id="resultShiftHead1"/>
+          <line x1="140" y1="78" x2="140" y2="92" style="stroke: var(--red)" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine1"/>
+          <polygon points="140,92 137,86 143,86" style="fill: var(--red)" id="resultShiftHead1"/>
         </g>
-        <text x="20" y="130" font-family="monospace" font-size="9" fill="#126BD9" id="resultLeftLabel1"></text>
-        <text x="260" y="130" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="end" id="resultRightLabel1"></text>
-        <text x="140" y="150" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" id="resultVotes1">0 votes</text>
-        <text x="140" y="166" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="resultMean1">mean: --</text>
+        <text x="20" y="130" font-family="monospace" font-size="9" style="fill: var(--blue)" id="resultLeftLabel1"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" style="fill: var(--red)" text-anchor="end" id="resultRightLabel1"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" style="fill: var(--text)" text-anchor="middle" id="resultVotes1">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="resultMean1">mean: --</text>
         <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev1">std dev: --</text>
-        <text x="140" y="196" font-family="monospace" font-size="9" fill="#D4B98B" text-anchor="middle" id="resultShiftText1"></text>
+        <text x="140" y="196" font-family="monospace" font-size="9" style="fill: var(--sand)" text-anchor="middle" id="resultShiftText1"></text>
       </g>
       <!-- T2 -->
       <g transform="translate(600, 0)">
-        <rect x="0" y="0" width="280" height="200" rx="8" fill="#002244" stroke="#004488"/>
-        <text x="140" y="20" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle" font-weight="bold" id="resultTitle2">T2</text>
-        <text x="140" y="36" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle" id="resultSub2"></text>
-        <text x="20" y="52" font-family="monospace" font-size="8" fill="#126BD9" id="resultInitLabel2">INITIAL</text>
+        <rect x="0" y="0" width="280" height="200" rx="8" style="fill: var(--panel); stroke: var(--border)"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="resultTitle2">T2</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" style="fill: var(--text-muted)" text-anchor="middle" id="resultSub2"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" style="fill: var(--blue)" id="resultInitLabel2">INITIAL</text>
         <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
         <g id="resultDots2" transform="translate(20, 64)"></g>
-        <text x="20" y="90" font-family="monospace" font-size="8" fill="#D4B98B" id="resultRevoteLabel2" visibility="hidden">AFTER DISCUSSION</text>
+        <text x="20" y="90" font-family="monospace" font-size="8" style="fill: var(--sand)" id="resultRevoteLabel2" visibility="hidden">AFTER DISCUSSION</text>
         <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg2" visibility="hidden"/>
         <g id="resultRevoteDots2" transform="translate(20, 102)"></g>
         <g id="resultShiftArrow2" visibility="hidden">
-          <line x1="140" y1="78" x2="140" y2="92" stroke="#CC0000" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine2"/>
-          <polygon points="140,92 137,86 143,86" fill="#CC0000" id="resultShiftHead2"/>
+          <line x1="140" y1="78" x2="140" y2="92" style="stroke: var(--red)" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine2"/>
+          <polygon points="140,92 137,86 143,86" style="fill: var(--red)" id="resultShiftHead2"/>
         </g>
-        <text x="20" y="130" font-family="monospace" font-size="9" fill="#126BD9" id="resultLeftLabel2"></text>
-        <text x="260" y="130" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="end" id="resultRightLabel2"></text>
-        <text x="140" y="150" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" id="resultVotes2">0 votes</text>
-        <text x="140" y="166" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="resultMean2">mean: --</text>
+        <text x="20" y="130" font-family="monospace" font-size="9" style="fill: var(--blue)" id="resultLeftLabel2"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" style="fill: var(--red)" text-anchor="end" id="resultRightLabel2"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" style="fill: var(--text)" text-anchor="middle" id="resultVotes2">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="resultMean2">mean: --</text>
         <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev2">std dev: --</text>
-        <text x="140" y="196" font-family="monospace" font-size="9" fill="#D4B98B" text-anchor="middle" id="resultShiftText2"></text>
+        <text x="140" y="196" font-family="monospace" font-size="9" style="fill: var(--sand)" text-anchor="middle" id="resultShiftText2"></text>
       </g>
       <!-- T3 -->
       <g transform="translate(900, 0)">
-        <rect x="0" y="0" width="280" height="200" rx="8" fill="#002244" stroke="#004488"/>
-        <text x="140" y="20" font-family="monospace" font-size="11" fill="#CC0000" text-anchor="middle" font-weight="bold" id="resultTitle3">T3</text>
-        <text x="140" y="36" font-family="monospace" font-size="9" fill="#7A97AB" text-anchor="middle" id="resultSub3"></text>
-        <text x="20" y="52" font-family="monospace" font-size="8" fill="#126BD9" id="resultInitLabel3">INITIAL</text>
+        <rect x="0" y="0" width="280" height="200" rx="8" style="fill: var(--panel); stroke: var(--border)"/>
+        <text x="140" y="20" font-family="monospace" font-size="11" style="fill: var(--red)" text-anchor="middle" font-weight="bold" id="resultTitle3">T3</text>
+        <text x="140" y="36" font-family="monospace" font-size="9" style="fill: var(--text-muted)" text-anchor="middle" id="resultSub3"></text>
+        <text x="20" y="52" font-family="monospace" font-size="8" style="fill: var(--blue)" id="resultInitLabel3">INITIAL</text>
         <rect x="20" y="54" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3"/>
         <g id="resultDots3" transform="translate(20, 64)"></g>
-        <text x="20" y="90" font-family="monospace" font-size="8" fill="#D4B98B" id="resultRevoteLabel3" visibility="hidden">AFTER DISCUSSION</text>
+        <text x="20" y="90" font-family="monospace" font-size="8" style="fill: var(--sand)" id="resultRevoteLabel3" visibility="hidden">AFTER DISCUSSION</text>
         <rect x="20" y="92" width="240" height="20" rx="10" fill="url(#spectrumGradMini)" opacity="0.3" id="resultRevoteBg3" visibility="hidden"/>
         <g id="resultRevoteDots3" transform="translate(20, 102)"></g>
         <g id="resultShiftArrow3" visibility="hidden">
-          <line x1="140" y1="78" x2="140" y2="92" stroke="#CC0000" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine3"/>
-          <polygon points="140,92 137,86 143,86" fill="#CC0000" id="resultShiftHead3"/>
+          <line x1="140" y1="78" x2="140" y2="92" style="stroke: var(--red)" stroke-width="1.5" stroke-dasharray="3,2" id="resultShiftLine3"/>
+          <polygon points="140,92 137,86 143,86" style="fill: var(--red)" id="resultShiftHead3"/>
         </g>
-        <text x="20" y="130" font-family="monospace" font-size="9" fill="#126BD9" id="resultLeftLabel3"></text>
-        <text x="260" y="130" font-family="monospace" font-size="9" fill="#CC0000" text-anchor="end" id="resultRightLabel3"></text>
-        <text x="140" y="150" font-family="monospace" font-size="12" fill="#D9ECFF" text-anchor="middle" id="resultVotes3">0 votes</text>
-        <text x="140" y="166" font-family="monospace" font-size="11" fill="#7A97AB" text-anchor="middle" id="resultMean3">mean: --</text>
+        <text x="20" y="130" font-family="monospace" font-size="9" style="fill: var(--blue)" id="resultLeftLabel3"></text>
+        <text x="260" y="130" font-family="monospace" font-size="9" style="fill: var(--red)" text-anchor="end" id="resultRightLabel3"></text>
+        <text x="140" y="150" font-family="monospace" font-size="12" style="fill: var(--text)" text-anchor="middle" id="resultVotes3">0 votes</text>
+        <text x="140" y="166" font-family="monospace" font-size="11" style="fill: var(--text-muted)" text-anchor="middle" id="resultMean3">mean: --</text>
         <text x="140" y="182" font-family="monospace" font-size="9" fill="#6b21a8" text-anchor="middle" id="resultStdDev3">std dev: --</text>
-        <text x="140" y="196" font-family="monospace" font-size="9" fill="#D4B98B" text-anchor="middle" id="resultShiftText3"></text>
+        <text x="140" y="196" font-family="monospace" font-size="9" style="fill: var(--sand)" text-anchor="middle" id="resultShiftText3"></text>
       </g>
     </g>
 
     <!-- Stats line -->
-    <rect x="240" y="490" width="800" height="50" rx="12" fill="#002244" stroke="#004488"/>
-    <text x="640" y="522" font-family="monospace" font-size="20" fill="#D9ECFF" text-anchor="middle" id="resultStatsLine">0 participants / 0 questions / 0 comments</text>
+    <rect x="240" y="490" width="800" height="50" rx="12" style="fill: var(--panel); stroke: var(--border)"/>
+    <text x="640" y="522" font-family="monospace" font-size="20" style="fill: var(--text)" text-anchor="middle" id="resultStatsLine">0 participants / 0 questions / 0 comments</text>
 
     <!-- Thank you -->
-    <text x="640" y="580" font-family="monospace" font-size="28" fill="#CC0000" text-anchor="middle" font-weight="bold">Thank you!</text>
-    <text x="640" y="610" font-family="monospace" font-size="14" fill="#7A97AB" text-anchor="middle">FAU Boca Raton  |  MPCR Labs Round Table</text>
+    <text x="640" y="580" font-family="monospace" font-size="28" style="fill: var(--red)" text-anchor="middle" font-weight="bold">Thank you!</text>
+    <text x="640" y="610" font-family="monospace" font-size="14" style="fill: var(--text-muted)" text-anchor="middle">FAU Boca Raton  |  MPCR Labs Round Table</text>
   </g>
 
   <!-- ==================== BOTTOM STATUS BAR ==================== -->
-  <rect x="0" y="692" width="1280" height="28" fill="#002244" stroke="#004488" stroke-width="1"/>
-  <text x="24" y="710" font-family="monospace" font-size="10" fill="#7A97AB" id="statusText">connecting...</text>
-  <text x="640" y="710" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="middle" id="phaseLabel">--</text>
-  <text x="1256" y="710" font-family="monospace" font-size="10" fill="#7A97AB" text-anchor="end" id="clockText"></text>
+  <rect x="0" y="692" width="1280" height="28" style="fill: var(--panel); stroke: var(--border)" stroke-width="1"/>
+  <text x="24" y="710" font-family="monospace" font-size="10" style="fill: var(--text-muted)" id="statusText">connecting...</text>
+  <text x="640" y="710" font-family="monospace" font-size="10" style="fill: var(--text-muted)" text-anchor="middle" id="phaseLabel">--</text>
+  <text x="1256" y="710" font-family="monospace" font-size="10" style="fill: var(--text-muted)" text-anchor="end" id="clockText"></text>
 
   <script type="application/ecmascript"><![CDATA[
     var BASE = 'https://statevec.com';
+    var THEME = {
+      bg: '#0f1419', panel: '#1a1f2e', border: '#2a3040', header: '#003366',
+      text: '#e8e8e8', muted: '#8899aa',
+      red: '#CC0000', blue: '#126BD9', sand: '#D4B98B', green: '#4ade80',
+      redDark: '#660000', textOnRed: '#ffffff', textOnBlue: '#ffffff'
+    };
+    try {
+      var cs = getComputedStyle(document.documentElement);
+      var props = ['bg','panel','border','header','text','text-muted','red','blue','sand','green','red-dark','text-on-red','text-on-blue'];
+      var jsKeys = ['bg','panel','border','header','text','muted','red','blue','sand','green','redDark','textOnRed','textOnBlue'];
+      for (var ti = 0; ti < props.length; ti++) {
+        var v = cs.getPropertyValue('--' + props[ti]).trim();
+        if (v) THEME[jsKeys[ti]] = v;
+      }
+    } catch(e) {}
     var ns = 'http://www.w3.org/2000/svg';
 
     /* ── Hashes (read-only) ── */
@@ -1023,7 +1047,7 @@
       }
       countdownTimer.textContent = 'VOTING CLOSED';
       countdownTimer.setAttribute('visibility', 'visible');
-      countdownTimer.setAttribute('fill', '#CC0000');
+      countdownTimer.setAttribute('fill', THEME.red);
       countdownTimer.setAttribute('font-size', '24');
       countdownLabel.setAttribute('visibility', 'hidden');
     }
@@ -1036,13 +1060,13 @@
       var secs = remaining % 60;
       countdownTimer.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
       countdownTimer.setAttribute('visibility', 'visible');
-      countdownTimer.setAttribute('fill', remaining <= 10 ? '#CC0000' : '#D9ECFF');
+      countdownTimer.setAttribute('fill', remaining <= 10 ? THEME.red : THEME.text);
       countdownTimer.setAttribute('font-size', remaining <= 10 ? '42' : '36');
       countdownLabel.setAttribute('visibility', 'visible');
       countdownLabel.textContent = remaining > 0 ? 'voting open' : 'VOTING CLOSED';
       if (remaining <= 0) {
         countdownTimer.textContent = 'VOTING CLOSED';
-        countdownTimer.setAttribute('fill', '#CC0000');
+        countdownTimer.setAttribute('fill', THEME.red);
         countdownTimer.setAttribute('font-size', '24');
         countdownLabel.setAttribute('visibility', 'hidden');
         if (votingCountdownInterval) {
@@ -1088,7 +1112,7 @@
         circle.setAttribute('r', dotRadius);
         circle.setAttribute('fill', color);
         circle.setAttribute('opacity', '0.8');
-        circle.setAttribute('stroke', '#003366');
+        circle.setAttribute('stroke', THEME.bg);
         circle.setAttribute('stroke-width', '1');
         container.appendChild(circle);
       }
@@ -1167,7 +1191,7 @@
         t.setAttribute('y', row * cellH + 16);
         t.setAttribute('font-family', 'monospace');
         t.setAttribute('font-size', '12');
-        t.setAttribute('fill', '#7A97AB');
+        t.setAttribute('fill', THEME.muted);
         t.textContent = truncate(names[k], 14);
         nameGrid.appendChild(t);
       }
@@ -1191,7 +1215,7 @@
       for (var n = 0; n < 4; n++) {
         var dot = document.getElementById('navDot' + n);
         if (dot) {
-          dot.setAttribute('fill', n === tIdx ? '#CC0000' : '#004488');
+          dot.setAttribute('fill', n === tIdx ? THEME.red : THEME.border);
         }
       }
 
@@ -1209,7 +1233,7 @@
 
       /* Draw initial vote dots */
       clearChildren(voteDots);
-      drawSpectrumDots(voteDots, voteList, SPECTRUM_W, hasRevotes ? '#126BD9' : '#D9ECFF', 6);
+      drawSpectrumDots(voteDots, voteList, SPECTRUM_W, hasRevotes ? THEME.blue : THEME.text, 6);
 
       /* Initial mean */
       var initialMean = total > 0 ? sum / total : 3;
@@ -1225,7 +1249,7 @@
 
         /* Draw revote dots */
         clearChildren(revoteDots);
-        drawSpectrumDots(revoteDots, revoteList, SPECTRUM_W, '#D4B98B', 6);
+        drawSpectrumDots(revoteDots, revoteList, SPECTRUM_W, THEME.sand, 6);
 
         /* Revote mean */
         var revoteMean = meanOf(revoteList);
@@ -1300,7 +1324,7 @@
         nt.setAttribute('y', y + 14);
         nt.setAttribute('font-family', 'monospace');
         nt.setAttribute('font-size', '14');
-        nt.setAttribute('fill', '#D9ECFF');
+        nt.setAttribute('fill', THEME.text);
         nt.textContent = 'Table ' + note.table + ': ' + truncate(note.text, 40);
         tableNotesList.appendChild(nt);
       }
@@ -1364,8 +1388,8 @@
         bg.setAttribute('width', 472);
         bg.setAttribute('height', 40);
         bg.setAttribute('rx', 6);
-        bg.setAttribute('fill', '#002244');
-        bg.setAttribute('stroke', q2.highlighted ? '#CC0000' : '#004488');
+        bg.setAttribute('fill', THEME.panel);
+        bg.setAttribute('stroke', q2.highlighted ? THEME.red : THEME.border);
         bg.setAttribute('stroke-width', q2.highlighted ? '2' : '1');
         questionsList.appendChild(bg);
 
@@ -1375,7 +1399,7 @@
           star.setAttribute('y', y + 22);
           star.setAttribute('font-family', 'monospace');
           star.setAttribute('font-size', '14');
-          star.setAttribute('fill', '#CC0000');
+          star.setAttribute('fill', THEME.red);
           star.textContent = '\u2605';
           questionsList.appendChild(star);
         }
@@ -1385,7 +1409,7 @@
         qt.setAttribute('y', y + 18);
         qt.setAttribute('font-family', 'monospace');
         qt.setAttribute('font-size', '14');
-        qt.setAttribute('fill', '#D9ECFF');
+        qt.setAttribute('fill', THEME.text);
         qt.textContent = truncate(q2.text, 42);
         questionsList.appendChild(qt);
 
@@ -1394,7 +1418,7 @@
         qa.setAttribute('y', y + 34);
         qa.setAttribute('font-family', 'monospace');
         qa.setAttribute('font-size', '10');
-        qa.setAttribute('fill', '#7A97AB');
+        qa.setAttribute('fill', THEME.muted);
         qa.textContent = q2.name;
         questionsList.appendChild(qa);
 
@@ -1403,7 +1427,7 @@
         uv.setAttribute('y', y + 22);
         uv.setAttribute('font-family', 'monospace');
         uv.setAttribute('font-size', '13');
-        uv.setAttribute('fill', '#126BD9');
+        uv.setAttribute('fill', THEME.sand);
         uv.setAttribute('text-anchor', 'end');
         uv.textContent = '\u25B2 ' + q2.upvotes;
         questionsList.appendChild(uv);
@@ -1447,8 +1471,8 @@
         bg.setAttribute('width', 472);
         bg.setAttribute('height', 50);
         bg.setAttribute('rx', 6);
-        bg.setAttribute('fill', '#002244');
-        bg.setAttribute('stroke', '#004488');
+        bg.setAttribute('fill', THEME.panel);
+        bg.setAttribute('stroke', THEME.border);
         commentsList.appendChild(bg);
 
         var cn = document.createElementNS(ns, 'text');
@@ -1456,7 +1480,7 @@
         cn.setAttribute('y', y + 20);
         cn.setAttribute('font-family', 'monospace');
         cn.setAttribute('font-size', '12');
-        cn.setAttribute('fill', '#CC0000');
+        cn.setAttribute('fill', THEME.sand);
         cn.textContent = c2.name;
         commentsList.appendChild(cn);
 
@@ -1465,7 +1489,7 @@
         ct.setAttribute('y', y + 40);
         ct.setAttribute('font-family', 'monospace');
         ct.setAttribute('font-size', '14');
-        ct.setAttribute('fill', '#D9ECFF');
+        ct.setAttribute('fill', THEME.text);
         ct.textContent = truncate(c2.text, 46);
         commentsList.appendChild(ct);
       }
@@ -1577,9 +1601,9 @@
           circle.setAttribute('cx', cx);
           circle.setAttribute('cy', cy);
           circle.setAttribute('r', 3);
-          circle.setAttribute('fill', rList.length > 0 ? '#126BD9' : '#D9ECFF');
+          circle.setAttribute('fill', rList.length > 0 ? THEME.blue : THEME.text);
           circle.setAttribute('opacity', '0.8');
-          circle.setAttribute('stroke', '#003366');
+          circle.setAttribute('stroke', THEME.bg);
           circle.setAttribute('stroke-width', '1');
           dotsG.appendChild(circle);
         }
@@ -1626,9 +1650,9 @@
             rCircle.setAttribute('cx', rcx);
             rCircle.setAttribute('cy', rcy);
             rCircle.setAttribute('r', 3);
-            rCircle.setAttribute('fill', '#D4B98B');
+            rCircle.setAttribute('fill', THEME.sand);
             rCircle.setAttribute('opacity', '0.8');
-            rCircle.setAttribute('stroke', '#003366');
+            rCircle.setAttribute('stroke', THEME.bg);
             rCircle.setAttribute('stroke-width', '1');
             revoteDotsG.appendChild(rCircle);
           }
@@ -1743,7 +1767,7 @@
         var commentsData = results[4];
         var tablesData = results[5];
 
-        connDot.setAttribute('fill', '#126BD9');
+        connDot.setAttribute('fill', THEME.green);
         statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
 
         if (stateData && stateData.val) state = stateData.val;
@@ -1811,7 +1835,7 @@
         }
 
       }).catch(function(err) {
-        connDot.setAttribute('fill', '#CC0000');
+        connDot.setAttribute('fill', THEME.red);
         statusText.textContent = 'error: ' + (err.message || 'poll failed');
       });
     }

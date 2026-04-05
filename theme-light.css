@@ -1,0 +1,87 @@
+/* AI in Education — Light Theme (FAU branded) */
+
+:root {
+  /* Backgrounds */
+  --bg:          #f5f5f5;
+  --panel:       #ffffff;
+  --border:      #d0d0d0;
+  --header:      #003366;  /* FAU Blue */
+
+  /* Text */
+  --text:        #1a1a1a;
+  --text-muted:  #4D4C55;  /* FAU Dark Gray */
+
+  /* FAU Accents */
+  --red:         #CC0000;
+  --blue:        #126BD9;
+  --sand:        #8B6914;  /* Darker sand for contrast on white */
+  --green:       #16a34a;
+
+  /* Derived */
+  --red-dark:    #990000;
+  --blue-dark:   #003366;
+  --text-on-red: #ffffff;
+  --text-on-blue:#ffffff;
+  --qr-fg:       #003366;
+  --qr-bg:       #ffffff;
+}
+
+/* ── Base ── */
+.bg      { fill: var(--bg); }
+.panel   { fill: var(--panel); }
+.border  { stroke: var(--border); fill: none; }
+.header  { fill: var(--header); }
+
+/* ── Text ── */
+.t       { fill: var(--text); font-family: monospace; }
+.t-muted { fill: var(--text-muted); font-family: monospace; }
+.t-sand  { fill: var(--sand); font-family: monospace; }
+.t-red   { fill: var(--red); font-family: monospace; }
+.t-blue  { fill: var(--blue); font-family: monospace; }
+.t-green { fill: var(--green); font-family: monospace; }
+.t-white { fill: #ffffff; font-family: monospace; }
+
+/* ── Interactive ── */
+.btn-red   { fill: var(--red); cursor: pointer; }
+.btn-blue  { fill: var(--blue); cursor: pointer; }
+.btn-sand  { fill: var(--sand); cursor: pointer; }
+.btn-panel { fill: var(--panel); stroke: var(--border); cursor: pointer; }
+.btn-reset { fill: var(--bg); stroke: var(--red); cursor: pointer; }
+
+/* ── Status ── */
+.dot-ok    { fill: var(--green); }
+.dot-err   { fill: var(--red); }
+.dot-idle  { fill: var(--text-muted); }
+
+/* ── Spectrum ── */
+.vote-initial  { fill: var(--blue); opacity: 0.7; }
+.vote-revote   { fill: var(--sand); opacity: 0.7; }
+.mean-initial  { fill: var(--blue); }
+.mean-revote   { fill: var(--sand); }
+.shift-arrow   { fill: var(--red); }
+
+/* ── Inputs (foreignObject) ── */
+.input-style {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px;
+  font-family: monospace;
+  font-size: 16px;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.textarea-style {
+  background: var(--panel);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 8px;
+  font-family: monospace;
+  font-size: 13px;
+  border-radius: 6px;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+}
