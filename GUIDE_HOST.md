@@ -8,26 +8,32 @@ Everything the facilitator needs to run the event.
 
 ### 1. Set up the projector
 
-Open `screen.svg` in a browser on the projector computer. Make it fullscreen (F11). It will show "Welcome" and a participant counter. It reads data automatically — you never touch this computer again.
+Open `screen.svg` in a browser on the projector computer:
+> **https://williamedwardhahn.github.io/ai-education-event/screen.svg**
+
+Make it fullscreen (F11). It will show "Welcome," a scannable QR code, and a participant counter. The QR code points directly to `phone.svg` — attendees scan it to join. You never touch this computer again.
 
 ### 2. Set up the host panel
 
-Open `host.svg` in a browser on your laptop. This is your control panel for the entire event. Keep it open in a visible tab.
+Open `host.svg` in a browser on your laptop:
+> **https://williamedwardhahn.github.io/ai-education-event/host.svg**
+
+This is your control panel for the entire event. Keep it open in a visible tab.
 
 ### 3. Set the initial phase
 
 Click **"Welcome / Check-in"** in the left panel. The projector will show the welcome screen.
 
-### 4. Prepare QR codes
+### 4. QR codes
 
-Generate a QR code that points to the hosted `phone.svg` URL using [the QR tool](https://williamedwardhahn.github.io/web/qr.html).
+The projector **already displays a scannable QR code** during the check-in phase. Attendees point their phone cameras at the big screen — no printing required.
 
-**Print them large.** People over fifty need reading glasses. A QR code smaller than 3 inches will exclude people.
+**Optional:** For extra convenience, print QR codes for each table using [the QR tool](https://williamedwardhahn.github.io/web/qr.html) with this URL:
+> **https://williamedwardhahn.github.io/ai-education-event/phone.svg**
 
-Options:
-- Print QR codes and place one on each table
-- Display the QR code on the projector during check-in
-- Both (recommended)
+Print them at least **3 inches** — people with reading glasses need large codes.
+
+Attendees who have already joined can also tap **"Share"** on their phone to show a QR code for others to scan.
 
 ### 5. Test the system
 
@@ -41,14 +47,14 @@ Click **"Reset All"** in the host panel (requires double-click to confirm). This
 
 ### Reception (5:15 PM)
 
-People arrive, scan the QR code, and check in on their phones. They enter:
+People arrive and scan the QR code on the projector screen (or on printed table cards). They check in on their phones:
 - Their name
 - Their role (Educator / Researcher / Policymaker / Student / Other)
 - Their table number (1-8)
 
-Watch the projector — names appear in real time as people join. The participant counter grows.
+Watch the projector — names appear in real time as people join. The participant counter grows. Early joiners can tap **"Share"** on their phone to show their QR code to latecomers.
 
-**Your job:** Welcome people, point them to the QR codes, help anyone having trouble scanning.
+**Your job:** Welcome people, point them to the projector QR, help anyone having trouble scanning.
 
 ### Kickoff (6:00 PM)
 
@@ -161,7 +167,10 @@ Make sure `screen.svg` is open in the browser (not in an image viewer). It must 
 
 ### "Someone can't scan the QR code"
 
-Give them the URL to type manually. Or have them open the SVG file from a shared link (text message, email, Slack).
+Three fallbacks:
+1. Ask a neighbor who already joined to tap **"Share"** on their phone and hold it up to scan
+2. Give them the URL to type manually: `williamedwardhahn.github.io/ai-education-event/phone.svg`
+3. Send the link via text message, email, or Slack
 
 ### "WiFi is slow"
 

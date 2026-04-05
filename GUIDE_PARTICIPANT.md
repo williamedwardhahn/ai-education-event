@@ -8,7 +8,7 @@ Welcome to the MPCR Labs Round Table. Here's how to participate using your phone
 
 ### 1. Scan the QR code
 
-Use your phone's camera to scan the QR code on your table (or on the projector screen). It opens in your browser — no app needed.
+Point your phone's camera at the **QR code on the projector screen** (or on the card at your table). It opens in your browser — no app needed.
 
 ### 2. Check in
 
@@ -73,6 +73,10 @@ Your original vote is shown. Tap a new position if your thinking shifted, or tap
 
 The big screen shows how the whole room shifted — blue dots (before) and gold dots (after discussion).
 
+### Share with others
+
+Tap the **"Share"** button at the bottom of your screen. A QR code appears that anyone nearby can scan to join the session. Tap **"Close"** to dismiss it.
+
 ---
 
 ## The Four Tensions
@@ -111,6 +115,9 @@ During the initial voting period, you can tap a different number to change it. D
 
 **What if my phone dies?**
 Raise your hand during the vote. The facilitator can note your position manually.
+
+**What if I arrive late?**
+Scan the QR code on the projector, or ask someone at your table to tap "Share" on their phone and scan their QR code.
 
 **Is my data stored?**
 Votes and questions are stored temporarily on statevec.com and auto-expire after 24 hours. The facilitator may export a summary for research purposes. Your name is only attached to comments where you chose to post non-anonymously.

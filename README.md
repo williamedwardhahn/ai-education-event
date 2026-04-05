@@ -13,15 +13,23 @@ A guided roundtable debate on where AI is supporting learning — and where it m
 3. **Assistance** vs. **authorship**
 4. **Innovation** vs. **governance**
 
+## Live URLs
+
+| What | URL |
+|------|-----|
+| **Phone** (scan this) | [williamedwardhahn.github.io/ai-education-event/phone.svg](https://williamedwardhahn.github.io/ai-education-event/phone.svg) |
+| **Host** | [williamedwardhahn.github.io/ai-education-event/host.svg](https://williamedwardhahn.github.io/ai-education-event/host.svg) |
+| **Projector** | [williamedwardhahn.github.io/ai-education-event/screen.svg](https://williamedwardhahn.github.io/ai-education-event/screen.svg) |
+
 ## The System
 
 Three SVG living documents coordinating through [statevec.com](https://statevec.com):
 
 | File | Who | What |
 |------|-----|------|
-| `phone.svg` | Attendees (phone) | Check in, vote on spectrum, ask questions, comment, table notepad, revote |
-| `host.svg` | Facilitator (laptop) | Advance tensions, open/close voting, revote, highlight questions, timer, export |
-| `screen.svg` | Projector (big screen) | Live votes, questions, comments, table notes, vote shift, narrative results |
+| `phone.svg` | Attendees (phone) | Check in, vote, ask, comment, table notepad, revote, share QR |
+| `host.svg` | Facilitator (laptop) | Advance tensions, voting/revote, highlight questions, timer, data export |
+| `screen.svg` | Projector (big screen) | QR code at check-in, live votes, questions, table notes, vote shift, narrative results |
 
 ## Guides
 
@@ -66,10 +74,9 @@ All phone writes use PATCH merge with flat top-level keys (shallow merge safe).
 ## Setup Checklist
 
 - [ ] Open `host.svg` on facilitator laptop
-- [ ] Open `screen.svg` on projector (fullscreen F11)
-- [ ] Generate QR code for `phone.svg` URL → [QR tool](https://williamedwardhahn.github.io/web/qr.html)
-- [ ] Print QR codes for tables (3+ inches, large enough for reading glasses)
-- [ ] Test: scan QR on your phone, check in, verify projector shows your name
+- [ ] Open `screen.svg` on projector (fullscreen F11) — QR code is built in
+- [ ] Optionally print QR codes for tables using [the QR tool](https://williamedwardhahn.github.io/web/qr.html) (3+ inches)
+- [ ] Test: scan the projector QR on your phone, check in, verify your name appears
 - [ ] Reset all test data (double-click "Reset All" in host panel)
 - [ ] Print facilitator quick reference card from [GUIDE_HOST.md](GUIDE_HOST.md)
 
