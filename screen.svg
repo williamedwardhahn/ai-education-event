@@ -29,8 +29,8 @@
 
   <!-- ==================== TOP BAR ==================== -->
   <rect x="0" y="0" width="1280" height="60" style="fill: var(--header); stroke: var(--panel)" stroke-width="1"/>
-  <!-- Left: MPCR LABS -->
-  <text x="24" y="38" font-family="monospace" font-size="20" font-weight="bold" style="fill: white">MPCR LABS</text>
+  <!-- Left: MPCR LAB -->
+  <text x="24" y="38" font-family="monospace" font-size="20" font-weight="bold" style="fill: white">MPCR LAB</text>
   <!-- Center: Title -->
   <text x="640" y="38" font-family="monospace" font-size="16" style="fill: var(--text)" text-anchor="middle">AI in Education: Central Tensions</text>
   <!-- Right: Participant count + green dot -->
@@ -796,7 +796,7 @@
 
     <!-- Thank you -->
     <text x="640" y="580" font-family="monospace" font-size="28" style="fill: var(--red)" text-anchor="middle" font-weight="bold">Thank you!</text>
-    <text x="640" y="610" font-family="monospace" font-size="14" style="fill: var(--text-muted)" text-anchor="middle">FAU Boca Raton  |  MPCR Labs Round Table</text>
+    <text x="640" y="610" font-family="monospace" font-size="14" style="fill: var(--text-muted)" text-anchor="middle">FAU Boca Raton  |  MPCR Lab Round Table</text>
   </g>
 
   <!-- ==================== BOTTOM STATUS BAR ==================== -->

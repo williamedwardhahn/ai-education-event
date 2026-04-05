@@ -1,6 +1,6 @@
 # AI in Education: Central Tensions
 
-**MPCR Labs Round Table Series**
+**MPCR Lab Round Table Series**
 **Tuesday, April 7, 2026 — 5:15 PM Reception, 6:00 PM Kickoff**
 **The Gruber Sandbox, FAU Boca Raton Campus**
 

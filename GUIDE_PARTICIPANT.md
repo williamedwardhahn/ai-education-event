@@ -1,6 +1,6 @@
 # Participant Guide — AI in Education: Central Tensions
 
-Welcome to the MPCR Labs Round Table. Here's how to participate using your phone.
+Welcome to the MPCR Lab Round Table. Here's how to participate using your phone.
 
 ---
 
