@@ -499,6 +499,10 @@
       updatePhaseDisplay();
       updateVoteButton();
       writeState();
+      // Clear all other channels
+      fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: VOTES_SECRET}) });
+      fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: Q_SECRET}) });
+      fetch(BASE + '/v', { method: 'DELETE', headers: {'Content-Type':'application/json'}, body: JSON.stringify({key: C_SECRET}) });
     });
 
     /* -- Data export -- */
@@ -646,14 +650,21 @@
         var qkeys = Object.keys(questions);
         for (var k = 0; k < qkeys.length; k++) {
           var q = questions[qkeys[k]];
-          if (q && q.tension === currentTension) {
+          if (q && q.text && q.tension === currentTension) {
             q._key = qkeys[k];
+            // Count upvotes from flat 'upvote:qId:*' keys
+            var upCount2 = 0;
+            var upPrefix2 = 'upvote:' + qkeys[k] + ':';
+            for (var uk = 0; uk < qkeys.length; uk++) {
+              if (qkeys[uk].indexOf(upPrefix2) === 0 && questions[qkeys[uk]]) upCount2++;
+            }
+            q._upvotes = upCount2;
             filtered.push(q);
           }
         }
       }
       /* Sort by upvotes descending */
-      filtered.sort(function (a, b) { return (b.upvotes || 0) - (a.upvotes || 0); });
+      filtered.sort(function (a, b) { return (b._upvotes || 0) - (a._upvotes || 0); });
       qCount.textContent = '(' + filtered.length + ')';
       var maxVisible = 15;
       var startIdx = qScrollOffset;
@@ -694,7 +705,7 @@
         uv.setAttribute('font-size', '8');
         uv.setAttribute('fill', '#3b82f6');
         uv.setAttribute('text-anchor', 'end');
-        uv.textContent = (q2.upvotes || 0);
+        uv.textContent = (q2._upvotes || 0);
         questionsGroup.appendChild(uv);
 
         /* Author (small, below) */

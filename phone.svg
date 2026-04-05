@@ -105,8 +105,8 @@
     <text id="voteClosedLabel" x="340" y="114" font-family="monospace" font-size="9" fill="#ef4444" text-anchor="end" display="none">VOTING CLOSED</text>
 
     <!-- 5 vote circles -->
-    <text id="poleLeftLabel" x="50" y="140" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Cognitive</text>
-    <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">offloading</text>
+    <text id="poleLeftLabel" x="50" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Cognitive</text>
+    <text id="poleLeftLabel2" x="50" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">offloading</text>
     <rect id="vote1" x="20" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
     <text x="50" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote1Txt">1</text>
 
@@ -119,8 +119,8 @@
     <rect id="vote4" x="215" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
     <text x="245" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote4Txt">4</text>
 
-    <text id="poleRightLabel" x="310" y="140" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">Deep</text>
-    <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="8" fill="#94a3b8" text-anchor="middle">learning</text>
+    <text id="poleRightLabel" x="310" y="138" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">Deep</text>
+    <text id="poleRightLabel2" x="310" y="149" font-family="monospace" font-size="9" fill="#94a3b8" text-anchor="middle">learning</text>
     <rect id="vote5" x="280" y="153" width="60" height="32" rx="6" fill="#1e293b" stroke="#94a3b8" style="cursor:pointer"/>
     <text x="310" y="174" font-family="monospace" font-size="12" fill="#94a3b8" text-anchor="middle" style="pointer-events:none" id="vote5Txt">5</text>
 
@@ -129,6 +129,10 @@
 
     <!-- Waiting message -->
     <text id="waitingMsg" x="180" y="192" font-family="monospace" font-size="10" fill="#3b82f6" text-anchor="middle" display="none">Next topic starting soon...</text>
+
+    <!-- Results message -->
+    <text id="resultsMsg" x="180" y="160" font-family="monospace" font-size="14" fill="#c9a227" text-anchor="middle" font-weight="bold" display="none">Session Complete</text>
+    <text id="resultsMsg2" x="180" y="180" font-family="monospace" font-size="10" fill="#94a3b8" text-anchor="middle" display="none">Thank you for participating!</text>
 
     <!-- QUESTION SECTION -->
     <rect x="8" y="200" width="344" height="184" rx="8" fill="#111827" stroke="#1e293b"/>
@@ -409,19 +413,27 @@
       });
     }
 
+    // Enter key support
+    questionInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') askBtn.dispatchEvent(new Event('click')); });
+    commentInput.addEventListener('keydown', function(e) { if (e.key === 'Enter') postBtn.dispatchEvent(new Event('click')); });
+
     // Ask question
+    var questionThrottled = false;
     askBtn.addEventListener('click', function() {
       var text = questionInput.value.trim();
-      if (!text) return;
+      if (!text || questionThrottled) return;
       var qId = 'q' + Date.now().toString(36) + Math.random().toString(36).substring(2, 6);
       var qData = {};
       qData[qId] = { text: text, author: myName, table: myTable, tension: currentTension, votes: 0, voters: {}, t: Date.now() };
+      questionThrottled = true;
+      askBtn.setAttribute('fill', '#1e293b');
       patchMerge(Q_SECRET, qData).then(function() {
         questionInput.value = '';
         connDot.setAttribute('fill', '#22c55e');
       }).catch(function() {
         connDot.setAttribute('fill', '#ef4444');
       });
+      setTimeout(function() { questionThrottled = false; askBtn.setAttribute('fill', '#3b82f6'); }, 3000);
     });
 
     // Post comment
@@ -465,22 +477,26 @@
       while (questionList.firstChild) questionList.removeChild(questionList.firstChild);
       if (!data) return;
 
-      // Convert to array and sort by votes desc
+      // Convert to array and sort by upvotes desc
+      // Upvotes stored as flat keys: 'upvote:qId:userId' = true
       var questions = [];
       var keys = Object.keys(data);
       for (var i = 0; i < keys.length; i++) {
         var q = data[keys[i]];
         if (q && q.text && q.tension === currentTension) {
           q._id = keys[i];
-          // Count upvotes from voters object
+          // Count upvotes from flat 'upvote:qId:*' keys
           var upvotes = 0;
-          if (q.voters) {
-            var vk = Object.keys(q.voters);
-            for (var vi2 = 0; vi2 < vk.length; vi2++) {
-              if (q.voters[vk[vi2]]) upvotes++;
+          var myUpvoted = false;
+          var upPrefix = 'upvote:' + keys[i] + ':';
+          for (var j = 0; j < keys.length; j++) {
+            if (keys[j].indexOf(upPrefix) === 0 && data[keys[j]]) {
+              upvotes++;
+              if (keys[j] === upPrefix + myId) myUpvoted = true;
             }
           }
           q._upvotes = upvotes;
+          q._myUpvoted = myUpvoted;
           questions.push(q);
         }
       }
@@ -499,7 +515,7 @@
         upBtn.setAttribute('width', '32');
         upBtn.setAttribute('height', '28');
         upBtn.setAttribute('rx', '4');
-        upBtn.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#c9a227' : '#1e293b');
+        upBtn.setAttribute('fill', q2._myUpvoted ? '#c9a227' : '#1e293b');
         upBtn.setAttribute('style', 'cursor:pointer');
         upBtn.setAttribute('data-qid', q2._id);
         upBtn.addEventListener('click', function() {
@@ -512,7 +528,7 @@
         upCount.setAttribute('y', yy + 12);
         upCount.setAttribute('font-family', 'monospace');
         upCount.setAttribute('font-size', '9');
-        upCount.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#0a0e1a' : '#f1f5f9');
+        upCount.setAttribute('fill', q2._myUpvoted ? '#0a0e1a' : '#f1f5f9');
         upCount.setAttribute('text-anchor', 'middle');
         upCount.setAttribute('style', 'pointer-events:none');
         upCount.textContent = '\u25B2';
@@ -523,7 +539,7 @@
         upNum.setAttribute('y', yy + 24);
         upNum.setAttribute('font-family', 'monospace');
         upNum.setAttribute('font-size', '9');
-        upNum.setAttribute('fill', (q2.voters && q2.voters[myId]) ? '#0a0e1a' : '#94a3b8');
+        upNum.setAttribute('fill', q2._myUpvoted ? '#0a0e1a' : '#94a3b8');
         upNum.setAttribute('text-anchor', 'middle');
         upNum.setAttribute('style', 'pointer-events:none');
         upNum.textContent = String(q2._upvotes);
@@ -553,9 +569,10 @@
     }
 
     function upvoteQuestion(qId) {
+      // Store upvotes as flat top-level keys to avoid shallow merge destroying question data
+      var upvoteKey = 'upvote:' + qId + ':' + myId;
       var patch = {};
-      patch[qId] = { voters: {} };
-      patch[qId].voters[myId] = true;
+      patch[upvoteKey] = true;
       patchMerge(Q_SECRET, patch).then(function() {
         connDot.setAttribute('fill', '#22c55e');
       }).catch(function() {
@@ -616,6 +633,41 @@
 
     function updateTensionDisplay() {
       var t = TENSIONS[currentTension];
+      var resultsMsg = document.getElementById('resultsMsg');
+      var resultsMsg2 = document.getElementById('resultsMsg2');
+      var voteSection = document.querySelector('[x="8"][y="94"]');
+
+      if (currentPhase === 'results') {
+        tensionTitle.textContent = 'Session Complete';
+        tensionPoles.textContent = '';
+        resultsMsg.setAttribute('display', 'inline');
+        resultsMsg2.setAttribute('display', 'inline');
+        waitingMsg.setAttribute('display', 'none');
+        voteConfirm.setAttribute('display', 'none');
+        discussPrompt.setAttribute('display', 'none');
+        poleLeftLabel.textContent = '';
+        poleLeftLabel2.textContent = '';
+        poleRightLabel.textContent = '';
+        poleRightLabel2.textContent = '';
+        return;
+      }
+
+      if (currentPhase === 'checkin') {
+        tensionTitle.textContent = 'Welcome';
+        tensionPoles.textContent = 'Waiting for session to begin...';
+        resultsMsg.setAttribute('display', 'none');
+        resultsMsg2.setAttribute('display', 'none');
+        waitingMsg.setAttribute('display', 'none');
+        poleLeftLabel.textContent = '';
+        poleLeftLabel2.textContent = '';
+        poleRightLabel.textContent = '';
+        poleRightLabel2.textContent = '';
+        return;
+      }
+
+      resultsMsg.setAttribute('display', 'none');
+      resultsMsg2.setAttribute('display', 'none');
+
       if (!t) return;
       tensionTitle.textContent = t.title;
       tensionPoles.textContent = t.left + ' \u25C4\u2500\u2500\u25BA ' + t.right;

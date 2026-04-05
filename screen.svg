@@ -549,19 +549,17 @@
           if (q && typeof q === 'object') {
             /* Phone writes tension as a number: question.tension === currentTension */
             if (typeof q.tension === 'number' && q.tension === tIdx) {
-              /* Count upvotes from voters object */
+              /* Count upvotes from flat 'upvote:qId:*' keys */
               var upvotes = 0;
-              if (q.voters && typeof q.voters === 'object') {
-                var voterKeys = Object.keys(q.voters);
-                for (var vi = 0; vi < voterKeys.length; vi++) {
-                  if (q.voters[voterKeys[vi]]) upvotes++;
-                }
+              var upPrefix = 'upvote:' + keys[i] + ':';
+              for (var ui = 0; ui < keys.length; ui++) {
+                if (keys[ui].indexOf(upPrefix) === 0 && val[keys[ui]]) upvotes++;
               }
               qList.push({
-                text: q.text || q.q || q.question || keys[i],
+                text: q.text || keys[i],
                 upvotes: upvotes,
-                highlighted: q.highlighted || q.star || q.pinned || false,
-                name: q.author || q.name || 'anonymous'
+                highlighted: q.highlighted || false,
+                name: q.author || 'anonymous'
               });
             }
           }
@@ -843,15 +841,13 @@
             var qq = qVal[qKeys[qi2]];
             if (qq && typeof qq === 'object' && typeof qq.tension === 'number' && qq.tension === tq) {
               var ups = 0;
-              if (qq.voters && typeof qq.voters === 'object') {
-                var vk = Object.keys(qq.voters);
-                for (var vki = 0; vki < vk.length; vki++) {
-                  if (qq.voters[vk[vki]]) ups++;
-                }
+              var upPfx = 'upvote:' + qKeys[qi2] + ':';
+              for (var upk = 0; upk < qKeys.length; upk++) {
+                if (qKeys[upk].indexOf(upPfx) === 0 && qVal[qKeys[upk]]) ups++;
               }
               if (ups > bestUp) {
                 bestUp = ups;
-                bestQ = qq.text || qq.q || qq.question || '';
+                bestQ = qq.text || '';
               }
             }
           }
