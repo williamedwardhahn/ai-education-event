@@ -1395,8 +1395,10 @@
     }
 
     // ============ POLLING ============
+    // Stagger: state every cycle + 1 other rotating (2 req/poll x 3s = 40/min)
+    var phonePollCycle = 0;
     function pollAll() {
-      // Poll state
+      // Always poll state
       readHash(STATE_HASH).then(function(d) {
         if (d && d.val) {
           if (typeof d.val.currentTension === 'number') {
@@ -1422,35 +1424,30 @@
         connDot.setAttribute('fill', THEME.red);
       });
 
-      // Poll questions
-      readHash(Q_HASH).then(function(d) {
-        if (d && d.val) {
-          renderQuestions(d.val);
-        }
-      }).catch(function() {});
+      // Rotate secondary polls
+      var cycle = phonePollCycle % 4;
+      phonePollCycle++;
 
-      // Poll comments
-      readHash(C_HASH).then(function(d) {
-        if (d && d.val) {
-          renderComments(d.val);
-        }
-      }).catch(function() {});
-
-      // Poll checkins for participant count
-      readHash(CHECKIN_HASH).then(function(d) {
-        if (d && d.val) {
-          var count = Object.keys(d.val).length;
-          footerParticipants.textContent = count + ' participant' + (count !== 1 ? 's' : '');
-        }
-      }).catch(function() {});
-
-      // Poll table notes (only when notepad is visible)
-      if (!votingOpen && !revoteOpen && currentPhase === 'tension') {
+      if (cycle === 0) {
+        readHash(Q_HASH).then(function(d) {
+          if (d && d.val) renderQuestions(d.val);
+        }).catch(function() {});
+      } else if (cycle === 1) {
+        readHash(C_HASH).then(function(d) {
+          if (d && d.val) renderComments(d.val);
+        }).catch(function() {});
+      } else if (cycle === 2) {
+        readHash(CHECKIN_HASH).then(function(d) {
+          if (d && d.val) {
+            var count = Object.keys(d.val).length;
+            footerParticipants.textContent = count + ' participant' + (count !== 1 ? 's' : '');
+          }
+        }).catch(function() {});
+      } else if (cycle === 3 && !votingOpen && !revoteOpen && currentPhase === 'tension') {
         readHash(TABLES_HASH).then(function(d) {
           if (d && d.val) {
             var noteKey = 'table' + myTable + ':tension' + currentTension;
             var notes = d.val[noteKey] || '';
-            // Only update textarea if user is not actively editing (avoid overwriting their typing)
             if (notes !== lastLoadedNotes) {
               lastLoadedNotes = notes;
               if (document.activeElement !== tableNotepad) {
@@ -1466,6 +1463,6 @@
     if (!checkExistingSession()) {
       // Stay on check-in mode
     }
-    setInterval(pollAll, 2000);
+    setInterval(pollAll, 3000);
   ]]></script>
 </svg>

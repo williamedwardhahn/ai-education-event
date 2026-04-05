@@ -1749,23 +1749,36 @@
     }
 
     /* ── Main poll ── */
+    /* Stagger polls: fetch state every cycle, rotate others to stay under rate limit */
+    var pollCycle = 0;
     function poll() {
-      var fetches = [
-        fetchHash(HASHES.state),
-        fetchHash(HASHES.checkins),
-        fetchHash(HASHES.votes),
-        fetchHash(HASHES.questions),
-        fetchHash(HASHES.comments),
-        fetchHash(HASHES.tables)
+      /* Always fetch state; rotate 2 others per cycle (3 req/poll x every 3s = 60/min) */
+      var fetches = [fetchHash(HASHES.state)];
+      var slots = [null, null, null, null, null]; /* checkins, votes, questions, comments, tables */
+      var order = [
+        [0, 1],  /* cycle 0: checkins + votes */
+        [2, 3],  /* cycle 1: questions + comments */
+        [0, 4],  /* cycle 2: checkins + tables */
+        [1, 2],  /* cycle 3: votes + questions */
+        [3, 4],  /* cycle 4: comments + tables */
       ];
+      var hashes = [HASHES.checkins, HASHES.votes, HASHES.questions, HASHES.comments, HASHES.tables];
+      var pair = order[pollCycle % order.length];
+      fetches.push(fetchHash(hashes[pair[0]]));
+      fetches.push(fetchHash(hashes[pair[1]]));
+      pollCycle++;
 
       Promise.all(fetches).then(function(results) {
         var stateData = results[0];
-        var checkinsData = results[1];
-        var votesData = results[2];
-        var questionsData = results[3];
-        var commentsData = results[4];
-        var tablesData = results[5];
+        var data1 = results[1];
+        var data2 = results[2];
+
+        /* Map results back to the right variables */
+        var checkinsData = pair[0] === 0 ? data1 : (pair[1] === 0 ? data2 : null);
+        var votesData = pair[0] === 1 ? data1 : (pair[1] === 1 ? data2 : null);
+        var questionsData = pair[0] === 2 ? data1 : (pair[1] === 2 ? data2 : null);
+        var commentsData = pair[0] === 3 ? data1 : (pair[1] === 3 ? data2 : null);
+        var tablesData = pair[0] === 4 ? data1 : (pair[1] === 4 ? data2 : null);
 
         connDot.setAttribute('fill', THEME.green);
         statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
@@ -1843,6 +1856,6 @@
     /* ── Init ── */
     showPhase('checkin');
     poll();
-    setInterval(poll, 2000);
+    setInterval(poll, 3000);
   ]]></script>
 </svg>

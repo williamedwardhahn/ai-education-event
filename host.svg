@@ -1179,6 +1179,6 @@
     highlightTimerButtons();
     updateTimerDisplay();
     pollAll();
-    setInterval(pollAll, 2000);
+    setInterval(pollAll, 4000);
   ]]></script>
 </svg>
