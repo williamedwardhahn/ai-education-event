@@ -795,7 +795,7 @@
     var selectedTable = 0;
     var currentTension = 0;
     var currentPhase = 'waiting';
-    var votingOpen = true;
+    var votingOpen = false;
     var myVote = 0;
     var isAnonymous = true;
     var revoteOpen = false;
@@ -1397,7 +1397,11 @@
     // ============ POLLING ============
     // Stagger: state every cycle + 1 other rotating (2 req/poll x 3s = 40/min)
     var phonePollCycle = 0;
+    var phonePolling = false;
     function pollAll() {
+      if (phonePolling) return;
+      phonePolling = true;
+      setTimeout(function() { phonePolling = false; }, 2500);
       // Always poll state
       readHash(STATE_HASH).then(function(d) {
         if (d && d.val) {

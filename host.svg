@@ -1083,7 +1083,10 @@
     });
 
     /* -- Poll all endpoints -- */
+    var hostPolling = false;
     async function pollAll() {
+      if (hostPolling) return;
+      hostPolling = true;
       pollDot.setAttribute('fill', THEME.muted);
       pollStatus.textContent = 'polling...';
       var ok = true;
@@ -1177,6 +1180,7 @@
         pollDot.setAttribute('fill', THEME.red);
         pollStatus.textContent = 'error';
       }
+      hostPolling = false;
     }
 
     /* -- Init -- */

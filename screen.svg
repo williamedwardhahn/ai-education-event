@@ -1749,7 +1749,10 @@
     /* ── Main poll ── */
     /* Stagger polls: fetch state every cycle, rotate others to stay under rate limit */
     var pollCycle = 0;
+    var screenPolling = false;
     function poll() {
+      if (screenPolling) return;
+      screenPolling = true;
       /* Always fetch state; rotate 2 others per cycle (3 req/poll x every 3s = 60/min) */
       var fetches = [fetchHash(HASHES.state)];
       var slots = [null, null, null, null, null]; /* checkins, votes, questions, comments, tables */
@@ -1853,9 +1856,11 @@
           renderResults();
         }
 
+        screenPolling = false;
       }).catch(function(err) {
         connDot.setAttribute('fill', THEME.red);
         statusText.textContent = 'error: ' + (err.message || 'poll failed');
+        screenPolling = false;
       });
     }
 
