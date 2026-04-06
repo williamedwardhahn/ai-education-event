@@ -865,10 +865,10 @@
     var currentTensionIdx = -1;
 
     /* ── Voting countdown state ── */
-    var VOTING_DURATION = 60;
     var votingCountdownInterval = null;
     var lastVotingOpen = false;
-    var votingOpenedAtLocal = 0;
+    var votingOpenedAt = 0;   /* from host state */
+    var votingDuration = 90;  /* from host state */
 
     /* ── DOM refs ── */
     var connDot = document.getElementById('connDot');
@@ -1034,7 +1034,6 @@
 
     /* ── Voting countdown ── */
     function startVotingCountdown() {
-      votingOpenedAtLocal = Date.now();
       if (votingCountdownInterval) clearInterval(votingCountdownInterval);
       updateCountdownDisplay();
       votingCountdownInterval = setInterval(updateCountdownDisplay, 500);
@@ -1053,9 +1052,10 @@
     }
 
     function updateCountdownDisplay() {
-      if (!votingOpenedAtLocal) return;
-      var elapsed = Math.floor((Date.now() - votingOpenedAtLocal) / 1000);
-      var remaining = Math.max(0, VOTING_DURATION - elapsed);
+      /* Use host's timestamp, not local clock */
+      if (!votingOpenedAt) return;
+      var elapsed = Math.floor((Date.now() - votingOpenedAt) / 1000);
+      var remaining = Math.max(0, votingDuration - elapsed);
       var mins = Math.floor(remaining / 60);
       var secs = remaining % 60;
       countdownTimer.textContent = mins + ':' + (secs < 10 ? '0' : '') + secs;
@@ -1063,12 +1063,10 @@
       countdownTimer.setAttribute('fill', remaining <= 10 ? THEME.red : THEME.text);
       countdownTimer.setAttribute('font-size', remaining <= 10 ? '42' : '36');
       countdownLabel.setAttribute('visibility', 'visible');
-      countdownLabel.textContent = remaining > 0 ? 'voting open' : 'VOTING CLOSED';
+      countdownLabel.textContent = remaining > 0 ? 'voting open' : 'time up';
       if (remaining <= 0) {
-        countdownTimer.textContent = 'VOTING CLOSED';
+        countdownTimer.textContent = '0:00';
         countdownTimer.setAttribute('fill', THEME.red);
-        countdownTimer.setAttribute('font-size', '24');
-        countdownLabel.setAttribute('visibility', 'hidden');
         if (votingCountdownInterval) {
           clearInterval(votingCountdownInterval);
           votingCountdownInterval = null;
@@ -1784,7 +1782,6 @@
         statusText.textContent = 'connected | last poll: ' + new Date().toLocaleTimeString();
 
         if (stateData && stateData.val) state = stateData.val;
-        console.log('POLL: stateData=', stateData, 'state=', state, 'phase=', state ? state.phase : 'none');
         if (checkinsData && checkinsData.val) checkins = { val: checkinsData.val };
         else if (checkinsData) checkins = checkinsData;
         if (votesData && votesData.val) votes = { val: votesData.val };
@@ -1808,16 +1805,24 @@
           tIdx = state.currentTension;
         }
 
-        /* Handle voting countdown */
+        /* Read host timing data */
+        if (state && state.votingOpenedAt) votingOpenedAt = state.votingOpenedAt;
+        else votingOpenedAt = 0;
+        if (state && state.votingDuration) votingDuration = state.votingDuration;
+
+        /* Handle voting countdown — driven by host state, not local detection */
         var isVotingOpen = !!(state && state.votingOpen);
-        if (isVotingOpen && !lastVotingOpen) {
-          startVotingCountdown();
+        if (isVotingOpen && votingOpenedAt) {
+          /* Voting is open and we have a timestamp — run countdown */
+          if (!votingCountdownInterval) startVotingCountdown();
         } else if (!isVotingOpen && lastVotingOpen) {
+          /* Voting just closed */
           stopVotingCountdown();
-        } else if (!isVotingOpen && !lastVotingOpen && phase === 'tension') {
-          if (!votingOpenedAtLocal) {
-            hideCountdown();
-          }
+        } else if (!isVotingOpen && phase === 'tension') {
+          /* Discussion phase — hide countdown */
+          hideCountdown();
+        } else if (phase !== 'tension') {
+          hideCountdown();
         }
         lastVotingOpen = isVotingOpen;
 

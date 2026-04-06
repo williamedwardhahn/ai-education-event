@@ -223,6 +223,7 @@
     var currentPhase = 'checkin';
     var currentTension = 0;
     var votingOpen = false;
+    var stateVotingOpenedAt = 0;
     var revoteOpen = false;
     var activeBtn = 0;
 
@@ -446,6 +447,8 @@
         currentTension: currentTension,
         votingOpen: votingOpen,
         revoteOpen: revoteOpen,
+        votingOpenedAt: votingOpen ? (stateVotingOpenedAt || Date.now()) : 0,
+        votingDuration: timerDuration,
         updatedAt: Date.now()
       };
       try {
@@ -514,6 +517,11 @@
     /* -- Voting toggle -- */
     document.getElementById('btnVote').addEventListener('click', function () {
       votingOpen = !votingOpen;
+      if (votingOpen) {
+        stateVotingOpenedAt = Date.now();
+      } else {
+        stateVotingOpenedAt = 0;
+      }
       updateVoteButton();
       writeState();
       if (votingOpen) {
